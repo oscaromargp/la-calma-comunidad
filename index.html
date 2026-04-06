@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Calma Comunidad | Lotes Premium en La Ventana, BCS</title>
+    <meta name="description" content="La Calma Comunidad - Desarrollo exclusivo de 5 lotes premium de 1,500 m² con vistas panorámicas al Mar de Cortés. La Ventana, Baja California Sur.">
+    <meta name="keywords" content="La Calma, lotes, La Ventana, BCS, real estate, Mexico, premium lots, Mar de Cortes">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="La Calma Comunidad | Lotes Premium en La Ventana">
+    <meta property="og:description" content="Desarrollo exclusivo de 5 lotes premium de 1,500 m² con vistas panorámicas al Mar de Cortés.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/vista-general.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="La Calma Comunidad | Lotes Premium">
+    <meta name="twitter:description" content="5 lotes premium de 1,500 m² con vistas al Mar de Cortés">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#003366',
+                        'primary-light': '#004488',
+                        'accent': '#FF9900',
+                        'accent-light': '#FFAA22',
+                        'bg-primary': '#000000',
+                        'bg-secondary': '#09090B',
+                        'bg-tertiary': '#18181B',
+                        'text-primary': '#FFFFFF',
+                        'text-secondary': '#E4E4E7',
+                        'text-tertiary': '#A1A1AA',
+                    },
+                    fontFamily: {
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .glass-card {
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.15) 0%, rgba(0, 51, 102, 0.08) 50%, rgba(0, 51, 102, 0.15) 100%);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 153, 0, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #FF9900 0%, #FFAA22 50%, #FF9900 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 4s ease infinite;
+            color: #000;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 0 0 1px rgba(255, 153, 0, 0.5), 0 4px 24px rgba(255, 153, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            filter: brightness(1.1);
+            box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.8), 0 8px 40px rgba(255, 153, 0, 0.6), 0 0 80px rgba(255, 153, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #FF9900;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 12px;
+            border: 2px solid #FF9900;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 153, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(2deg); }
+            50% { transform: translateY(-8px) rotate(-2deg); }
+            75% { transform: translateY(-20px) rotate(1deg); }
+        }
+        
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 1px rgba(255, 153, 0, 0.5), 0 4px 24px rgba(255, 153, 0, 0.4), 0 0 60px rgba(255, 153, 0, 0.3); }
+            50% { box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.8), 0 8px 40px rgba(255, 153, 0, 0.6), 0 0 80px rgba(255, 153, 0, 0.5); }
+        }
+        
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-fade-in { animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+        
+        .hero-bg {
+            background: radial-gradient(ellipse at top, rgba(0, 51, 102, 0.3) 0%, transparent 50%), 
+                        radial-gradient(ellipse at bottom right, rgba(255, 153, 0, 0.15) 0%, transparent 50%);
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 153, 0, 0.8), 0 0 20px rgba(255, 153, 0, 0.6), 0 0 40px rgba(255, 153, 0, 0.4);
+        }
+        
+        .glow-accent { filter: drop-shadow(0 0 20px rgba(255, 153, 0, 0.6)) drop-shadow(0 0 40px rgba(255, 153, 0, 0.4)); }
+        
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255, 153, 0, 0.1);
+        }
+        
+        .card-hover:hover {
+            border-color: rgba(255, 153, 0, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(255, 153, 0, 0.25);
+            transform: translateY(-4px);
+        }
+        
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 153, 0, 0.6);
+            border-radius: 50%;
+            animation: float-particle 20s infinite ease-in-out;
+        }
+        
+        @keyframes float-particle {
+            0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+            25% { transform: translate(100px, -100px); opacity: 0.8; }
+            50% { transform: translate(-50px, -200px); opacity: 0.6; }
+            75% { transform: translate(-100px, -100px); opacity: 0.8; }
+        }
+        
+        .image-zoom img { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .image-zoom:hover img { transform: scale(1.08); }
+        
+        .counter { font-variant-numeric: tabular-nums; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090B; }
+        ::-webkit-scrollbar-thumb { background: #FF9900; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FFAA22; }
+        
+        .lang-btn { transition: all 0.3s ease; }
+        .lang-btn:hover, .lang-btn.active { background: rgba(255, 153, 0, 0.2); color: #FF9900; }
+        
+        .section-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .section-reveal.visible { opacity: 1; transform: translateY(0); }
+        
+        /* Google Translate Custom Style */
+        .goog-te-gadget {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 12px !important;
+        }
+        .goog-te-gadget .goog-te-combo {
+            background: linear-gradient(135deg, rgba(255, 153, 0, 0.15) 0%, rgba(255, 153, 0, 0.08) 100%) !important;
+            border: 1px solid rgba(255, 153, 0, 0.3) !important;
+            border-radius: 8px !important;
+            padding: 8px 12px !important;
+            color: #FFFFFF !important;
+            backdrop-filter: blur(12px);
+        }
+        .goog-te-gadget-simple {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+        }
+        .goog-te-gadget-simple span {
+            color: #E4E4E7 !important;
+            border: none !important;
+        }
+        .goog-te-menu-value span {
+            color: #FFFFFF !important;
+        }
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+        body { top: 0 !important; }
+        .skiptranslate { display: none !important; }
+        #goog-gt-tt { display: none !important; }
+    </style>
+</head>
+<body class="bg-bg-primary text-text-primary overflow-x-hidden">
+
+    <!-- Particles Background -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; top: 60%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 40%; top: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 60%; top: 70%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 80%; top: 40%; animation-delay: 8s;"></div>
+        <div class="particle" style="left: 90%; top: 80%; animation-delay: 10s;"></div>
+        <div class="particle" style="left: 30%; top: 85%; animation-delay: 12s;"></div>
+        <div class="particle" style="left: 70%; top: 15%; animation-delay: 14s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed top-0 w-full z-50 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center glow-accent">
+                    <svg class="w-7 h-7 text-black" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold font-display">La Calma</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#inicio" class="text-text-secondary hover:text-accent transition-colors font-medium">Inicio</a>
+                <a href="#servicios" class="text-text-secondary hover:text-accent transition-colors font-medium">Lotes</a>
+                <a href="#galeria" class="text-text-secondary hover:text-accent transition-colors font-medium">Galería</a>
+                <a href="#ubicacion" class="text-text-secondary hover:text-accent transition-colors font-medium">Ubicación</a>
+                <a href="#contacto" class="text-text-secondary hover:text-accent transition-colors font-medium">Contacto</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="#contacto" class="btn-primary hidden sm:inline-block text-sm py-3 px-6">Cotizar</a>
+            </div>
+            
+            <button class="md:hidden text-accent" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden mt-4 mx-6 p-6 rounded-2xl glass-card">
+            <div class="flex flex-col gap-4">
+                <a href="#inicio" class="text-text-secondary hover:text-accent transition-colors" onclick="toggleMobileMenu()">Inicio</a>
+                <a href="#servicios" class="text-text-secondary hover:text-accent transition-colors" onclick="toggleMobileMenu()">Lotes</a>
+                <a href="#galeria" class="text-text-secondary hover:text-accent transition-colors" onclick="toggleMobileMenu()">Galería</a>
+                <a href="#ubicacion" class="text-text-secondary hover:text-accent transition-colors" onclick="toggleMobileMenu()">Ubicación</a>
+                <a href="#contacto" class="btn-primary text-center mt-2" onclick="toggleMobileMenu()">Cotizar Ahora</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center relative hero-bg pt-20">
+        <div class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="animate-fade-in" style="animation-delay: 0.1s;">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-semibold border border-accent/30">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        DESARROLLO EXCLUSIVO
+                    </span>
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight animate-fade-in" style="animation-delay: 0.2s;">
+                    Lotes Premium en<br>
+                    <span class="text-accent glow-text">La Ventana</span>
+                </h1>
+                
+                <p class="text-xl text-text-secondary leading-relaxed max-w-xl animate-fade-in" style="animation-delay: 0.4s;">
+                    5 lotes únicos de 1,500 m² con vistas panorámicas al Mar de Cortés. Exclusividad, privacidad y plusvalía garantizadas en el destino más codiciado de Baja California Sur.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 animate-fade-in" style="animation-delay: 0.6s;">
+                    <a href="#contacto" class="btn-primary animate-pulse-glow">Agendar Visita</a>
+                    <a href="#galeria" class="btn-secondary flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        Ver Galería
+                    </a>
+                </div>
+                
+                <div class="flex gap-8 pt-6 animate-fade-in" style="animation-delay: 0.8s;">
+                    <div>
+                        <p class="text-3xl font-bold text-accent counter">5</p>
+                        <p class="text-sm text-text-tertiary">Lotes Exclusivos</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-accent">1,500<span class="text-lg">m²</span></p>
+                        <p class="text-sm text-text-tertiary">Por Lote</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-accent counter">13</p>
+                        <p class="text-sm text-text-tertiary">Metros de Acceso</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative animate-fade-in" style="animation-delay: 0.5s;">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-accent/20">
+                    <img src="images/vista-general.jpg" alt="La Calma Comunidad - Vista General" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="glass-card p-4 rounded-xl inline-flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                                <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </div>
+                            <div>
+                                <p class="font-bold">La Ventana, BCS</p>
+                                <p class="text-sm text-text-secondary">Baja California Sur, México</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="absolute -top-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-6 -left-6 w-40 h-40 bg-primary/30 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-16 border-y border-accent/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                <div class="text-center">
+                    <p class="text-4xl font-bold text-accent counter">100%</p>
+                    <p class="text-sm text-text-tertiary mt-2">Vistas Garantizadas</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-bold text-accent counter">24</p>
+                    <p class="text-sm text-text-tertiary mt-2">Minutos al Aeropuerto</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-bold text-accent">$85K</p>
+                    <p class="text-sm text-text-tertiary mt-2">Precio Desde</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-bold text-accent">5★</p>
+                    <p class="text-sm text-text-tertiary mt-2">Zona Premium</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Master Plan Section -->
+    <section id="servicios" class="py-24 section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-accent font-semibold tracking-wider uppercase text-sm">Master Plan</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4">Distribución de Lotes</h2>
+                <p class="text-text-secondary mt-4 max-w-2xl mx-auto">
+                    Diseño pensado para maximizar la privacidad y proteger las vistas de cada propietario. Topografía optimizada para construcciones de lujo.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Lot 1 -->
+                <div class="flip-card h-80">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-card">
+                            <img src="images/drone-1.jpg" alt="Lote 1" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6">
+                                <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 1</span>
+                                <h3 class="text-2xl font-bold mt-2">Ubicación Preferente</h3>
+                                <p class="text-text-secondary">Vistas frontales al mar</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back glass-card bg-bg-tertiary p-6 flex flex-col justify-center">
+                            <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full w-fit mb-4">LOTE 1 - DISPONIBLE</span>
+                            <h3 class="text-xl font-bold mb-2">1,500 m²</h3>
+                            <p class="text-text-secondary text-sm">
+                                Lote premium con la mejor ubicación dentro del desarrollo. Acceso directo a vialidad interna y vistas despejadas de 180° al Mar de Cortés.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">180° Vista</span>
+                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Premium</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lot 2 -->
+                <div class="flip-card h-80">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-card">
+                            <img src="images/drone-2.jpg" alt="Lote 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6">
+                                <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 2</span>
+                                <h3 class="text-2xl font-bold mt-2">Acceso Directo</h3>
+                                <p class="text-text-secondary">Desde vialidad interna</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back glass-card bg-bg-tertiary p-6 flex flex-col justify-center">
+                            <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full w-fit mb-4">LOTE 2 - DISPONIBLE</span>
+                            <h3 class="text-xl font-bold mb-2">1,500 m²</h3>
+                            <p class="text-text-secondary text-sm">
+                                Acceso exclusivo desde la vialidad principal del desarrollo. Ideal para construcción de villa principal con portería privada.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Acceso Directo</span>
+                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Villa Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lot 3 -->
+                <div class="flip-card h-80">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-card">
+                            <img src="images/drone-3.jpg" alt="Lote 3" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6">
+                                <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 3</span>
+                                <h3 class="text-2xl font-bold mt-2">Zona Central</h3>
+                                <p class="text-text-secondary">Centro del desarrollo</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back glass-card bg-bg-tertiary p-6 flex flex-col justify-center">
+                            <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full w-fit mb-4">LOTE 3 - DISPONIBLE</span>
+                            <h3 class="text-xl font-bold mb-2">1,500 m²</h3>
+                            <p class="text-text-secondary text-sm">
+                                Ubicación céntrica que ofrece balance perfecto entre privacidad y acceso. Topografía ideal para diseños arquitectónicos únicos.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Central</span>
+                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Versátil</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lot 4 -->
+                <div class="flip-card h-80">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-card">
+                            <img src="images/vista-derecha.jpg" alt="Lote 4" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6">
+                                <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 4</span>
+                                <h3 class="text-2xl font-bold mt-2">Mayor Elevación</h3>
+                                <p class="text-text-secondary">Punto más alto</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back glass-card bg-bg-tertiary p-6 flex flex-col justify-center">
+                            <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full w-fit mb-4">LOTE 4 - DISPONIBLE</span>
+                            <h3 class="text-xl font-bold mb-2">1,500 m²</h3>
+                            <p class="text-text-secondary text-sm">
+                                La mayor elevación del desarrollo garantiza vistas incomparables. Perfecto para construcciones con rooftops y terrazas panorámicas.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Elevación</span>
+                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Panorámico</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lot 5 -->
+                <div class="flip-card h-80 md:col-span-2 lg:col-span-2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass-card">
+                            <img src="images/division-lotes.jpg" alt="Lote 5" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6">
+                                <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 5</span>
+                                <h3 class="text-2xl font-bold mt-2">Lote de Remate</h3>
+                                <p class="text-text-secondary">Geometría extendida</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back glass-card bg-bg-tertiary p-6 flex flex-col justify-center">
+                            <span class="px-3 py-1 bg-red-500/20 text-red-400 text-xs font-bold rounded-full w-fit mb-4">LOTE 5 - ÚLTIMAS UNIDADES</span>
+                            <h3 class="text-xl font-bold mb-2">1,505.37 m²</h3>
+                            <p class="text-text-secondary text-sm">
+                                Lote premium de esquina con geometría extendida. Mayor frente de calle y potencial para diseño arquitectónico excepcional. ¡Última oportunidad!
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Esquina</span>
+                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Extended</span>
+                                <span class="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded">HOT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Acceso Privado -->
+            <div class="mt-16 glass-card p-8 flex flex-wrap items-center justify-between gap-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold">Acceso Privado de 13 Metros</h4>
+                        <p class="text-text-secondary">Vialidad interna de 1,440.19 m² diseñada para dar sensación de amplitud y lujo</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="text-center px-4">
+                        <p class="text-2xl font-bold text-accent">13.27m</p>
+                        <p class="text-xs text-text-tertiary">Ancho</p>
+                    </div>
+                    <div class="text-center px-4 border-l border-accent/20">
+                        <p class="text-2xl font-bold text-accent">1,440m²</p>
+                        <p class="text-xs text-text-tertiary">Superficie</p>
+                    </div>
+                    <div class="text-center px-4 border-l border-accent/20">
+                        <p class="text-2xl font-bold text-accent">24/7</p>
+                        <p class="text-xs text-text-tertiary">Seguridad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería Section -->
+    <section id="galeria" class="py-24 bg-bg-secondary section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-accent font-semibold tracking-wider uppercase text-sm">Galería</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4">Vistas del Desarrollo</h2>
+                <p class="text-text-secondary mt-4 max-w-2xl mx-auto">
+                    Imágenes aéreas y visuales del terreno que te esperan en La Ventana.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="col-span-2 row-span-2 image-zoom rounded-2xl overflow-hidden">
+                    <img src="images/vista-cenital.jpg" alt="Vista Cenital" class="w-full h-full object-cover">
+                </div>
+                <div class="image-zoom rounded-2xl overflow-hidden">
+                    <img src="images/vista-izquierda.jpg" alt="Vista Izquierda" class="w-full h-full object-cover aspect-square">
+                </div>
+                <div class="image-zoom rounded-2xl overflow-hidden">
+                    <img src="images/vista-derecha.jpg" alt="Vista Derecha" class="w-full h-full object-cover aspect-square">
+                </div>
+                <div class="col-span-2 image-zoom rounded-2xl overflow-hidden">
+                    <img src="images/division-lotes.jpg" alt="División de Lotes" class="w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características Section -->
+    <section class="py-24 section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-accent font-semibold tracking-wider uppercase text-sm">Características</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4">¿Por qué La Calma?</h2>
+                    <p class="text-text-secondary mt-4">
+                        Un desarrollo que redefine la exclusividad en La Ventana. Diseñado para quienes buscan privacidad, vistas panorámicas y una inversión sólida en el paraíso.
+                    </p>
+                    
+                    <div class="mt-8 space-y-6">
+                        <div class="flex gap-4 card-hover p-4 rounded-2xl glass-card transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Privacidad Garantizada</h4>
+                                <p class="text-text-secondary text-sm">Solo 5 propietarios. Topografía que protege las vistas de cada lote.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 card-hover p-4 rounded-2xl glass-card transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Vistas Panorámicas</h4>
+                                <p class="text-text-secondary text-sm">Mar de Cortés, amaneceres sobre el mar y cielos estrellados.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 card-hover p-4 rounded-2xl glass-card transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Plusvalía Asegurada</h4>
+                                <p class="text-text-secondary text-sm">Zona en crecimiento controlado. Terrenos de gran formato son cada vez más escasos.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 card-hover p-4 rounded-2xl glass-card transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Ubicación Estratégica</h4>
+                                <p class="text-text-secondary text-sm">Minutos de la playa, kiteboarding, restaurantes y servicios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <img src="images/vista-general.jpg" alt="La Calma Vista General" class="rounded-2xl w-full">
+                    </div>
+                    <div class="absolute -top-6 -right-6 w-40 h-40 bg-accent/30 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/40 rounded-full blur-3xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Análisis FODA -->
+    <section class="py-24 bg-bg-secondary section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-accent font-semibold tracking-wider uppercase text-sm">Análisis</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4">Análisis Estratégico FODA</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card p-6 border-t-4 border-green-500">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-green-500">Fortalezas</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-text-secondary">
+                        <li class="flex gap-2"><span class="text-green-500">•</span> Vistas panorámicas permanentes</li>
+                        <li class="flex gap-2"><span class="text-green-500">•</span> Lotes de gran tamaño (1,500m²)</li>
+                        <li class="flex gap-2"><span class="text-green-500">•</span> Baja densidad (Solo 5 lotes)</li>
+                        <li class="flex gap-2"><span class="text-green-500">•</span> Acceso privado de 13m</li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card p-6 border-t-4 border-blue-500">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-blue-500">Oportunidades</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-text-secondary">
+                        <li class="flex gap-2"><span class="text-blue-500">•</span> Alta demanda de rentas vacacionales</li>
+                        <li class="flex gap-2"><span class="text-blue-500">•</span> Plusvalía por crecimiento de zona</li>
+                        <li class="flex gap-2"><span class="text-blue-500">•</span> Proyectos autosustentables</li>
+                        <li class="flex gap-2"><span class="text-blue-500">•</span> Expansión del kiteboarding</li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card p-6 border-t-4 border-yellow-500">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-yellow-500">Debilidades</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-text-secondary">
+                        <li class="flex gap-2"><span class="text-yellow-500">•</span> Acceso requiere urbanización final</li>
+                        <li class="flex gap-2"><span class="text-yellow-500">•</span> Distancia a centros urbanos</li>
+                        <li class="flex gap-2"><span class="text-yellow-500">•</span> Pendiente natural del terreno</li>
+                        <li class="flex gap-2"><span class="text-yellow-500">•</span> Proyecto nuevo sin historial</li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card p-6 border-t-4 border-red-500">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-red-500">Amenazas</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-text-secondary">
+                        <li class="flex gap-2"><span class="text-red-500">•</span> Incremento en costos de construcción</li>
+                        <li class="flex gap-2"><span class="text-red-500">•</span> Competencia de desarrollos masivos</li>
+                        <li class="flex gap-2"><span class="text-red-500">•</span> Regulaciones ambientales estrictas</li>
+                        <li class="flex gap-2"><span class="text-red-500">•</span> Cambios en mercado inmobiliario</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación Section -->
+    <section id="ubicacion" class="py-24 section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-accent font-semibold tracking-wider uppercase text-sm">Ubicación</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4">La Ventana, BCS</h2>
+                <p class="text-text-secondary mt-4 max-w-2xl mx-auto">
+                    El destino más codiciado de Baja California Sur. Donde el desierto encuentra el mar.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="rounded-3xl overflow-hidden h-96 lg:h-auto">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3636.5!2d-109.9999!3d24.0715!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86af7d82f7c320d3%3A0x0!2zMjTCsDA0JzE3LjQiTiAxMDXCsDU5JzU5LjYiVw!5e0!3m2!1ses!2smx!4v1712420000000"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; min-height: 400px;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        class="rounded-3xl">
+                    </iframe>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="glass-card p-6 flex gap-4 items-start">
+                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Playa La Ventana</h4>
+                            <p class="text-text-secondary text-sm">Kiteboarding hub internacional con flujo constante de turistas y deportistas de alto nivel adquisitivo.</p>
+                            <p class="text-accent text-xs mt-2">⏱️ Minutos del desarrollo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card p-6 flex gap-4 items-start">
+                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">The Strip - Zona Gastronómica</h4>
+                            <p class="text-text-secondary text-sm">Restaurantes internacionales, bares y vida social para expatriados y turistas.</p>
+                            <p class="text-accent text-xs mt-2">⏱️ 5-10 minutos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card p-6 flex gap-4 items-start">
+                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Aeropuerto Internacional de La Paz</h4>
+                            <p class="text-text-secondary text-sm">Conexiones directas a Ciudad de México y Los Angeles. Vuelos charters disponibles.</p>
+                            <p class="text-accent text-xs mt-2">🚗 24 minutos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card p-6 flex gap-4 items-start">
+                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Comunidad y Servicios</h4>
+                            <p class="text-text-secondary text-sm">Mercado orgánico, clínica médica, tienda de conveniencia y servicios básicos.</p>
+                            <p class="text-accent text-xs mt-2">🏪 Servicios completos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24 bg-bg-secondary section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-accent font-semibold tracking-wider uppercase text-sm">Inversión</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4">Precios y Financiamiento</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="glass-card p-8 text-center">
+                    <span class="text-text-tertiary text-sm font-medium">PRECIO BASE</span>
+                    <div class="text-5xl font-bold text-accent mt-4">$85,000</div>
+                    <p class="text-text-secondary mt-2">USD</p>
+                    <ul class="mt-8 space-y-3 text-left">
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 1,500 m² de terreno</li>
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Vistas garantizadas</li>
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Acceso privado</li>
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> $56.60 USD/m²</li>
+                    </ul>
+                    <a href="#contacto" class="btn-secondary w-full mt-8 block text-center">Solicitar Info</a>
+                </div>
+                
+                <div class="glass-card p-8 text-center border-2 border-accent relative">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-black text-xs font-bold rounded-full">MÁS POPULAR</span>
+                    <span class="text-accent text-sm font-medium">LOTE 5 - REMATE</span>
+                    <div class="text-5xl font-bold text-accent mt-4">$87,000</div>
+                    <p class="text-text-secondary mt-2">USD</p>
+                    <ul class="mt-8 space-y-3 text-left">
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 1,505.37 m²</li>
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Geometría extendida</li>
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Mayor frente de calle</li>
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Últimas unidades</li>
+                    </ul>
+                    <a href="#contacto" class="btn-primary w-full mt-8 block text-center">Cotizar Ahora</a>
+                </div>
+                
+                <div class="glass-card p-8 text-center">
+                    <span class="text-text-tertiary text-sm font-medium">FINANCIAMIENTO</span>
+                    <div class="text-5xl font-bold text-accent mt-4">hasta 12</div>
+                    <p class="text-text-secondary mt-2">meses sin intereses</p>
+                    <ul class="mt-8 space-y-3 text-left">
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Enganche desde 20%</li>
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Tasas competitivas</li>
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Sin buró de crédito</li>
+                        <li class="flex items-center gap-2 text-text-secondary"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Escrituración inmediata</li>
+                    </ul>
+                    <a href="#contacto" class="btn-secondary w-full mt-8 block text-center">Calcular Mensualidad</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 section-reveal">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-accent font-semibold tracking-wider uppercase text-sm">FAQ</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4">Preguntas Frecuentes</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <details class="glass-card p-6 group">
+                    <summary class="font-bold cursor-pointer flex justify-between items-center">
+                        ¿Qué tipo de contrato y garantías se ofrecen?
+                        <svg class="w-5 h-5 text-accent transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="mt-4 text-text-secondary">
+                        Se firma un contrato de compraventa notariado con títulos de propiedad en regla. Contamos con toda la documentación de la subdivisión de la Parcela #29 validada.
+                    </p>
+                </details>
+                
+                <details class="glass-card p-6 group">
+                    <summary class="font-bold cursor-pointer flex justify-between items-center">
+                        ¿Existen restricciones de construcción?
+                        <svg class="w-5 h-5 text-accent transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="mt-4 text-text-secondary">
+                        Sí, existen lineamientos para mantener la armonía visual y asegurar que ninguna construcción obstruya la vista del lote posterior, protegiendo así el valor de todos los propietarios.
+                    </p>
+                </details>
+                
+                <details class="glass-card p-6 group">
+                    <summary class="font-bold cursor-pointer flex justify-between items-center">
+                        ¿Cuáles son los servicios disponibles?
+                        <svg class="w-5 h-5 text-accent transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="mt-4 text-text-secondary">
+                        Los lotes se entregan con factibilidad de conexión eléctrica y agua. El desarrollo fomenta el uso de sistemas biodigestores para el manejo de aguas residuales.
+                    </p>
+                </details>
+                
+                <details class="glass-card p-6 group">
+                    <summary class="font-bold cursor-pointer flex justify-between items-center">
+                        ¿Se ofrece financiamiento directo?
+                        <svg class="w-5 h-5 text-accent transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="mt-4 text-text-secondary">
+                        Sí, el desarrollador ofrece esquemas de pago flexibles con un enganche inicial y mensualidades. Consulte las tasas y plazos vigentes.
+                    </p>
+                </details>
+                
+                <details class="glass-card p-6 group">
+                    <summary class="font-bold cursor-pointer flex justify-between items-center">
+                        ¿Cuándo puedo iniciar construcción?
+                        <svg class="w-5 h-5 text-accent transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <p class="mt-4 text-text-secondary">
+                        Una vez escriturado el lote, puedes iniciar el proceso de permisos de construcción. El desarrollo cuenta con lineamentos arquitectónicos que debes seguir.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-24 bg-bg-secondary section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-accent font-semibold tracking-wider uppercase text-sm">Contacto</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4">¿Listo para Inversiones Exclusivas?</h2>
+                    <p class="text-text-secondary mt-4">
+                        Agenda una visita virtual o presencial y descubre por qué La Calma es la oportunidad más exclusiva en La Ventana.
+                    </p>
+                    
+                    <div class="mt-8 space-y-6">
+                        <a href="https://wa.me/526121234567" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
+                                <i class="fab fa-whatsapp text-2xl text-green-500"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">WhatsApp</p>
+                                <p class="text-text-secondary text-sm">+52 612 123 4567</p>
+                            </div>
+                        </a>
+                        
+                        <a href="mailto:info@lacalma.mx" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold">Email</p>
+                                <p class="text-text-secondary text-sm">info@lacalma.mx</p>
+                            </div>
+                        </a>
+                        
+                        <div class="flex items-center gap-4 glass-card p-4 rounded-xl">
+                            <div class="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold">Ubicación</p>
+                                <p class="text-text-secondary text-sm">La Ventana, BCS, México</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-6">Envíanos un mensaje</h3>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Nombre completo</label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" placeholder="Tu nombre">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" placeholder="tu@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Teléfono</label>
+                            <input type="tel" name="phone" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" placeholder="+52 612 000 0000">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Lote de interés</label>
+                            <select name="lot" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all">
+                                <option value="">Seleccionar...</option>
+                                <option value="lote-1">Lote 1 - Ubicación Preferente</option>
+                                <option value="lote-2">Lote 2 - Acceso Directo</option>
+                                <option value="lote-3">Lote 3 - Zona Central</option>
+                                <option value="lote-4">Lote 4 - Mayor Elevación</option>
+                                <option value="lote-5">Lote 5 - Remate (1,505.37 m²)</option>
+                                <option value="cualquiera">Cualquiera disponible</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Mensaje</label>
+                            <textarea name="message" rows="4" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none" placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">Enviar Mensaje</button>
+                    </form>
+                    <p id="formMessage" class="mt-4 text-center text-sm hidden"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/30 via-bg-primary to-accent/20"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold">Tu Oasis te Espera</h2>
+            <p class="text-xl text-text-secondary mt-6 max-w-2xl mx-auto">
+                Solo 5 lotes. Solo 5 oportunidades de vivir la verdadera exclusividad en La Ventana. El tiempo corre.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mt-10">
+                <a href="https://wa.me/526121234567" class="btn-primary animate-pulse-glow text-lg px-10 py-4">Cotizar Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-accent/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center glow-accent">
+                            <svg class="w-7 h-7 text-black" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold font-display">La Calma Comunidad</span>
+                    </a>
+                    <p class="text-text-secondary max-w-md">
+                        Desarrollo exclusivo de 5 lotes premium en La Ventana, Baja California Sur. Protegiendo su vista, asegurando su futuro.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-3 text-text-secondary">
+                        <li><a href="#inicio" class="hover:text-accent transition-colors">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-accent transition-colors">Lotes</a></li>
+                        <li><a href="#galeria" class="hover:text-accent transition-colors">Galería</a></li>
+                        <li><a href="#ubicacion" class="hover:text-accent transition-colors">Ubicación</a></li>
+                        <li><a href="#contacto" class="hover:text-accent transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-3 text-text-secondary">
+                        <li><a href="#" class="hover:text-accent transition-colors">Aviso de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Términos y Condiciones</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Declaración de Riesgos</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-accent/10 flex flex-wrap justify-between items-center gap-4">
+                <p class="text-text-tertiary text-sm">© 2026 La Calma Comunidad. Todos los derechos reservados.</p>
+                <p class="text-text-tertiary text-sm">La Ventana, BCS, México</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,pt,fr,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-XXXXXXXXX-X'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        // Mobile Menu
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section-reveal').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Counter Animation
+        function animateCounters() {
+            document.querySelectorAll('.counter').forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const duration = 2000;
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+        
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            formMessage.textContent = '✓ ¡Gracias! Nos pondremos en contacto contigo pronto.';
+            formMessage.classList.remove('hidden');
+            formMessage.classList.add('text-green-500');
+            
+            this.reset();
+            
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 5000);
+        });
+        
+        // Initialize
+        animateCounters();
+    </script>
+</body>
+</html>
