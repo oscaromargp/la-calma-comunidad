@@ -313,15 +313,8 @@
             
             <div class="grid lg:grid-cols-2 gap-8">
                 <div class="rounded-3xl overflow-hidden h-96 lg:h-auto">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3636.5!2d-109.9999!3d24.0715!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86af7d82f7c320d3%3A0x0!2zMjTCsDA0JzE3LjQiTiAxMDXCsDU5JzU5LjYiVw!5e0!3m2!1ses!2smx!4v1712420000000" width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen loading="lazy" class="rounded-3xl"></iframe>
+                    <iframe src="https://www.google.com/maps/d/embed?mid=14hbeht2ynsn_PhsjYD-Pz8QWHbFYcN4&ehbc=2E312F" width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen loading="lazy" class="rounded-3xl"></iframe>
                 </div>
-                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur px-3 py-2 rounded-full flex items-center gap-2">
-                        <i class="fas fa-search-plus text-accent"></i>
-                        <span class="text-white text-sm font-semibold">Ampliar</span>
-                    </div>
-                </div>
-                <div class="absolute -top-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-6 -left-6 w-40 h-40 bg-primary/30 rounded-full blur-3xl"></div>
             </div>
         </div>
         
@@ -355,7 +348,7 @@
             
             <!-- Google Maps Embed -->
             <div class="glass-card p-8 mb-12">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2283.652854659658!2d-109.9988056!3d24.071055599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDA0JzE1LjgiTiAxMDnCsDU5JzU1LjciVw!5e1!3m2!1ses-419!2smx!4v1775581732653!5m2!1ses-419!2smx" width="100%" height="500" style="border:0; border-radius: 16px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/d/embed?mid=14hbeht2ynsn_PhsjYD-Pz8QWHbFYcN4&ehbc=2E312F" width="100%" height="500" style="border:0; border-radius: 16px;" allowfullscreen loading="lazy"></iframe>
             </div>
             
             <!-- Lot Cards Grid -->
@@ -795,7 +788,7 @@
             
             <div class="grid lg:grid-cols-2 gap-8">
                 <div class="rounded-3xl overflow-hidden h-96 lg:h-auto">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2283.652854659658!2d-109.9988056!3d24.071055599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDA0JzE1LjgiTiAxMDnCsDU5JzU1LjciVw!5e1!3m2!1ses-419!2smx!4v1775581732653!5m2!1ses-419!2smx" width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-3xl"></iframe>
+                    <iframe src="https://www.google.com/maps/d/embed?mid=14hbeht2ynsn_PhsjYD-Pz8QWHbFYcN4&ehbc=2E312F" width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen loading="lazy" class="rounded-3xl"></iframe>
                 </div>
                 
                 <div class="space-y-6">
@@ -1115,52 +1108,53 @@
                 <i class="fas fa-globe text-accent text-xl"></i>
                 <span class="text-sm font-bold hidden md:inline">ES</span>
             </button>
-            <div id="languageMenu" class="hidden absolute right-0 top-12 w-40 glass-card rounded-xl overflow-hidden">
-                <button onclick="changeLanguage('es')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-2">
+            <div id="languageMenu" class="hidden absolute right-0 top-12 w-48 glass-card rounded-xl overflow-hidden shadow-xl">
+                <div class="px-4 py-2 bg-accent/10 text-xs font-bold text-text-tertiary">Seleccionar idioma:</div>
+                <a href="javascript:void(0)" onclick="doGoogleTranslate('es')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
                     <span class="text-xl">🇲🇽</span> Español
-                </button>
-                <button onclick="changeLanguage('en')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-2">
+                </a>
+                <a href="javascript:void(0)" onclick="doGoogleTranslate('en')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
                     <span class="text-xl">🇺🇸</span> English
-                </button>
-                <button onclick="changeLanguage('fr')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-2">
+                </a>
+                <a href="javascript:void(0)" onclick="doGoogleTranslate('fr')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
                     <span class="text-xl">🇫🇷</span> Français
-                </button>
-                <button onclick="changeLanguage('de')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-2">
+                </a>
+                <a href="javascript:void(0)" onclick="doGoogleTranslate('de')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
                     <span class="text-xl">🇩🇪</span> Deutsch
-                </button>
-                <button onclick="changeLanguage('pt')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-2">
+                </a>
+                <a href="javascript:void(0)" onclick="doGoogleTranslate('pt')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3">
                     <span class="text-xl">🇧🇷</span> Português
-                </button>
+                </a>
             </div>
         </div>
     </div>
 
+    <!-- Google Translate Widget (visible) -->
+    <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 80px; z-index: 9999;"></div>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,fr,de,pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <div id="google_translate_element" class="hidden"></div>
 
     <script>
         function toggleLanguageMenu() {
             document.getElementById('languageMenu').classList.toggle('hidden');
         }
         
-        function changeLanguage(lang) {
+        function doGoogleTranslate(lang) {
             var select = document.querySelector('.goog-te-combo');
             if (select) {
                 select.value = lang;
                 select.dispatchEvent(new Event('change'));
             } else {
-                const event = new Event('change');
-                const select = document.createElement('select');
+                var event = new Event('change');
+                Object.getEventProperties(event).lang = lang;
+                var select = document.createElement('select');
                 select.style.display = 'none';
                 document.body.appendChild(select);
                 select.value = lang;
-                select.dispatchEvent(event);
-                window.location.reload();
             }
             document.getElementById('languageMenu').classList.add('hidden');
         }
