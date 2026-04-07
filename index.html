@@ -159,8 +159,48 @@
         <div class="particle" style="left: 90%; top: 80%; animation-delay: 10s;"></div>
     </div>
 
+    <!-- Floating CTA Buttons -->
+    <div class="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
+        <a href="#contacto" class="bg-accent hover:bg-accent-light text-black font-bold py-3 px-5 rounded-full shadow-lg flex items-center gap-2 transition-all hover:scale-105">
+            <i class="fas fa-calculator"></i>
+            <span class="hidden lg:inline">Calcular</span>
+        </a>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div id="exitPopup" class="fixed inset-0 bg-black/80 z-[10000] hidden items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full p-8 rounded-3xl text-center relative">
+            <button onclick="closeExitPopup()" class="absolute top-4 right-4 text-text-tertiary hover:text-white text-2xl">&times;</button>
+            <div class="text-6xl mb-4">🚨</div>
+            <h3 class="text-2xl font-bold text-accent mb-4">¡Espera! Solo quedan 5 lotes</h3>
+            <p class="text-text-secondary mb-6">Descarga nuestro brochure PDF completo con plano de lotes y opciones de financiamiento antes de irte.</p>
+            <a href="https://drive.google.com/file/d/1SOrX75-DSxv_ChGOrBesF0cegEnIXxus/view?usp=sharing" target="_blank" class="btn-primary block w-full mb-4">
+                <i class="fas fa-download mr-2"></i> Descargar Brochure PDF
+            </a>
+            <button onclick="closeExitPopup()" class="text-text-tertiary text-sm hover:text-accent">No gracias, quiero seguir viendo</button>
+        </div>
+    </div>
+
+    <!-- Lead Magnet Modal -->
+    <div id="leadMagnet" class="fixed inset-0 bg-black/80 z-[10000] hidden items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full p-8 rounded-3xl relative">
+            <button onclick="closeLeadMagnet()" class="absolute top-4 right-4 text-text-tertiary hover:text-white text-2xl">&times;</button>
+            <div class="text-center mb-6">
+                <div class="text-5xl mb-3">📄</div>
+                <h3 class="text-2xl font-bold text-accent">Descarga tu Brochure Gratis</h3>
+                <p class="text-text-secondary mt-2">Recibe el plano completo + opciones de financiamiento</p>
+            </div>
+            <form id="leadMagnetForm" class="space-y-4">
+                <input type="text" name="name" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none">
+                <input type="tel" name="phone" required placeholder="Tu WhatsApp" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none">
+                <input type="email" name="email" required placeholder="Tu email" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none">
+                <button type="submit" class="btn-primary w-full">Descargar Ahora</button>
+            </form>
+        </div>
+    </div>
+
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/526121234567?text=Hola,%20me%20interesa%20La%20Calma%20Comunidad" target="_blank" class="whatsapp-float">
+    <a href="https://api.whatsapp.com/send?phone=5216121055224&text=Hola,%20me%20interesa%20La%20Calma%20Comunidad" target="_blank" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -227,18 +267,23 @@
                     5 lotes únicos de 1,500 m² con vistas panorámicas al Mar de Cortés. Exclusividad, privacidad y plusvalía garantizadas en el destino más codiciado de Baja California Sur.
                 </p>
                 
-                <div class="flex flex-wrap gap-4 animate-fade-in" style="animation-delay: 0.6s;">
-                    <a href="#contacto" class="btn-primary animate-pulse-glow text-lg">Agendar Visita</a>
-                    <a href="#video" class="btn-secondary flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        Ver Video
-                    </a>
-                </div>
+                    <div class="flex flex-wrap gap-4 animate-fade-in" style="animation-delay: 0.6s;">
+                        <a href="https://api.whatsapp.com/send?phone=5216121055224&text=Hola,%20me%20interesa%20reservar%20un%20lote%20en%20La%20Calma" target="_blank" class="btn-primary animate-pulse-glow text-lg">Reservar Mi Lote</a>
+                        <a href="#calculadora" class="btn-secondary flex items-center gap-2">
+                            <i class="fas fa-calculator"></i>
+                            Calcular Mensualidad
+                        </a>
+                        <a href="#contacto" class="btn-secondary flex items-center gap-2">
+                            <i class="fas fa-video"></i>
+                            Agendar Visita Virtual
+                        </a>
+                    </div>
                 
                 <div class="flex gap-8 pt-6 animate-fade-in" style="animation-delay: 0.8s;">
                     <div><p class="text-3xl font-bold text-accent counter">5</p><p class="text-sm text-text-tertiary font-semibold">Lotes Exclusivos</p></div>
                     <div><p class="text-3xl font-bold text-accent">1,500<span class="text-lg">m²</span></p><p class="text-sm text-text-tertiary font-semibold">Por Lote</p></div>
                     <div><p class="text-3xl font-bold text-accent">$85K</p><p class="text-sm text-text-tertiary font-semibold">Precio Desde</p></div>
+                    <div><p class="text-3xl font-bold text-red-500">4</p><p class="text-sm text-text-tertiary font-semibold">Disponibles</p></div>
                 </div>
             </div>
             
@@ -468,7 +513,7 @@
                 <span class="text-accent font-bold tracking-wider uppercase text-sm">Testimonios</span>
                 <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Lo que dicen nuestros clientes</h2>
                 <p class="text-text-secondary mt-4 max-w-2xl mx-auto text-lg font-semibold">
-                    Inversores que ya descubrieron La Calma. Parade Santos hace buenas deals.
+                    Inversores que ya descubrieron La Calma. Tranquile hace buenas deals.
                 </p>
             </div>
         </div>
@@ -486,7 +531,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Parade Santos me helped me find the perfect lot. Professional service, transparent deals, and they delivered exactly what they promised. Highly recommend!"</p>
+                        <p class="text-text-secondary font-semibold">"Tranquile me helped me find the perfect lot. Professional service, transparent deals, and they delivered exactly what they promised. Highly recommend!"</p>
                     </div>
                     
                     <div class="glass-card p-8 w-96 flex-shrink-0">
@@ -498,7 +543,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"We bought our dream retirement lot through Parade Santos. The views are incredible and the process was smooth. Best real estate experience ever!"</p>
+                        <p class="text-text-secondary font-semibold">"We bought our dream retirement lot through Tranquile. The views are incredible and the process was smooth. Best real estate experience ever!"</p>
                     </div>
                     
                     <div class="glass-card p-8 w-96 flex-shrink-0">
@@ -510,7 +555,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Excelente servicio de Parade Santos. Me ayudaron a conseguir un lote con vista al mar en La Ventana. El proceso fue transparente y profesional."</p>
+                        <p class="text-text-secondary font-semibold">"Excelente servicio de Tranquile. Me ayudaron a conseguir un lote con vista al mar en La Ventana. El proceso fue transparente y profesional."</p>
                     </div>
                     
                     <div class="glass-card p-8 w-96 flex-shrink-0">
@@ -522,7 +567,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Parade Santos made investing in Mexico easy. They handled everything from documentation to financing. Now I own a piece of paradise!"</p>
+                        <p class="text-text-secondary font-semibold">"Tranquile made investing in Mexico easy. They handled everything from documentation to financing. Now I own a piece of paradise!"</p>
                     </div>
                     
                     <div class="glass-card p-8 w-96 flex-shrink-0">
@@ -534,7 +579,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">" Professionelle Abwicklung durch Parade Santos. Mein Grundstück in La Ventana ist eine hervorragende Investition!"</p>
+                        <p class="text-text-secondary font-semibold">" Professionelle Abwicklung durch Tranquile. Mein Grundstück in La Ventana ist eine hervorragende Investition!"</p>
                     </div>
                     
                     <div class="glass-card p-8 w-96 flex-shrink-0">
@@ -546,7 +591,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"We were looking for affordable land with amazing views. Parade Santos delivered beyond our expectations. Now we are building our dream home!"</p>
+                        <p class="text-text-secondary font-semibold">"We were looking for affordable land with amazing views. Tranquile delivered beyond our expectations. Now we are building our dream home!"</p>
                     </div>
                 </div>
                 <!-- Duplicate for seamless loop -->
@@ -560,7 +605,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Parade Santos me helped me find the perfect lot. Professional service, transparent deals, and they delivered exactly what they promised. Highly recommend!"</p>
+                        <p class="text-text-secondary font-semibold">"Tranquile me helped me find the perfect lot. Professional service, transparent deals, and they delivered exactly what they promised. Highly recommend!"</p>
                     </div>
                     
                     <div class="glass-card p-8 w-96 flex-shrink-0">
@@ -572,7 +617,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"We bought our dream retirement lot through Parade Santos. The views are incredible and the process was smooth. Best real estate experience ever!"</p>
+                        <p class="text-text-secondary font-semibold">"We bought our dream retirement lot through Tranquile. The views are incredible and the process was smooth. Best real estate experience ever!"</p>
                     </div>
                     
                     <div class="glass-card p-8 w-96 flex-shrink-0">
@@ -584,7 +629,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Excelente servicio de Parade Santos. Me ayudaron a conseguir un lote con vista al mar en La Ventana. El proceso fue transparente y profesional."</p>
+                        <p class="text-text-secondary font-semibold">"Excelente servicio de Tranquile. Me ayudaron a conseguir un lote con vista al mar en La Ventana. El proceso fue transparente y profesional."</p>
                     </div>
                     
                     <div class="glass-card p-8 w-96 flex-shrink-0">
@@ -596,7 +641,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Parade Santos made investing in Mexico easy. They handled everything from documentation to financing. Now I own a piece of paradise!"</p>
+                        <p class="text-text-secondary font-semibold">"Tranquile made investing in Mexico easy. They handled everything from documentation to financing. Now I own a piece of paradise!"</p>
                     </div>
                     
                     <div class="glass-card p-8 w-96 flex-shrink-0">
@@ -608,7 +653,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Professionelle Abwicklung durch Parade Santos. Mein Grundstück in La Ventana ist eine hervorragende Investition!"</p>
+                        <p class="text-text-secondary font-semibold">"Professionelle Abwicklung durch Tranquile. Mein Grundstück in La Ventana ist eine hervorragende Investition!"</p>
                     </div>
                     
                     <div class="glass-card p-8 w-96 flex-shrink-0">
@@ -620,7 +665,7 @@
                             </div>
                         </div>
                         <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"We were looking for affordable land with amazing views. Parade Santos delivered beyond our expectations. Now we are building our dream home!"</p>
+                        <p class="text-text-secondary font-semibold">"We were looking for affordable land with amazing views. Tranquile delivered beyond our expectations. Now we are building our dream home!"</p>
                     </div>
                 </div>
             </div>
@@ -802,7 +847,7 @@
             </div>
             
             <div class="grid lg:grid-cols-2 gap-8">
-                <div class="rounded-3xl overflow-hidden h-96 lg:h-auto cursor-pointer" onclick="openLightbox('https://maps.google.com')">
+                <div class="rounded-3xl overflow-hidden h-96 lg:h-auto cursor-pointer">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3636.5!2d-109.9999!3d24.0715!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86af7d82f7c320d3%3A0x0!2zMjTCsDA0JzE3LjQiTiAxMDXCsDU5JzU5LjYiVw!5e0!3m2!1ses!2smx!4v1712420000000" width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen loading="lazy" class="rounded-3xl"></iframe>
                 </div>
                 
@@ -855,8 +900,8 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="py-24 bg-bg-secondary section-reveal">
+    <!-- Pricing Section with Calculator -->
+    <section id="calculadora" class="py-24 bg-bg-secondary section-reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <span class="text-accent font-bold tracking-wider uppercase text-sm">Inversión</span>
@@ -901,8 +946,58 @@
                         <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Sin buró de crédito</li>
                         <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Escrituración inmediata</li>
                     </ul>
-                    <a href="#contacto" class="btn-secondary w-full mt-8 block text-center font-bold">Calcular Mensualidad</a>
+                    <a href="#calculadora" class="btn-secondary w-full mt-8 block text-center font-bold">Calcular Mensualidad</a>
                 </div>
+            </div>
+            
+            <!-- Calculator -->
+            <div class="mt-16 glass-card p-8 max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold text-center mb-6">Calcula tu Mensualidad</h3>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Precio del Lote (USD)</label>
+                        <select id="calcPrice" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none" onchange="calculateMonthly()">
+                            <option value="85000">Lote 1-4 ($85,000)</option>
+                            <option value="87000">Lote 5 - Remate ($87,000)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Enganche (%)</label>
+                        <select id="calcDownPayment" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none" onchange="calculateMonthly()">
+                            <option value="20">20%</option>
+                            <option value="30">30%</option>
+                            <option value="40">40%</option>
+                            <option value="50">50%</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Meses</label>
+                        <select id="calcMonths" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none" onchange="calculateMonthly()">
+                            <option value="12">12 meses (sin intereses)</option>
+                            <option value="24">24 meses</option>
+                            <option value="36">36 meses</option>
+                            <option value="48">48 meses</option>
+                            <option value="60">60 meses</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Tasa de Interés (%)</label>
+                        <select id="calcRate" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none" onchange="calculateMonthly()">
+                            <option value="0">0% (sin intereses)</option>
+                            <option value="8">8% anual</option>
+                            <option value="10">10% anual</option>
+                            <option value="12">12% anual</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center p-6 bg-accent/10 rounded-xl">
+                    <p class="text-text-secondary font-semibold">Tu pago mensual sería:</p>
+                    <p class="text-4xl font-bold text-accent" id="monthlyResult">$1,134 USD</p>
+                    <p class="text-text-tertiary text-sm mt-2" id="monthlyDetail">Enganche: $17,000 USD | Plazo: 12 meses</p>
+                </div>
+                <a href="#contacto" class="btn-primary w-full mt-6 block text-center font-bold">Quiero Este Plan</a>
             </div>
         </div>
     </section>
@@ -918,15 +1013,47 @@
                         Agenda una visita virtual o presencial y descubre por qué La Calma es la oportunidad más exclusiva en La Ventana.
                     </p>
                     
+                    <!-- Desarrollador -->
+                    <div class="mt-8 glass-card p-6 flex gap-4 items-center">
+                        <div class="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center text-3xl">👤</div>
+                        <div>
+                            <p class="text-accent text-sm font-bold">Desarrollador</p>
+                            <p class="font-bold text-lg">Ignacio Ibarra</p>
+                            <p class="text-text-secondary text-sm font-semibold">Tranquile Baja Lifestyle</p>
+                            <a href="tel:+526121055224" class="text-accent text-sm font-bold hover:underline">+52 612 105 5224</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Sellos de confianza -->
+                    <div class="mt-6 grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-2 text-sm font-semibold">
+                            <i class="fas fa-shield-alt text-accent"></i> Financiamiento directo
+                        </div>
+                        <div class="flex items-center gap-2 text-sm font-semibold">
+                            <i class="fas fa-file-contract text-accent"></i> Escrituración inmediata
+                        </div>
+                        <div class="flex items-center gap-2 text-sm font-semibold">
+                            <i class="fas fa-ban text-accent"></i> Sin banco ni buró
+                        </div>
+                        <div class="flex items-center gap-2 text-sm font-semibold">
+                            <i class="fas fa-check-circle text-accent"></i> Título de propiedad
+                        </div>
+                    </div>
+                    
                     <div class="mt-8 space-y-6">
-                        <a href="https://wa.me/526121234567?text=Hola,%20me%20interesa%20La%20Calma%20Comunidad" target="_blank" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
+                        <a href="https://api.whatsapp.com/send?phone=5216121055224&text=Hola,%20me%20interesa%20La%20Calma%20Comunidad" target="_blank" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
                             <div class="w-14 h-14 rounded-xl bg-green-500/20 flex items-center justify-center"><i class="fab fa-whatsapp text-3xl text-green-500"></i></div>
-                            <div><p class="font-bold text-lg">WhatsApp</p><p class="text-text-secondary font-semibold">+52 612 123 4567</p></div>
+                            <div><p class="font-bold text-lg">WhatsApp</p><p class="text-text-secondary font-semibold">+52 612 105 5224</p></div>
                         </a>
                         
-                        <a href="mailto:info@lacalma.mx" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
+                        <a href="mailto:tranquilerealestate@gmail.com" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
                             <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center"><svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-                            <div><p class="font-bold text-lg">Email</p><p class="text-text-secondary font-semibold">info@lacalma.mx</p></div>
+                            <div><p class="font-bold text-lg">Email</p><p class="text-text-secondary font-semibold">tranquilerealestate@gmail.com</p></div>
+                        </a>
+                        
+                        <a href="tel:+526121055224" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
+                            <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center"><svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
+                            <div><p class="font-bold text-lg">Teléfono</p><p class="text-text-secondary font-semibold">+52 612 105 5224</p></div>
                         </a>
                     </div>
                 </div>
@@ -962,7 +1089,7 @@
                             </div>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold mb-2">Lote de interés</label>
+                            <label class="block text-sm font-bold mb-2">¿Qué lote te interesa?</label>
                             <select name="lot" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all font-semibold">
                                 <option value="">Seleccionar...</option>
                                 <option value="lote-1">Lote 1 - Ubicación Preferente</option>
@@ -971,6 +1098,15 @@
                                 <option value="lote-4">Lote 4 - Mayor Elevación</option>
                                 <option value="lote-5">Lote 5 - Remate (1,505.37 m²)</option>
                                 <option value="cualquiera">Cualquiera disponible</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">¿Prefieres financiamiento o pago de contado?</label>
+                            <select name="financing" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all font-semibold">
+                                <option value="">Seleccionar...</option>
+                                <option value="contado">Pago de Contado</option>
+                                <option value="financiamiento">Financiamiento</option>
+                                <option value="sin-decidir">Aún no decido</option>
                             </select>
                         </div>
                         <div>
@@ -993,7 +1129,7 @@
                 Solo 5 lotes. Solo 5 oportunidades de vivir la verdadera exclusividad en La Ventana. El tiempo corre.
             </p>
             <div class="flex flex-wrap justify-center gap-4 mt-10">
-                <a href="https://wa.me/526121234567" class="btn-primary animate-pulse-glow text-lg px-10 py-4 font-bold">Cotizar Ahora</a>
+                <a href="https://api.whatsapp.com/send?phone=5216121055224" class="btn-primary animate-pulse-glow text-lg px-10 py-4 font-bold">Cotizar Ahora</a>
             </div>
         </div>
     </section>
@@ -1012,7 +1148,12 @@
                     <p class="text-text-secondary font-semibold max-w-md">
                         Desarrollo exclusivo de 5 lotes premium en La Ventana, Baja California Sur. Protegiendo su vista, asegurando su futuro.
                     </p>
-                    <p class="text-text-tertiary mt-4 font-semibold">Una oportunidad de Parade Santos.</p>
+                    <p class="text-text-tertiary mt-4 font-semibold">Una oportunidad de Tranquile.</p>
+                    <div class="flex gap-4 mt-6">
+                        <a href="https://instagram.com/TRANQUILEBAJALIFESTYLE" target="_blank" class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
                 </div>
                 
                 <div>
@@ -1029,10 +1170,15 @@
                 <div>
                     <h4 class="font-bold mb-4">Legal</h4>
                     <ul class="space-y-3 text-text-secondary font-semibold">
-                        <li><a href="#" class="hover:text-accent transition-colors">Aviso de Privacidad</a></li>
-                        <li><a href="#" class="hover:text-accent transition-colors">Términos y Condiciones</a></li>
+                        <li><a href="legal/privacidad.html" class="hover:text-accent transition-colors">Aviso de Privacidad</a></li>
+                        <li><a href="legal/terminos.html" class="hover:text-accent transition-colors">Términos y Condiciones</a></li>
+                        <li><a href="https://drive.google.com/file/d/1SOrX75-DSxv_ChGOrBesF0cegEnIXxus/view?usp=sharing" target="_blank" class="hover:text-accent transition-colors">Descargar Brochure</a></li>
                     </ul>
                 </div>
+            </div>
+            
+            <div class="mt-8 p-4 glass-card rounded-xl">
+                <p class="text-text-secondary font-semibold text-center"><strong>Dirección:</strong> Décimo Tercera 1270, Colonia Ampliación El Centenario CP 23080, La Paz, BCS</p>
             </div>
             
             <div class="mt-12 pt-8 border-t border-accent/10 flex flex-wrap justify-between items-center gap-4">
@@ -1052,6 +1198,57 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
+        // Calculator
+        function calculateMonthly() {
+            const price = parseFloat(document.getElementById('calcPrice').value);
+            const downPaymentPercent = parseFloat(document.getElementById('calcDownPayment').value);
+            const months = parseInt(document.getElementById('calcMonths').value);
+            const rate = parseFloat(document.getElementById('calcRate').value);
+            
+            const downPayment = price * (downPaymentPercent / 100);
+            const principal = price - downPayment;
+            
+            let monthly;
+            if (rate === 0) {
+                monthly = principal / months;
+            } else {
+                const monthlyRate = rate / 100 / 12;
+                monthly = principal * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+            }
+            
+            document.getElementById('monthlyResult').textContent = '$' + Math.round(monthly).toLocaleString() + ' USD';
+            document.getElementById('monthlyDetail').textContent = 'Enganche: $' + downPayment.toLocaleString() + ' USD | Plazo: ' + months + ' meses';
+        }
+        
+        calculateMonthly();
+        
+        // Exit Intent Popup
+        let exitIntentShown = false;
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0 && !exitIntentShown) {
+                exitIntentShown = true;
+                document.getElementById('exitPopup').classList.remove('hidden');
+                document.getElementById('exitPopup').classList.add('flex');
+            }
+        });
+        
+        function closeExitPopup() {
+            document.getElementById('exitPopup').classList.add('hidden');
+            document.getElementById('exitPopup').classList.remove('flex');
+        }
+        
+        // Lead Magnet
+        function closeLeadMagnet() {
+            document.getElementById('leadMagnet').classList.add('hidden');
+            document.getElementById('leadMagnet').classList.remove('flex');
+        }
+        
+        document.getElementById('leadMagnetForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias! Recibirás el brochure en tu email.');
+            closeLeadMagnet();
+        });
+        
         // Lightbox
         const images = ['images/vista-general.jpg', 'images/vista-cenital.jpg', 'images/vista-izquierda.jpg', 'images/vista-derecha.jpg', 'images/division-lotes.jpg'];
         let currentImageIndex = 0;
@@ -1132,7 +1329,7 @@
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const formMessage = document.getElementById('formMessage');
-            formMessage.textContent = '✓ ¡Gracias! Nos pondremos en contacto contigo pronto.';
+            formMessage.textContent = '¡Gracias! Nos pondremos en contacto contigo pronto.';
             formMessage.classList.remove('hidden');
             formMessage.classList.add('text-green-500');
             this.reset();
