@@ -335,6 +335,58 @@
         </div>
     </section>
 
+    <!-- Ficha Técnica Section -->
+    <section class="py-16 bg-bg-secondary section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="text-accent font-bold tracking-wider uppercase text-sm">Datos Clave</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-4">Datos del Desarrollo</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card p-6 text-center">
+                    <span class="text-4xl mb-3 block">📏</span>
+                    <p class="text-3xl font-bold text-accent">7,505.37</p>
+                    <p class="text-sm text-text-tertiary font-semibold">m² Superficie Total</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <span class="text-4xl mb-3 block">🏠</span>
+                    <p class="text-3xl font-bold text-accent">5</p>
+                    <p class="text-sm text-text-tertiary font-semibold">Lotes Exclusivos</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <span class="text-4xl mb-3 block">📍</span>
+                    <p class="text-3xl font-bold text-accent">24.07°N</p>
+                    <p class="text-sm text-text-tertiary font-semibold">Latitud Norte</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <span class="text-4xl mb-3 block">💰</span>
+                    <p class="text-3xl font-bold text-accent">18-22%</p>
+                    <p class="text-sm text-text-tertiary font-semibold">ROI Proyectado Anual</p>
+                </div>
+            </div>
+            <div class="mt-10 grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-6">
+                    <h4 class="font-bold text-lg mb-4 text-accent">🎯 Perfil del Inversionista</h4>
+                    <ul class="space-y-2 text-text-secondary font-semibold text-sm">
+                        <li>• Desarrollador Boutique - ROI max con eco-lujo</li>
+                        <li>• Inversionista Landed - Reserva patrimonial</li>
+                        <li>• Nómadas Digitales - Work from anywhere</li>
+                        <li>• Extranjeros - Fideicomiso bancario</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-6">
+                    <h4 class="font-bold text-lg mb-4 text-accent">⚡ Servicios Disponibles</h4>
+                    <ul class="space-y-2 text-text-secondary font-semibold text-sm">
+                        <li>• Agua (Cisterna/Pipa)</li>
+                        <li>• Conectividad Starlink 200Mbps</li>
+                        <li>• Energía Solar Off-Grid</li>
+                        <li>• Uso de Suelo: Residencial Campestre (H4)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Interactive Master Plan -->
     <section id="lotes" class="py-24 section-reveal">
         <div class="max-w-7xl mx-auto px-6">
@@ -855,6 +907,38 @@
         </div>
     </section>
 
+    <!-- Calendario Estacional -->
+    <section class="py-16 bg-bg-secondary section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="text-accent font-bold tracking-wider uppercase text-sm">Calendario</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-4">Temporadas del Año</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="glass-card p-6 border-l-4 border-accent">
+                    <span class="font-bold text-accent block mb-2">T1 (Ene-Mar)</span>
+                    <p class="text-accent font-bold text-sm mb-2">🌬️ VIENTO Y BALLENAS</p>
+                    <p class="text-text-tertiary text-xs uppercase">Temporada alta kite. Avistamiento de ballenas.</p>
+                </div>
+                <div class="glass-card p-6 border-l-4 border-text-tertiary">
+                    <span class="font-bold text-text-secondary block mb-2">T2 (Abr-Jun)</span>
+                    <p class="text-text-secondary font-bold text-sm mb-2">🏜️ SENDERISMO</p>
+                    <p class="text-text-tertiary text-xs uppercase">Floración del desierto. Ideal para trekking.</p>
+                </div>
+                <div class="glass-card p-6 border-l-4 border-text-tertiary">
+                    <span class="font-bold text-text-secondary block mb-2">T3 (Jul-Sep)</span>
+                    <p class="text-text-secondary font-bold text-sm mb-2">🎣 PESCA DEPORTIVA</p>
+                    <p class="text-text-tertiary text-xs uppercase">Aguas cálidas. Temporada de Marlin.</p>
+                </div>
+                <div class="glass-card p-6 border-l-4 border-accent">
+                    <span class="font-bold text-accent block mb-2">T4 (Oct-Dic)</span>
+                    <p class="text-accent font-bold text-sm mb-2">🧘 RETIRO Y BIENESTAR</p>
+                    <p class="text-text-tertiary text-xs uppercase">Regreso comunidad internacional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section with Calculator -->
     <section id="calculadora" class="py-24 bg-bg-secondary section-reveal">
         <div class="max-w-7xl mx-auto px-6">
@@ -1101,32 +1185,37 @@
         </div>
     </footer>
 
+    <!-- Print to PDF Button -->
+    <button onclick="window.print()" class="fixed bottom-6 left-4 z-[9998] glass-card p-3 rounded-full hover:border-accent transition-all" title="Imprimir / Guardar PDF">
+        <i class="fas fa-print text-accent text-xl"></i>
+    </button>
+
     <!-- Language Selector Floating Button -->
     <div class="fixed top-20 right-4 z-[9998]">
         <div class="relative">
             <button onclick="toggleLanguageMenu()" class="glass-card p-3 rounded-full flex items-center gap-2 hover:border-accent transition-all">
                 <i class="fas fa-globe text-accent text-xl"></i>
-                <span class="text-sm font-bold hidden md:inline">ES</span>
             </button>
             <div id="languageMenu" class="hidden absolute right-0 top-12 w-48 glass-card rounded-xl overflow-hidden shadow-xl">
-                <div class="px-4 py-2 bg-accent/10 text-xs font-bold text-text-tertiary">Seleccionar idioma:</div>
-                <a href="javascript:void(0)" onclick="doGoogleTranslate('es')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
+                <div class="px-4 py-2 bg-accent/10 text-xs font-bold text-text-tertiary">Idioma:</div>
+                <a href="#" onclick="setLang('es')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
                     <span class="text-xl">🇲🇽</span> Español
                 </a>
-                <a href="javascript:void(0)" onclick="doGoogleTranslate('en')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
+                <a href="#" onclick="setLang('en')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
                     <span class="text-xl">🇺🇸</span> English
                 </a>
-                <a href="javascript:void(0)" onclick="doGoogleTranslate('fr')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
+                <a href="#" onclick="setLang('fr')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
                     <span class="text-xl">🇫🇷</span> Français
                 </a>
-                <a href="javascript:void(0)" onclick="doGoogleTranslate('de')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
+                <a href="#" onclick="setLang('de')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
                     <span class="text-xl">🇩🇪</span> Deutsch
                 </a>
-                <a href="javascript:void(0)" onclick="doGoogleTranslate('pt')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3">
+                <a href="#" onclick="setLang('pt')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3">
                     <span class="text-xl">🇧🇷</span> Português
                 </a>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Google Translate Widget (visible) -->
@@ -1143,24 +1232,21 @@
             document.getElementById('languageMenu').classList.toggle('hidden');
         }
         
-        function doGoogleTranslate(lang) {
+        function setLang(lang) {
             var select = document.querySelector('.goog-te-combo');
             if (select) {
                 select.value = lang;
-                select.dispatchEvent(new Event('change'));
-            } else {
-                var event = new Event('change');
-                Object.getEventProperties(event).lang = lang;
-                var select = document.createElement('select');
-                select.style.display = 'none';
-                document.body.appendChild(select);
-                select.value = lang;
+                select.dispatchEvent(new Event('change', {bubbles: true}));
             }
             document.getElementById('languageMenu').classList.add('hidden');
         }
         
+        function doGoogleTranslate(lang) {
+            setLang(lang);
+        }
+        
         document.addEventListener('click', function(e) {
-            if (!e.target.closest('.fixed.top-20')) {
+            if (!e.target.closest('.fixed.top-20') && !e.target.closest('.fixed.bottom-6')) {
                 document.getElementById('languageMenu').classList.add('hidden');
             }
         });
