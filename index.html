@@ -7,13 +7,11 @@
     <meta name="description" content="La Calma Comunidad - Desarrollo exclusivo de 5 lotes premium de 1,500 m² con vistas panorámicas al Mar de Cortés. La Ventana, Baja California Sur.">
     <meta name="keywords" content="La Calma, lotes, La Ventana, BCS, real estate, Mexico, premium lots, Mar de Cortes">
     
-    <!-- Open Graph -->
     <meta property="og:title" content="La Calma Comunidad | Lotes Premium en La Ventana">
     <meta property="og:description" content="Desarrollo exclusivo de 5 lotes premium de 1,500 m² con vistas panorámicas al Mar de Cortés.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/vista-general.jpg">
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="La Calma Comunidad | Lotes Premium">
     <meta name="twitter:description" content="5 lotes premium de 1,500 m² con vistas al Mar de Cortés">
@@ -53,6 +51,52 @@
         * { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 95%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 0 60px rgba(255, 153, 0, 0.3);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .lightbox-close:hover { color: #FF9900; transform: scale(1.1); }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        .lightbox-nav:hover { color: #FF9900; }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
         
         .glass-card {
             background: linear-gradient(135deg, rgba(0, 51, 102, 0.15) 0%, rgba(0, 51, 102, 0.08) 50%, rgba(0, 51, 102, 0.15) 100%);
@@ -190,7 +234,7 @@
             75% { transform: translate(-100px, -100px); opacity: 0.8; }
         }
         
-        .image-zoom img { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .image-zoom img { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
         .image-zoom:hover img { transform: scale(1.08); }
         
         .counter { font-variant-numeric: tabular-nums; }
@@ -200,13 +244,83 @@
         ::-webkit-scrollbar-thumb { background: #FF9900; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #FFAA22; }
         
-        .lang-btn { transition: all 0.3s ease; }
-        .lang-btn:hover, .lang-btn.active { background: rgba(255, 153, 0, 0.2); color: #FF9900; }
-        
         .section-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .section-reveal.visible { opacity: 1; transform: translateY(0); }
         
-        /* Google Translate Custom Style */
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9998;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+            transition: all 0.3s;
+            animation: whatsapp-pulse 2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.7);
+        }
+        .whatsapp-float i { color: white; font-size: 35px; }
+        
+        @keyframes whatsapp-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        /* Video Section */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 24px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Lot Page Cards */
+        .lot-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .lot-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(255, 153, 0, 0.3);
+        }
+        .lot-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .lot-card:hover img { transform: scale(1.1); }
+        .lot-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
+        }
+        
         .goog-te-gadget {
             font-family: 'Inter', sans-serif !important;
             font-size: 12px !important;
@@ -219,27 +333,20 @@
             color: #FFFFFF !important;
             backdrop-filter: blur(12px);
         }
-        .goog-te-gadget-simple {
-            background: transparent !important;
-            border: none !important;
-            padding: 0 !important;
-        }
-        .goog-te-gadget-simple span {
-            color: #E4E4E7 !important;
-            border: none !important;
-        }
-        .goog-te-menu-value span {
-            color: #FFFFFF !important;
-        }
-        .goog-te-banner-frame {
-            display: none !important;
-        }
+        .goog-te-banner-frame { display: none !important; }
         body { top: 0 !important; }
         .skiptranslate { display: none !important; }
-        #goog-gt-tt { display: none !important; }
     </style>
 </head>
-<body class="bg-bg-primary text-text-primary overflow-x-hidden">
+<body class="bg-bg-primary text-text-primary overflow-x-hidden" oncontextmenu="return false">
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="changeLightboxImage(-1)">&#10094;</span>
+        <span class="lightbox-nav lightbox-next" onclick="changeLightboxImage(1)">&#10095;</span>
+        <img id="lightbox-img" src="" alt="Imagen en grande">
+    </div>
 
     <!-- Particles Background -->
     <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
@@ -252,6 +359,11 @@
         <div class="particle" style="left: 30%; top: 85%; animation-delay: 12s;"></div>
         <div class="particle" style="left: 70%; top: 15%; animation-delay: 14s;"></div>
     </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/526121234567?text=Hola,%20me%20interesa%20La%20Calma%20Comunidad" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Navigation -->
     <nav class="navbar fixed top-0 w-full z-50 py-6">
@@ -267,8 +379,9 @@
             
             <div class="hidden md:flex items-center gap-8">
                 <a href="#inicio" class="text-text-secondary hover:text-accent transition-colors font-medium">Inicio</a>
-                <a href="#servicios" class="text-text-secondary hover:text-accent transition-colors font-medium">Lotes</a>
+                <a href="#lotes" class="text-text-secondary hover:text-accent transition-colors font-medium">Lotes</a>
                 <a href="#galeria" class="text-text-secondary hover:text-accent transition-colors font-medium">Galería</a>
+                <a href="#video" class="text-text-secondary hover:text-accent transition-colors font-medium">Video</a>
                 <a href="#ubicacion" class="text-text-secondary hover:text-accent transition-colors font-medium">Ubicación</a>
                 <a href="#contacto" class="text-text-secondary hover:text-accent transition-colors font-medium">Contacto</a>
             </div>
@@ -284,12 +397,12 @@
             </button>
         </div>
         
-        <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden mt-4 mx-6 p-6 rounded-2xl glass-card">
             <div class="flex flex-col gap-4">
                 <a href="#inicio" class="text-text-secondary hover:text-accent transition-colors" onclick="toggleMobileMenu()">Inicio</a>
-                <a href="#servicios" class="text-text-secondary hover:text-accent transition-colors" onclick="toggleMobileMenu()">Lotes</a>
+                <a href="#lotes" class="text-text-secondary hover:text-accent transition-colors" onclick="toggleMobileMenu()">Lotes</a>
                 <a href="#galeria" class="text-text-secondary hover:text-accent transition-colors" onclick="toggleMobileMenu()">Galería</a>
+                <a href="#video" class="text-text-secondary hover:text-accent transition-colors" onclick="toggleMobileMenu()">Video</a>
                 <a href="#ubicacion" class="text-text-secondary hover:text-accent transition-colors" onclick="toggleMobileMenu()">Ubicación</a>
                 <a href="#contacto" class="btn-primary text-center mt-2" onclick="toggleMobileMenu()">Cotizar Ahora</a>
             </div>
@@ -318,9 +431,9 @@
                 
                 <div class="flex flex-wrap gap-4 animate-fade-in" style="animation-delay: 0.6s;">
                     <a href="#contacto" class="btn-primary animate-pulse-glow">Agendar Visita</a>
-                    <a href="#galeria" class="btn-secondary flex items-center gap-2">
+                    <a href="#video" class="btn-secondary flex items-center gap-2">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        Ver Galería
+                        Ver Video
                     </a>
                 </div>
                 
@@ -341,7 +454,7 @@
             </div>
             
             <div class="relative animate-fade-in" style="animation-delay: 0.5s;">
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-accent/20">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-accent/20 cursor-pointer" onclick="openLightbox('images/vista-general.jpg')">
                     <img src="images/vista-general.jpg" alt="La Calma Comunidad - Vista General" class="w-full h-auto">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     <div class="absolute bottom-6 left-6 right-6">
@@ -354,6 +467,10 @@
                                 <p class="text-sm text-text-secondary">Baja California Sur, México</p>
                             </div>
                         </div>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur px-3 py-2 rounded-full flex items-center gap-2">
+                        <i class="fas fa-search-plus text-accent"></i>
+                        <span class="text-white text-sm">Ampliar</span>
                     </div>
                 </div>
                 
@@ -393,148 +510,87 @@
         </div>
     </section>
 
-    <!-- Master Plan Section -->
-    <section id="servicios" class="py-24 section-reveal">
+    <!-- Lotes Section -->
+    <section id="lotes" class="py-24 section-reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-accent font-semibold tracking-wider uppercase text-sm">Master Plan</span>
                 <h2 class="text-4xl md:text-5xl font-bold mt-4">Distribución de Lotes</h2>
                 <p class="text-text-secondary mt-4 max-w-2xl mx-auto">
-                    Diseño pensado para maximizar la privacidad y proteger las vistas de cada propietario. Topografía optimizada para construcciones de lujo.
+                    Diseño pensado para maximizar la privacidad y proteger las vistas de cada propietario. Haz clic en cada lote para ver más detalles.
                 </p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Lot 1 -->
-                <div class="flip-card h-80">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front glass-card">
-                            <img src="images/drone-1.jpg" alt="Lote 1" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
-                            <div class="absolute bottom-6 left-6">
-                                <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 1</span>
-                                <h3 class="text-2xl font-bold mt-2">Ubicación Preferente</h3>
-                                <p class="text-text-secondary">Vistas frontales al mar</p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back glass-card bg-bg-tertiary p-6 flex flex-col justify-center">
-                            <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full w-fit mb-4">LOTE 1 - DISPONIBLE</span>
-                            <h3 class="text-xl font-bold mb-2">1,500 m²</h3>
-                            <p class="text-text-secondary text-sm">
-                                Lote premium con la mejor ubicación dentro del desarrollo. Acceso directo a vialidad interna y vistas despejadas de 180° al Mar de Cortés.
-                            </p>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">180° Vista</span>
-                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Premium</span>
-                            </div>
-                        </div>
+                <!-- Lote 1 -->
+                <a href="lote-1.html" class="lot-card glass-card">
+                    <img src="images/drone-1.jpg" alt="Lote 1" onclick="openLightbox('images/drone-1.jpg'); event.preventDefault();">
+                    <div class="lot-card-overlay">
+                        <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 1</span>
+                        <h3 class="text-2xl font-bold mt-2">Ubicación Preferente</h3>
+                        <p class="text-text-secondary">1,500 m² • Vistas frontales 180°</p>
+                        <p class="text-accent text-sm mt-2 flex items-center gap-2">
+                            <span>Ver detalles</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </p>
                     </div>
-                </div>
+                </a>
                 
-                <!-- Lot 2 -->
-                <div class="flip-card h-80">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front glass-card">
-                            <img src="images/drone-2.jpg" alt="Lote 2" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
-                            <div class="absolute bottom-6 left-6">
-                                <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 2</span>
-                                <h3 class="text-2xl font-bold mt-2">Acceso Directo</h3>
-                                <p class="text-text-secondary">Desde vialidad interna</p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back glass-card bg-bg-tertiary p-6 flex flex-col justify-center">
-                            <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full w-fit mb-4">LOTE 2 - DISPONIBLE</span>
-                            <h3 class="text-xl font-bold mb-2">1,500 m²</h3>
-                            <p class="text-text-secondary text-sm">
-                                Acceso exclusivo desde la vialidad principal del desarrollo. Ideal para construcción de villa principal con portería privada.
-                            </p>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Acceso Directo</span>
-                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Villa Ready</span>
-                            </div>
-                        </div>
+                <!-- Lote 2 -->
+                <a href="lote-2.html" class="lot-card glass-card">
+                    <img src="images/drone-2.jpg" alt="Lote 2" onclick="openLightbox('images/drone-2.jpg'); event.preventDefault();">
+                    <div class="lot-card-overlay">
+                        <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 2</span>
+                        <h3 class="text-2xl font-bold mt-2">Acceso Directo</h3>
+                        <p class="text-text-secondary">1,500 m² • Vialidad interna</p>
+                        <p class="text-accent text-sm mt-2 flex items-center gap-2">
+                            <span>Ver detalles</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </p>
                     </div>
-                </div>
+                </a>
                 
-                <!-- Lot 3 -->
-                <div class="flip-card h-80">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front glass-card">
-                            <img src="images/drone-3.jpg" alt="Lote 3" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
-                            <div class="absolute bottom-6 left-6">
-                                <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 3</span>
-                                <h3 class="text-2xl font-bold mt-2">Zona Central</h3>
-                                <p class="text-text-secondary">Centro del desarrollo</p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back glass-card bg-bg-tertiary p-6 flex flex-col justify-center">
-                            <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full w-fit mb-4">LOTE 3 - DISPONIBLE</span>
-                            <h3 class="text-xl font-bold mb-2">1,500 m²</h3>
-                            <p class="text-text-secondary text-sm">
-                                Ubicación céntrica que ofrece balance perfecto entre privacidad y acceso. Topografía ideal para diseños arquitectónicos únicos.
-                            </p>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Central</span>
-                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Versátil</span>
-                            </div>
-                        </div>
+                <!-- Lote 3 -->
+                <a href="lote-3.html" class="lot-card glass-card">
+                    <img src="images/drone-3.jpg" alt="Lote 3" onclick="openLightbox('images/drone-3.jpg'); event.preventDefault();">
+                    <div class="lot-card-overlay">
+                        <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 3</span>
+                        <h3 class="text-2xl font-bold mt-2">Zona Central</h3>
+                        <p class="text-text-secondary">1,500 m² • Centro del desarrollo</p>
+                        <p class="text-accent text-sm mt-2 flex items-center gap-2">
+                            <span>Ver detalles</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </p>
                     </div>
-                </div>
+                </a>
                 
-                <!-- Lot 4 -->
-                <div class="flip-card h-80">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front glass-card">
-                            <img src="images/vista-derecha.jpg" alt="Lote 4" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
-                            <div class="absolute bottom-6 left-6">
-                                <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 4</span>
-                                <h3 class="text-2xl font-bold mt-2">Mayor Elevación</h3>
-                                <p class="text-text-secondary">Punto más alto</p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back glass-card bg-bg-tertiary p-6 flex flex-col justify-center">
-                            <span class="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full w-fit mb-4">LOTE 4 - DISPONIBLE</span>
-                            <h3 class="text-xl font-bold mb-2">1,500 m²</h3>
-                            <p class="text-text-secondary text-sm">
-                                La mayor elevación del desarrollo garantiza vistas incomparables. Perfecto para construcciones con rooftops y terrazas panorámicas.
-                            </p>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Elevación</span>
-                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Panorámico</span>
-                            </div>
-                        </div>
+                <!-- Lote 4 -->
+                <a href="lote-4.html" class="lot-card glass-card">
+                    <img src="images/vista-derecha.jpg" alt="Lote 4" onclick="openLightbox('images/vista-derecha.jpg'); event.preventDefault();">
+                    <div class="lot-card-overlay">
+                        <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 4</span>
+                        <h3 class="text-2xl font-bold mt-2">Mayor Elevación</h3>
+                        <p class="text-text-secondary">1,500 m² • Punto más alto</p>
+                        <p class="text-accent text-sm mt-2 flex items-center gap-2">
+                            <span>Ver detalles</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </p>
                     </div>
-                </div>
+                </a>
                 
-                <!-- Lot 5 -->
-                <div class="flip-card h-80 md:col-span-2 lg:col-span-2">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front glass-card">
-                            <img src="images/division-lotes.jpg" alt="Lote 5" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
-                            <div class="absolute bottom-6 left-6">
-                                <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 5</span>
-                                <h3 class="text-2xl font-bold mt-2">Lote de Remate</h3>
-                                <p class="text-text-secondary">Geometría extendida</p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back glass-card bg-bg-tertiary p-6 flex flex-col justify-center">
-                            <span class="px-3 py-1 bg-red-500/20 text-red-400 text-xs font-bold rounded-full w-fit mb-4">LOTE 5 - ÚLTIMAS UNIDADES</span>
-                            <h3 class="text-xl font-bold mb-2">1,505.37 m²</h3>
-                            <p class="text-text-secondary text-sm">
-                                Lote premium de esquina con geometría extendida. Mayor frente de calle y potencial para diseño arquitectónico excepcional. ¡Última oportunidad!
-                            </p>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Esquina</span>
-                                <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded">Extended</span>
-                                <span class="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded">HOT</span>
-                            </div>
-                        </div>
+                <!-- Lote 5 -->
+                <a href="lote-5.html" class="lot-card glass-card md:col-span-2 lg:col-span-2">
+                    <img src="images/division-lotes.jpg" alt="Lote 5" onclick="openLightbox('images/division-lotes.jpg'); event.preventDefault();">
+                    <div class="lot-card-overlay">
+                        <span class="px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full">LOTE 5 - ÚLTIMAS UNIDADES</span>
+                        <h3 class="text-2xl font-bold mt-2">Lote de Remate</h3>
+                        <p class="text-text-secondary">1,505.37 m² • Geometría extendida</p>
+                        <p class="text-accent text-sm mt-2 flex items-center gap-2">
+                            <span>Ver detalles</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </p>
                     </div>
-                </div>
+                </a>
             </div>
             
             <!-- Acceso Privado -->
@@ -568,28 +624,53 @@
         </div>
     </section>
 
+    <!-- Video Section -->
+    <section id="video" class="py-24 bg-bg-secondary section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-accent font-semibold tracking-wider uppercase text-sm">Recorrido Virtual</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4">Descubre La Ventana</h2>
+                <p class="text-text-secondary mt-4 max-w-2xl mx-auto">
+                    Explora el entorno donde se ubica La Calma. Playas, atardeceres y el estilo de vida que te espera.
+                </p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/igo9O7ZX4Oo?rel=0&modestbranding=1&controls=1&showinfo=0"
+                        title="La Ventana BCS - Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Galería Section -->
-    <section id="galeria" class="py-24 bg-bg-secondary section-reveal">
+    <section id="galeria" class="py-24 section-reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-accent font-semibold tracking-wider uppercase text-sm">Galería</span>
                 <h2 class="text-4xl md:text-5xl font-bold mt-4">Vistas del Desarrollo</h2>
                 <p class="text-text-secondary mt-4 max-w-2xl mx-auto">
-                    Imágenes aéreas y visuales del terreno que te esperan en La Ventana.
+                    Imágenes aéreas y visuales del terreno. Haz clic en cualquier imagen para verla en grande.
                 </p>
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="col-span-2 row-span-2 image-zoom rounded-2xl overflow-hidden">
+                <div class="col-span-2 row-span-2 image-zoom rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox('images/vista-cenital.jpg')">
                     <img src="images/vista-cenital.jpg" alt="Vista Cenital" class="w-full h-full object-cover">
                 </div>
-                <div class="image-zoom rounded-2xl overflow-hidden">
+                <div class="image-zoom rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox('images/vista-izquierda.jpg')">
                     <img src="images/vista-izquierda.jpg" alt="Vista Izquierda" class="w-full h-full object-cover aspect-square">
                 </div>
-                <div class="image-zoom rounded-2xl overflow-hidden">
+                <div class="image-zoom rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox('images/vista-derecha.jpg')">
                     <img src="images/vista-derecha.jpg" alt="Vista Derecha" class="w-full h-full object-cover aspect-square">
                 </div>
-                <div class="col-span-2 image-zoom rounded-2xl overflow-hidden">
+                <div class="col-span-2 image-zoom rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox('images/division-lotes.jpg')">
                     <img src="images/division-lotes.jpg" alt="División de Lotes" class="w-full h-48 object-cover">
                 </div>
             </div>
@@ -597,7 +678,7 @@
     </section>
 
     <!-- Características Section -->
-    <section class="py-24 section-reveal">
+    <section class="py-24 bg-bg-secondary section-reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
@@ -643,25 +724,12 @@
                                 <p class="text-text-secondary text-sm">Zona en crecimiento controlado. Terrenos de gran formato son cada vez más escasos.</p>
                             </div>
                         </div>
-                        
-                        <div class="flex gap-4 card-hover p-4 rounded-2xl glass-card transition-all">
-                            <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
-                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg">Ubicación Estratégica</h4>
-                                <p class="text-text-secondary text-sm">Minutos de la playa, kiteboarding, restaurantes y servicios.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 
-                <div class="relative">
+                <div class="relative cursor-pointer" onclick="openLightbox('images/vista-general.jpg')">
                     <div class="glass-card p-8 rounded-3xl">
-                        <img src="images/vista-general.jpg" alt="La Calma Vista General" class="rounded-2xl w-full">
+                        <img src="images/vista-general.jpg" alt="La Calma Vista General" class="rounded-2xl w-full cursor-pointer">
                     </div>
                     <div class="absolute -top-6 -right-6 w-40 h-40 bg-accent/30 rounded-full blur-3xl"></div>
                     <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/40 rounded-full blur-3xl"></div>
@@ -671,7 +739,7 @@
     </section>
 
     <!-- Análisis FODA -->
-    <section class="py-24 bg-bg-secondary section-reveal">
+    <section class="py-24 section-reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-accent font-semibold tracking-wider uppercase text-sm">Análisis</span>
@@ -751,7 +819,7 @@
     </section>
 
     <!-- Ubicación Section -->
-    <section id="ubicacion" class="py-24 section-reveal">
+    <section id="ubicacion" class="py-24 bg-bg-secondary section-reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-accent font-semibold tracking-wider uppercase text-sm">Ubicación</span>
@@ -762,7 +830,7 @@
             </div>
             
             <div class="grid lg:grid-cols-2 gap-8">
-                <div class="rounded-3xl overflow-hidden h-96 lg:h-auto">
+                <div class="rounded-3xl overflow-hidden h-96 lg:h-auto cursor-pointer" onclick="openLightbox('https://maps.google.com?output=embed&q=24.0715,-109.9999')">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3636.5!2d-109.9999!3d24.0715!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86af7d82f7c320d3%3A0x0!2zMjTCsDA0JzE3LjQiTiAxMDXCsDU5JzU5LjYiVw!5e0!3m2!1ses!2smx!4v1712420000000"
                         width="100%" 
@@ -783,7 +851,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold">Playa La Ventana</h4>
-                            <p class="text-text-secondary text-sm">Kiteboarding hub internacional con flujo constante de turistas y deportistas de alto nivel adquisitivo.</p>
+                            <p class="text-text-secondary text-sm">Kiteboarding hub internacional.</p>
                             <p class="text-accent text-xs mt-2">⏱️ Minutos del desarrollo</p>
                         </div>
                     </div>
@@ -796,7 +864,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold">The Strip - Zona Gastronómica</h4>
-                            <p class="text-text-secondary text-sm">Restaurantes internacionales, bares y vida social para expatriados y turistas.</p>
+                            <p class="text-text-secondary text-sm">Restaurantes internacionales y vida social.</p>
                             <p class="text-accent text-xs mt-2">⏱️ 5-10 minutos</p>
                         </div>
                     </div>
@@ -809,21 +877,8 @@
                         </div>
                         <div>
                             <h4 class="font-bold">Aeropuerto Internacional de La Paz</h4>
-                            <p class="text-text-secondary text-sm">Conexiones directas a Ciudad de México y Los Angeles. Vuelos charters disponibles.</p>
+                            <p class="text-text-secondary text-sm">Conexiones a CDMX y Los Angeles.</p>
                             <p class="text-accent text-xs mt-2">🚗 24 minutos</p>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card p-6 flex gap-4 items-start">
-                        <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
-                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Comunidad y Servicios</h4>
-                            <p class="text-text-secondary text-sm">Mercado orgánico, clínica médica, tienda de conveniencia y servicios básicos.</p>
-                            <p class="text-accent text-xs mt-2">🏪 Servicios completos</p>
                         </div>
                     </div>
                 </div>
@@ -832,7 +887,7 @@
     </section>
 
     <!-- Pricing Section -->
-    <section class="py-24 bg-bg-secondary section-reveal">
+    <section class="py-24 section-reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-accent font-semibold tracking-wider uppercase text-sm">Inversión</span>
@@ -884,7 +939,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-24 section-reveal">
+    <section class="py-24 bg-bg-secondary section-reveal">
         <div class="max-w-3xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-accent font-semibold tracking-wider uppercase text-sm">FAQ</span>
@@ -908,17 +963,7 @@
                         <svg class="w-5 h-5 text-accent transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
                     <p class="mt-4 text-text-secondary">
-                        Sí, existen lineamientos para mantener la armonía visual y asegurar que ninguna construcción obstruya la vista del lote posterior, protegiendo así el valor de todos los propietarios.
-                    </p>
-                </details>
-                
-                <details class="glass-card p-6 group">
-                    <summary class="font-bold cursor-pointer flex justify-between items-center">
-                        ¿Cuáles son los servicios disponibles?
-                        <svg class="w-5 h-5 text-accent transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </summary>
-                    <p class="mt-4 text-text-secondary">
-                        Los lotes se entregan con factibilidad de conexión eléctrica y agua. El desarrollo fomenta el uso de sistemas biodigestores para el manejo de aguas residuales.
+                        Sí, existen lineamientos para mantener la armonía visual y asegurar que ninguna construcción obstruya la vista del lote posterior.
                     </p>
                 </details>
                 
@@ -931,22 +976,12 @@
                         Sí, el desarrollador ofrece esquemas de pago flexibles con un enganche inicial y mensualidades. Consulte las tasas y plazos vigentes.
                     </p>
                 </details>
-                
-                <details class="glass-card p-6 group">
-                    <summary class="font-bold cursor-pointer flex justify-between items-center">
-                        ¿Cuándo puedo iniciar construcción?
-                        <svg class="w-5 h-5 text-accent transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </summary>
-                    <p class="mt-4 text-text-secondary">
-                        Una vez escriturado el lote, puedes iniciar el proceso de permisos de construcción. El desarrollo cuenta con lineamentos arquitectónicos que debes seguir.
-                    </p>
-                </details>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="py-24 bg-bg-secondary section-reveal">
+    <section id="contacto" class="py-24 section-reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
@@ -957,8 +992,8 @@
                     </p>
                     
                     <div class="mt-8 space-y-6">
-                        <a href="https://wa.me/526121234567" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
-                            <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
+                        <a href="https://wa.me/526121234567?text=Hola,%20me%20interesa%20La%20Calma%20Comunidad" target="_blank" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
                                 <i class="fab fa-whatsapp text-2xl text-green-500"></i>
                             </div>
                             <div>
@@ -968,7 +1003,7 @@
                         </a>
                         
                         <a href="mailto:info@lacalma.mx" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
-                            <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
                                 <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
@@ -1069,19 +1104,21 @@
                     <h4 class="font-bold mb-4">Enlaces Rápidos</h4>
                     <ul class="space-y-3 text-text-secondary">
                         <li><a href="#inicio" class="hover:text-accent transition-colors">Inicio</a></li>
-                        <li><a href="#servicios" class="hover:text-accent transition-colors">Lotes</a></li>
+                        <li><a href="#lotes" class="hover:text-accent transition-colors">Lotes</a></li>
                         <li><a href="#galeria" class="hover:text-accent transition-colors">Galería</a></li>
-                        <li><a href="#ubicacion" class="hover:text-accent transition-colors">Ubicación</a></li>
+                        <li><a href="#video" class="hover:text-accent transition-colors">Video</a></li>
                         <li><a href="#contacto" class="hover:text-accent transition-colors">Contacto</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold mb-4">Legal</h4>
+                    <h4 class="font-bold mb-4">Lotes</h4>
                     <ul class="space-y-3 text-text-secondary">
-                        <li><a href="#" class="hover:text-accent transition-colors">Aviso de Privacidad</a></li>
-                        <li><a href="#" class="hover:text-accent transition-colors">Términos y Condiciones</a></li>
-                        <li><a href="#" class="hover:text-accent transition-colors">Declaración de Riesgos</a></li>
+                        <li><a href="lote-1.html" class="hover:text-accent transition-colors">Lote 1 - Ubicación Preferente</a></li>
+                        <li><a href="lote-2.html" class="hover:text-accent transition-colors">Lote 2 - Acceso Directo</a></li>
+                        <li><a href="lote-3.html" class="hover:text-accent transition-colors">Lote 3 - Zona Central</a></li>
+                        <li><a href="lote-4.html" class="hover:text-accent transition-colors">Lote 4 - Mayor Elevación</a></li>
+                        <li><a href="lote-5.html" class="hover:text-accent transition-colors">Lote 5 - Remate</a></li>
                     </ul>
                 </div>
             </div>
@@ -1094,7 +1131,7 @@
     </footer>
 
     <!-- Google Translate Widget -->
-    <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;"></div>
+    <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 100px; z-index: 9999;"></div>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,pt,fr,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-XXXXXXXXX-X'}, 'google_translate_element');
@@ -1103,6 +1140,45 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
+        // Lightbox
+        const images = ['images/vista-general.jpg', 'images/vista-cenital.jpg', 'images/vista-izquierda.jpg', 'images/vista-derecha.jpg', 'images/division-lotes.jpg', 'images/drone-1.jpg', 'images/drone-2.jpg', 'images/drone-3.jpg'];
+        let currentImageIndex = 0;
+        
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            currentImageIndex = images.indexOf(src);
+            if (currentImageIndex === -1) currentImageIndex = 0;
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function changeLightboxImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+            if (currentImageIndex >= images.length) currentImageIndex = 0;
+            document.getElementById('lightbox-img').src = images[currentImageIndex];
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('lightbox').classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+                if (e.key === 'ArrowRight') changeLightboxImage(1);
+            }
+        });
+        
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+        
         // Mobile Menu
         function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('hidden');
@@ -1119,31 +1195,23 @@
         });
         
         // Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
         
-        document.querySelectorAll('.section-reveal').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.section-reveal').forEach(el => observer.observe(el));
         
         // Counter Animation
         function animateCounters() {
             document.querySelectorAll('.counter').forEach(counter => {
                 const target = parseInt(counter.textContent);
                 const duration = 2000;
-                const start = 0;
                 const increment = target / (duration / 16);
-                let current = start;
+                let current = 0;
                 
                 const updateCounter = () => {
                     current += increment;
@@ -1162,20 +1230,15 @@
         // Contact Form
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const formMessage = document.getElementById('formMessage');
             formMessage.textContent = '✓ ¡Gracias! Nos pondremos en contacto contigo pronto.';
             formMessage.classList.remove('hidden');
             formMessage.classList.add('text-green-500');
-            
             this.reset();
             
-            setTimeout(() => {
-                formMessage.classList.add('hidden');
-            }, 5000);
+            setTimeout(() => formMessage.classList.add('hidden'), 5000);
         });
         
-        // Initialize
         animateCounters();
     </script>
 </body>
