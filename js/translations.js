@@ -1,7 +1,4 @@
 // La Calma Comunidad — Translation Engine v2.0
-// Exchange rate: 1 USD ≈ 17.22 MXN (May 2026)
-
-const EXCHANGE_RATE = 17.22;
 
 const translations = {
   es: {
@@ -59,10 +56,14 @@ const translations = {
       season_5_period: 'Octubre — Diciembre',
       season_5_desc: 'Regreso de snowbirds. Festival del Viento (May). Temporada previa al pico de vientos. Clima perfecto, comunidad activa.',
       day_title: 'Un Día en La Ventana',
-      morning: '🌅 Mañana (6-10am) — Kitesurf al amanecer. Los vientos térmicos comienzan temprano. Desayuno en Café Bar Km 0.',
-      midday: '☀️ Mediodía (10am-2pm) — Paddle board en aguas tranquilas o buceo en Isla Cerralvo. Comida en Nómada El Sargento.',
-      afternoon: '🌤️ Tarde (2-6pm) — Siesta, lectura frente al mar o MTB en senderos del cerro. Café en Mare Spa.',
-      night: '🌙 Noche (6-11pm) — Atardecer en el malecón de La Ventana. Cena gourmet. Cielo estrellado sin contaminación lumínica.',
+      morning_title: '🌅 Mañana',
+      morning_desc: 'Mañana (6-10am) — Kitesurf al amanecer. Los vientos térmicos comienzan temprano. Desayuno en Café Bar Km 0.',
+      midday_title: '☀️ Mediodía',
+      midday_desc: 'Mediodía (10am-2pm) — Paddle board en aguas tranquilas o buceo en Isla Cerralvo. Comida en Nómada El Sargento.',
+      afternoon_title: '🌤️ Tarde',
+      afternoon_desc: 'Tarde (2-6pm) — Siesta, lectura frente al mar o MTB en senderos del cerro. Café en Mare Spa.',
+      night_title: '🌙 Noche',
+      night_desc: 'Noche (6-11pm) — Atardecer en el malecón de La Ventana. Cena gourmet. Cielo estrellado sin contaminación lumínica.',
       family_title: 'Logística Familiar',
       family_desc: 'Escuela Montessori bilingüe a 5 min. Farmacias locales. La Paz (hospitales de especialidad) a 35 min por carretera escénica. Starlink para trabajo remoto. Comunidad internacional activa de expatriados.',
       market_title: '¿Para quién es La Calma?',
@@ -278,10 +279,14 @@ const translations = {
       season_5_period: 'October — December',
       season_5_desc: 'Snowbirds return. Wind Festival (May). Pre-wind season. Perfect weather, active community.',
       day_title: 'A Day in La Ventana',
-      morning: '🌅 Morning (6-10am) — Sunrise kitesurf. Thermal winds start early. Breakfast at Café Bar Km 0.',
-      midday: '☀️ Midday (10am-2pm) — Paddle board in calm waters or diving at Cerralvo Island. Lunch at Nómada El Sargento.',
-      afternoon: '🌤️ Afternoon (2-6pm) — Siesta, oceanfront reading or MTB on mountain trails. Coffee at Mare Spa.',
-      night: '🌙 Night (6-11pm) — Sunset at La Ventana boardwalk. Gourmet dinner. Star-filled sky with zero light pollution.',
+      morning_title: '🌅 Morning',
+      morning_desc: 'Morning (6-10am) — Sunrise kitesurf. Thermal winds start early. Breakfast at Café Bar Km 0.',
+      midday_title: '☀️ Midday',
+      midday_desc: 'Midday (10am-2pm) — Paddle board in calm waters or diving at Cerralvo Island. Lunch at Nómada El Sargento.',
+      afternoon_title: '🌤️ Afternoon',
+      afternoon_desc: 'Afternoon (2-6pm) — Siesta, oceanfront reading or MTB on mountain trails. Coffee at Mare Spa.',
+      night_title: '🌙 Night',
+      night_desc: 'Night (6-11pm) — Sunset at La Ventana boardwalk. Gourmet dinner. Star-filled sky with zero light pollution.',
       family_title: 'Family Logistics',
       family_desc: 'Bilingual Montessori school 5 min away. Local pharmacies. La Paz (specialty hospitals) 35 min by scenic highway. Starlink for remote work. Active international expat community.',
       market_title: 'Who is La Calma for?',

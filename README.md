@@ -13,7 +13,7 @@
 
 ## 🌐 Live Site
 
-**→ [la-calma-comunidad.vercel.app](https://la-calma-comunidad.vercel.app)**
+**→ [oscaromargp.github.io/la-calma-comunidad](https://oscaromargp.github.io/la-calma-comunidad/)**
 
 ---
 
@@ -175,7 +175,7 @@ Toggle con botón en navbar. La preferencia se persiste en localStorage.
 ## 📬 Contacto
 
 **Asesor Comercial:** Ignacio Ibarra
-- 📞 +52 (612) 105 5224
+- 📞 +52 (612) 107 7805
 - 📧 tranquilerealestate@gmail.com
 
 **Desarrollador:** Oscar Omar Gómez Peña
