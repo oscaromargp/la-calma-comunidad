@@ -1,509 +1,405 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="nav.title">La Calma Comunidad | Lotes Premium La Ventana, BCS</title>
-  <meta name="description" content="La Calma Comunidad — 5 lotes Estate de 1,500 m² con acceso privado de 13m y vistas protegidas al Mar de Cortés. Financiamiento directo sin bancos. La Ventana, BCS.">
-  <meta name="keywords" content="La Calma, lotes, La Ventana, BCS, real estate, Mexico, premium lots, Mar de Cortes, kiteboarding, inversion, propiedad privada">
-  <meta property="og:title" content="La Calma Comunidad | Lotes Premium en La Ventana">
-  <meta property="og:description" content="5 lotes Estate de 1,500 m² con vistas panorámicas al Mar de Cortés. Financiamiento directo.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="images/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://oscaromargp.github.io/la-calma-comunidad/">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Calma Comunidad | Lotes Premium La Ventana, BCS</title>
+  <meta name="description" content="La Calma Comunidad — Últimas 2 fracciones Estate de 1,500 m² en La Ventana, BCS. Acceso privado 13m, vistas a Isla Cerralvo. Financiamiento directo." />
+  <meta name="keywords" content="La Calma, lotes, La Ventana, BCS, propiedad privada, kitesurf, inversion, baja densidad H1" />
+  <meta property="og:title" content="La Calma Comunidad | Lotes Premium La Ventana" />
+  <meta property="og:description" content="Últimas 2 fracciones Estate de 1,500 m². Financiamiento directo. Vistas protegidas." />
+  <meta property="og:image" content="images/og-image.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://oscaromargp.github.io/la-calma-comunidad/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-
-  <!-- Particles Canvas -->
   <canvas id="particles-canvas"></canvas>
 
-  <!-- ============================================================
-       NAVBAR
-  ============================================================ -->
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation">
     <div class="container">
       <a href="#" class="navbar-brand">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <rect width="32" height="32" rx="8" fill="#003366"/>
-          <text x="16" y="22" text-anchor="middle" fill="#FF9900" font-family="Plus Jakarta Sans" font-weight="800" font-size="18">LC</text>
-        </svg>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#003366"/><text x="16" y="22" text-anchor="middle" fill="#FF9900" font-family="Plus Jakarta Sans" font-weight="800" font-size="18">LC</text></svg>
         <span>La <span class="brand-accent">Calma</span></span>
       </a>
-
       <div class="navbar-links">
         <a href="#hero" data-i18n="nav.home">Inicio</a>
         <a href="#map-section" data-i18n="nav.map">Ubicación</a>
+        <a href="#areaguide" data-i18n="nav.lifestyle">Estilo de Vida</a>
         <a href="#transparency" data-i18n="nav.transparency">Transparencia</a>
         <a href="#simulator" data-i18n="nav.simulator">Simulador</a>
-        <a href="#financing" data-i18n="nav.financing">Financiamiento</a>
         <a href="#faq" data-i18n="nav.faq">FAQ</a>
-        <a href="https://wa.me/526121055224?text=Hola%2C%20solicito%20informaci%C3%B3n%20sobre%20La%20Calma%20Comunidad" target="_blank" data-i18n="nav.contact">Contacto</a>
-        <button class="lang-toggle" onclick="toggleLang()">
-          <span id="lang-btn-text" data-i18n="nav.lang_btn">EN</span>
-        </button>
+        <a href="https://wa.me/526121077805?text=Hola%2C%20solicito%20informaci%C3%B3n%20sobre%20La%20Calma%20Comunidad" target="_blank" data-i18n="nav.contact">Contacto</a>
+        <button class="lang-toggle" onclick="toggleLang()"><span id="lang-btn-text" data-i18n="nav.lang_btn">EN</span></button>
       </div>
-
-      <button class="mobile-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="mobile-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <!-- ============================================================
-       HERO SECTION (Module 1)
-  ============================================================ -->
+  <!-- HERO -->
   <section id="hero" class="hero">
     <video class="hero-video" autoplay muted loop playsinline poster="images/hero-poster.jpg">
-      <source src="images/hero-drone.mp4" type="video/mp4">
+      <source src="images/hero-drone.mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay"></div>
-
     <div class="container">
-      <div class="hero-badge">
-        <span class="dot"></span>
-        <span data-i18n="hero.badge">SOLO 5 LOTES ESTATE · PROPIEDAD PRIVADA · BAJA DENSIDAD H1</span>
-      </div>
-
-      <h1>
-        <span data-i18n="hero.title">La Calma Comunidad:</span>
-        <span class="gradient-text" data-i18n="hero.subtitle">Tu lienzo de baja densidad en el epicentro del viento.</span>
-      </h1>
-
-      <p data-i18n="hero.desc">Cinco lotes tipo Estate de 1,500 m² con acceso privado de 13 m de ancho, vistas panorámicas protegidas a Isla Cerralvo y el Mar de Cortés. El último desarrollo de baja densidad en La Ventana, BCS.</p>
-
+      <div class="hero-badge"><span class="dot"></span><span data-i18n="hero.badge">SOLO 2 LOTES DISPONIBLES · PROPIEDAD PRIVADA · BAJA DENSIDAD H1</span></div>
+      <h1><span data-i18n="hero.title">La Calma Comunidad:</span><span class="gradient-text" data-i18n="hero.subtitle">Tu último lienzo de baja densidad en el epicentro del viento.</span></h1>
+      <p data-i18n="hero.desc">Dos fracciones tipo Estate de 1,500 m² — las últimas disponibles. Acceso privado de 13 m, vistas protegidas a Isla Cerralvo. No es Tulum. Es mejor: el crecimiento controlado de La Ventana, BCS.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/526121055224?text=Hola%2C%20solicito%20informaci%C3%B3n%20sobre%20La%20Calma%20Comunidad" target="_blank" class="btn-primary" data-i18n="hero.cta_primary">
-          Agendar Visita
-        </a>
-        <a href="#map-section" class="btn-secondary" data-i18n="hero.cta_secondary">
-          Explorar Mapa
-        </a>
+        <a href="https://wa.me/526121077805?text=Hola%2C%20quiero%20agendar%20una%20visita%20para%20La%20Calma" target="_blank" class="btn-primary" data-i18n="hero.cta_primary">Agendar Visita</a>
+        <a href="#areaguide" class="btn-secondary" data-i18n="hero.cta_secondary">Conoce el Entorno</a>
       </div>
-
       <div class="hero-coords">
-        <span class="label" data-i18n="hero.coord_label">UBICACIÓN GEOGRÁFICA</span>
+        <span class="label" data-i18n="hero.coord_label">UBICACIÓN</span>
         <span class="val">24.070988° N · 109.998741° O</span>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       STATS BAR
-  ============================================================ -->
+  <!-- STATS -->
   <section class="stats-bar">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item reveal">
-          <div class="stat-number">
-            <span data-counter="5">0</span>
-          </div>
-          <div class="stat-label" data-i18n="stats.lots">Lotes Exclusivos</div>
-        </div>
-        <div class="stat-item reveal reveal-delay-1">
-          <div class="stat-number">
-            <span data-counter="1500">0</span><span class="stat-suffix">m²</span>
-          </div>
-          <div class="stat-label" data-i18n="stats.surface">m² por Lote</div>
-        </div>
-        <div class="stat-item reveal reveal-delay-2">
-          <div class="stat-number">
-            <span data-counter="13">0</span><span class="stat-suffix">m</span>
-          </div>
-          <div class="stat-label" data-i18n="stats.access">m Acceso Privado</div>
-        </div>
-        <div class="stat-item reveal reveal-delay-3">
-          <div class="stat-number">
-            H<span data-counter="1">0</span>
-          </div>
-          <div class="stat-label" data-i18n="stats.density">Densidad H1</div>
-        </div>
+      <div class="stats-grid-2">
+        <div class="stat-item reveal"><div class="stat-number"><span data-counter="2">0</span></div><div class="stat-label" data-i18n="stats.lots_avail">Disponibles</div></div>
+        <div class="stat-item reveal reveal-delay-1"><div class="stat-number"><span data-counter="5">0</span></div><div class="stat-label" data-i18n="stats.lots_total">Fracciones</div></div>
+        <div class="stat-item reveal reveal-delay-2"><div class="stat-number"><span data-counter="1500">0</span><span class="stat-suffix">m²</span></div><div class="stat-label" data-i18n="stats.surface">m² c/u</div></div>
+        <div class="stat-item reveal reveal-delay-3"><div class="stat-number"><span data-counter="13">0</span><span class="stat-suffix">m</span></div><div class="stat-label" data-i18n="stats.access">m Acceso Privado</div></div>
+        <div class="stat-item reveal reveal-delay-4"><div class="stat-number">H<span data-counter="1">0</span></div><div class="stat-label" data-i18n="stats.density">Densidad H1</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       MAP SECTION (Module 2)
-  ============================================================ -->
+  <!-- MAP SECTION -->
   <section id="map-section" class="section">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag" data-i18n="nav.map">Ubicación</span>
-        <h2 class="section-title" data-i18n="map.title">Geo-Localización Interactiva</h2>
-        <p class="section-subtitle" data-i18n="map.subtitle">Explora los 5 lotes, puntos de interés deportivo, familiar y gastronómico</p>
+        <h2 class="section-title" data-i18n="map.title">Lotificación Oficial</h2>
+        <p class="section-subtitle" data-i18n="map.subtitle">Fracción 4 y 5 — las únicas disponibles. El resto, vendido.</p>
       </div>
-
       <div id="interactive-map" class="reveal"></div>
-
       <div class="map-layers reveal reveal-delay-1">
-        <button class="map-layer-btn active" data-layer="lots">
-          🏠 <span data-i18n="nav.home">Lotes</span>
-        </button>
-        <button class="map-layer-btn" data-layer="sports">
-          🏄 <span data-i18n="map.layer_sports">Deportes</span>
-        </button>
-        <button class="map-layer-btn" data-layer="family">
-          👨‍👩‍👧‍👦 <span data-i18n="map.layer_family">Familia y Salud</span>
-        </button>
-        <button class="map-layer-btn" data-layer="gastro">
-          🍽️ <span data-i18n="map.layer_gastro">Gastronomía</span>
-        </button>
+        <button class="map-layer-btn active" data-layer="lots">🏠 Lotes</button>
+        <button class="map-layer-btn" data-layer="sports">🏄 Deportes</button>
+        <button class="map-layer-btn" data-layer="family">👨‍👩‍👧‍👦 Familia y Salud</button>
+        <button class="map-layer-btn" data-layer="gastro">🍽️ Gastronomía</button>
       </div>
-
       <div id="map-layer-desc" class="map-layer-desc"></div>
     </div>
   </section>
 
-  <!-- ============================================================
-       TRANSPARENCY SECTION (Module 3)
-  ============================================================ -->
-  <section id="transparency" class="section section-darker">
+  <!-- LIFESTYLE / AREA GUIDE -->
+  <section id="areaguide" class="section section-darker">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="nav.lifestyle">Estilo de Vida</span>
+        <h2 class="section-title" data-i18n="area_guide.title">Guía Interactiva del Entorno</h2>
+        <p class="section-subtitle" data-i18n="area_guide.subtitle">Esto no es un terreno perdido en el desierto. Esto es La Ventana — un ecosistema completo de deporte, familia, gastronomía y naturaleza.</p>
+      </div>
+
+      <!-- Google Maps Embed -->
+      <div class="area-map-embed reveal">
+        <iframe src="https://maps.google.com/maps?q=La+Ventana+BCS+M%C3%A9xico&z=13&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <!-- Sports -->
+      <div style="margin-top:48px;">
+        <div class="reveal">
+          <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;" data-i18n="area_guide.sports_title">Deportes y Vida Activa</h3>
+          <p style="font-size:0.9rem;color:var(--text-tertiary);line-height:1.7;margin-bottom:24px;" data-i18n="area_guide.sports_desc">La Ventana es reconocida por Forbes como uno de los mejores destinos del mundo para kitesurf.</p>
+        </div>
+        <h4 style="font-size:0.85rem;font-weight:700;color:var(--gold-500);margin-bottom:16px;text-transform:uppercase;letter-spacing:0.08em;" data-i18n="area_guide.sports_calendar">Calendario Deportivo</h4>
+        <div class="sports-grid reveal">
+          <div class="sport-card"><span class="season-icon">🌬️</span><h4 data-i18n="area_guide.season_1_title">Temp. Alta Kitesurf</h4><span class="period" data-i18n="area_guide.season_1_period">Noviembre — Abril</span><p data-i18n="area_guide.season_1_desc">Vientos térmicos 15-30 nudos. Competencias internacionales.</p></div>
+          <div class="sport-card"><span class="season-icon">🐋</span><h4 data-i18n="area_guide.season_2_title">Temp. de Ballenas</h4><span class="period" data-i18n="area_guide.season_2_period">Enero — Marzo</span><p data-i18n="area_guide.season_2_desc">Ballenas grises y jorobadas. Tours de avistamiento. Nado con orcas.</p></div>
+          <div class="sport-card"><span class="season-icon">🚵</span><h4 data-i18n="area_guide.season_3_title">Ciclismo y Senderismo</h4><span class="period" data-i18n="area_guide.season_3_period">Abril — Junio</span><p data-i18n="area_guide.season_3_desc">Floración del desierto. MTB clase mundial. Don Diablo Trail Run.</p></div>
+          <div class="sport-card"><span class="season-icon">🎣</span><h4 data-i18n="area_guide.season_4_title">Pesca y Buceo</h4><span class="period" data-i18n="area_guide.season_4_period">Julio — Octubre</span><p data-i18n="area_guide.season_4_desc">Blue Water World Cup. Buceo en arrecifes de Isla Cerralvo.</p></div>
+          <div class="sport-card"><span class="season-icon">🧘</span><h4 data-i18n="area_guide.season_5_title">Retiro y Comunidad</h4><span class="period" data-i18n="area_guide.season_5_period">Octubre — Diciembre</span><p data-i18n="area_guide.season_5_desc">Regreso de snowbirds. Festival del Viento. Clima perfecto.</p></div>
+        </div>
+      </div>
+
+      <!-- Day Routine -->
+      <div style="margin-top:40px;">
+        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:16px;" data-i18n="area_guide.day_title">Un Día en La Ventana</h3>
+        <div class="day-routine reveal">
+          <div class="day-block"><strong data-i18n="area_guide.morning">🌅 Mañana</strong><span data-i18n="area_guide.morning">Kitesurf al amanecer. Desayuno en Café Bar Km 0.</span></div>
+          <div class="day-block"><strong data-i18n="area_guide.midday">☀️ Mediodía</strong><span data-i18n="area_guide.midday">Paddle board o buceo. Comida en Nómada.</span></div>
+          <div class="day-block"><strong data-i18n="area_guide.afternoon">🌤️ Tarde</strong><span data-i18n="area_guide.afternoon">Siesta, lectura, MTB. Café en Mare Spa.</span></div>
+          <div class="day-block"><strong data-i18n="area_guide.night">🌙 Noche</strong><span data-i18n="area_guide.night">Atardecer, cena gourmet, cielo estrellado.</span></div>
+        </div>
+      </div>
+
+      <!-- Family Logistics -->
+      <div class="glass-card reveal" style="margin-top:24px;">
+        <h3><span>//</span> <span data-i18n="area_guide.family_title">Logística Familiar</span></h3>
+        <p data-i18n="area_guide.family_desc">Escuela Montessori bilingüe a 5 min. Farmacias locales. La Paz (hospitales especializados) a 35 min. Starlink. Comunidad internacional activa.</p>
+      </div>
+
+      <!-- Market fit -->
+      <div class="market-card reveal">
+        <div class="highlight" data-i18n="area_guide.market_title">¿Para quién es La Calma?</div>
+        <p><strong data-i18n="area_guide.market_q" style="color:var(--text-primary);">Para alguien que ya vivió Tulum, Puerto Escondido o Sayulita.</strong></p>
+        <p data-i18n="area_guide.market_a" style="margin-top:12px;">La Calma es para el inversionista que entiende que el verdadero lujo es la escasez. 5 fracciones. Solo 2 quedan. Sin blocks de condominios. Sin gentrificación masiva.</p>
+        <p data-i18n="area_guide.market_a2" style="margin-top:8px;">Para la familia que busca seguridad, naturaleza y comunidad. Para el nómada digital. Para el deportista que quiere vivir donde otros vacacionan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS & NEWS -->
+  <section id="press" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="nav.press">Prensa</span>
+        <h2 class="section-title" data-i18n="press.title">Lo que Dicen de La Ventana</h2>
+        <p class="section-subtitle" data-i18n="press.subtitle">Noticias reales que respaldan tu decisión de inversión.</p>
+      </div>
+      <div class="press-grid reveal">
+        <div class="press-card" data-url="https://www.posta.com.mx/bcs/forbes-destaca-a-la-ventana-como-un-destino-consentido-para-el-kitesurf/vl2148446">
+          <div class="press-source"><span class="source-name">Forbes</span><span class="source-date" data-i18n="press.articles.0.date">Enero 2026</span></div>
+          <blockquote data-i18n="press.articles.0.quote">"La Ventana es un destino consentido para el kitesurf. La revista recomienda visitar La Paz y su malecón."</blockquote>
+          <span class="press-tag" data-i18n="press.articles.0.tag">Reconocimiento Internacional</span>
+        </div>
+        <div class="press-card" data-url="https://elmundodigital.com.mx/la-paz-destaca-por-dinamismo-turistico-trafico-aereo-en-bcs-crece-2-en-2025/">
+          <div class="press-source"><span class="source-name">SETUE BCS</span><span class="source-date" data-i18n="press.articles.1.date">Enero 2026</span></div>
+          <blockquote data-i18n="press.articles.1.quote">"La Paz alcanzó 668,800 pasajeros aéreos en 2025, con un crecimiento del 10.9% anual."</blockquote>
+          <span class="press-tag" data-i18n="press.articles.1.tag">Crecimiento Turístico</span>
+        </div>
+        <div class="press-card" data-url="https://www.bcsnoticias.mx/hubo-17-mas-turistas-en-la-paz-al-cierre-del-2025-que-en-2024-consejera-de-canirac/">
+          <div class="press-source"><span class="source-name">Canirac BCS</span><span class="source-date" data-i18n="press.articles.2.date">Enero 2026</span></div>
+          <blockquote data-i18n="press.articles.2.quote">"La Paz tuvo 17% más turistas al cierre de 2025. Se proyectan 3-5 cruceros por mes en 2026."</blockquote>
+          <span class="press-tag" data-i18n="press.articles.2.tag">Derrama Económica</span>
+        </div>
+        <div class="press-card" data-url="https://www.diarioelindependiente.mx/2025/08/aprueban-programa-de-observacion-turistica-de-orcas-en-el-sargento-la-ventana-y-agua-amarga">
+          <div class="press-source"><span class="source-name">SEMARNAT</span><span class="source-date" data-i18n="press.articles.3.date">Agosto 2025</span></div>
+          <blockquote data-i18n="press.articles.3.quote">"Primer Plan de Manejo para nado con orcas en Latinoamérica. Opera en El Sargento, La Ventana."</blockquote>
+          <span class="press-tag" data-i18n="press.articles.3.tag">Ecoturismo Regulado</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROWTH PROJECTIONS -->
+  <section class="section section-darker">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">📈</span>
+        <h2 class="section-title" data-i18n="growth.title">Proyección de Crecimiento</h2>
+        <p class="section-subtitle" data-i18n="growth.subtitle">La Ventana está donde Tulum estaba hace 15 años — antes de la saturación.</p>
+      </div>
+
+      <div class="reveal">
+        <div class="timeline">
+          <div class="timeline-item"><div class="year">2025</div><p data-i18n="growth.timeline.0.event">Crecimiento 10.9% tráfico aéreo La Paz. Forbes destaca La Ventana.</p></div>
+          <div class="timeline-item"><div class="year">2026</div><p data-i18n="growth.timeline.1.event">120,000 cruceristas (+27%). Programa orcas. Blue Water World Cup 20° aniv.</p></div>
+          <div class="timeline-item"><div class="year">2027</div><p data-i18n="growth.timeline.2.event">Consolidación hub deportes de viento. Más rutas aéreas directas a La Paz.</p></div>
+          <div class="timeline-item"><div class="year">2028-30</div><p data-i18n="growth.timeline.3.event">Plusvalía acelerada. Lotes H1 cada vez más escasos. Valor protegido.</p></div>
+        </div>
+      </div>
+
+      <div class="keystone-box reveal" data-i18n="growth.keystone">
+        <strong>Dato clave:</strong> La Ventana-El Sargento cuenta con 22 hoteles, 283 habitaciones, y está superando la estacionalidad turística.
+      </div>
+
+      <div class="info-cards reveal">
+        <div class="info-card"><span class="info-icon">🌵</span><h4 data-i18n="growth.flora_title">Flora y Fauna</h4><p data-i18n="growth.flora_desc">Cardones, biznagas, pitahayas. Santuario de ballenas, orcas, delfines, lobos marinos y tortugas.</p></div>
+        <div class="info-card"><span class="info-icon">🏗️</span><h4 data-i18n="growth.soil_title">Suelo y Construcción</h4><p data-i18n="growth.soil_desc">Terreno firme de desierto. Sin riesgo de inundación. Factibilidad CFE. Biodigestor y cisterna recomendados.</p></div>
+        <div class="info-card"><span class="info-icon">📐</span><h4 data-i18n="growth.density_title">¿Qué se puede construir?</h4><p data-i18n="growth.density_desc">Uso H1. Residencias hasta 2 niveles, villas, complejos boutique. Máx 8 m. Prohibida alta densidad.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSPARENCY -->
+  <section id="transparency" class="section">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag" data-i18n="nav.transparency">Transparencia</span>
         <h2 class="section-title" data-i18n="transparency.title">Transparencia Técnica Total</h2>
-        <p class="section-subtitle" data-i18n="transparency.subtitle">Sin marketing vacío. Esto es lo que necesitas saber para tomar una decisión informada.</p>
+        <p class="section-subtitle" data-i18n="transparency.subtitle">Sin marketing vacío. Lo que necesitas saber de un desarrollador que no te oculta nada.</p>
       </div>
-
       <div class="transparency-grid">
-        <div class="glass-card reveal">
-          <span class="card-icon">💧</span>
-          <h3><span>//</span> <span data-i18n="transparency.water_title">El Reto del Agua y la Energía</span></h3>
-          <p data-i18n="transparency.water_body">La Ventana promueve un crecimiento consciente. No dependemos de redes municipales sobrecargadas. Los propietarios de La Calma implementan sistemas independientes: cisternas de almacenamiento de agua potable, plantas de tratamiento de aguas residuales (biodigestores) y sistemas solares fotovoltaicos. Esto no es una limitación — es una ventaja: control total sobre tus servicios, cero dependencia de infraestructura pública deficiente.</p>
-        </div>
-
-        <div class="glass-card reveal reveal-delay-1">
-          <span class="card-icon">🏛️</span>
-          <h3><span>//</span> <span data-i18n="transparency.legal_title">Estatus Legal: 100% Propiedad Privada</span></h3>
-          <p data-i18n="transparency.legal_body">Cada lote está regularizado ante el Catastro de Baja California Sur con subdivisión oficial autorizada. No es terreno ejidal, no es concesión. Es Propiedad Privada con escrituras individuales transferibles desde la firma del contrato.</p>
-        </div>
-
-        <div class="glass-card reveal reveal-delay-2">
-          <span class="card-icon">📐</span>
-          <h3><span>//</span> <span data-i18n="transparency.density_title">Protección de Densidad H1</span></h3>
-          <p data-i18n="transparency.density_body">La Calma tiene clasificación H1 (Habitacional Turística de Baja Densidad). Esto está escrito en el uso de suelo autorizado. Significa que solo existen 5 propietarios en el desarrollo. Nadie podrá construir un bloque de condominios que bloquee tu vista al amanecer. Esa protección es jurídica y está garantizada por el permiso de subdivisión.</p>
-        </div>
-
-        <div class="glass-card reveal reveal-delay-3">
-          <span class="card-icon">🗺️</span>
-          <h3><span>//</span> <span data-i18n="transparency.foda_title">Análisis FODA del Desarrollador</span></h3>
-          <p style="margin-bottom:12px;font-size:0.85rem;color:var(--text-tertiary);">Evaluación honesta de fortalezas, oportunidades, debilidades y amenazas del proyecto.</p>
-        </div>
+        <div class="glass-card reveal"><span class="card-icon">💧</span><h3><span>//</span> <span data-i18n="transparency.water_title">Agua y Energía</span></h3><p data-i18n="transparency.water_body">Cisternas, biodigestores, paneles solares. Control total de tus servicios.</p></div>
+        <div class="glass-card reveal reveal-delay-1"><span class="card-icon">🏛️</span><h3><span>//</span> <span data-i18n="transparency.legal_title">100% Propiedad Privada</span></h3><p data-i18n="transparency.legal_body">Regularizada ante Catastro. Subdivisión autorizada. Escrituras transferibles.</p></div>
+        <div class="glass-card reveal reveal-delay-2"><span class="card-icon">📐</span><h3><span>//</span> <span data-i18n="transparency.density_title">Protección H1</span></h3><p data-i18n="transparency.density_body">Solo 5 fracciones. Nadie construirá un bloque que bloquee tu vista.</p></div>
       </div>
-
-      <!-- FODA Grid -->
       <div class="foda-grid reveal">
-        <div class="foda-card foda-f">
-          <h4>🟢 <span data-i18n="transparency.foda_f_title">Fortalezas</span></h4>
-          <ul>
-            <li data-i18n="transparency.foda_f_1">Solo 5 propietarios — exclusividad garantizada</li>
-            <li data-i18n="transparency.foda_f_2">1,500 m² por lote con frentes de 44 m promedio</li>
-            <li data-i18n="transparency.foda_f_3">Vistas panorámicas protegidas por topografía escalonada</li>
-            <li data-i18n="transparency.foda_f_4">Precio de entrada $56.66 USD/m² — por debajo del mercado</li>
-          </ul>
-        </div>
-        <div class="foda-card foda-o">
-          <h4>🔵 <span data-i18n="transparency.foda_o_title">Oportunidades</span></h4>
-          <ul>
-            <li data-i18n="transparency.foda_o_1">Boom turístico de La Ventana con crecimiento de doble dígito en plusvalía</li>
-            <li data-i18n="transparency.foda_o_2">Financiamiento directo del desarrollador sin bancos</li>
-            <li data-i18n="transparency.foda_o_3">Alta demanda de renta vacacional premium (200-500 USD/noche en temporada)</li>
-            <li data-i18n="transparency.foda_o_4">Escasez de lotes amplios cerca del núcleo deportivo</li>
-          </ul>
-        </div>
-        <div class="foda-card foda-d">
-          <h4>🟡 <span data-i18n="transparency.foda_d_title">Debilidades</span></h4>
-          <ul>
-            <li data-i18n="transparency.foda_d_1">Requiere planeación de sistemas sustentables (agua/luz)</li>
-            <li data-i18n="transparency.foda_d_2">Disponibilidad limitada a solo 5 lotes</li>
-            <li data-i18n="transparency.foda_d_3">Dependencia estacional del viento para pico de rentas</li>
-          </ul>
-        </div>
-        <div class="foda-card foda-a">
-          <h4>🔴 <span data-i18n="transparency.foda_a_title">Amenazas</span></h4>
-          <ul>
-            <li data-i18n="transparency.foda_a_1">Incremento en costos de construcción en la península</li>
-            <li data-i18n="transparency.foda_a_2">Posibles desarrollos de alta densidad en zonas colindantes</li>
-            <li data-i18n="transparency.foda_a_3">Cambios regulatorios ambientales</li>
-          </ul>
-        </div>
+        <div class="foda-card foda-f"><h4>🟢 Fortalezas</h4><ul><li>Solo 2 fracciones disponibles</li><li>1,500 m² c/u</li><li>Vistas protegidas</li><li>$56.66 USD/m² — bajo mercado</li></ul></div>
+        <div class="foda-card foda-o"><h4>🔵 Oportunidades</h4><ul><li>Forbes destaca La Ventana</li><li>+10.9% tráfico aéreo anual</li><li>Renta $200-500 USD/noche</li><li>Escasez de lotes amplios</li></ul></div>
+        <div class="foda-card foda-d"><h4>🟡 Debilidades</h4><ul><li>Requiere sistemas sustentables</li><li>Solo 2 lotes disponibles</li><li>Estacionalidad de viento</li></ul></div>
+        <div class="foda-card foda-a"><h4>🔴 Amenazas</h4><ul><li>Incremento costos construcción</li><li>Desarrollos colindantes</li><li>Cambios regulatorios</li></ul></div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       SIMULATOR SECTION (Module 4)
-  ============================================================ -->
-  <section id="simulator" class="section">
+  <!-- SIMULATOR -->
+  <section id="simulator" class="section section-darker">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag" data-i18n="nav.simulator">Simulador</span>
-        <h2 class="section-title" data-i18n="simulator.title">Simulador de Inversión y Construcción</h2>
-        <p class="section-subtitle" data-i18n="simulator.subtitle">Proyecta tu inversión total, costos de construcción y retorno potencial en tiempo real.</p>
+        <h2 class="section-title" data-i18n="simulator.title">Simulador de Inversión</h2>
+        <p class="section-subtitle" data-i18n="simulator.subtitle">Proyecta tu inversión total, construcción y retorno potencial con datos reales del mercado de La Ventana.</p>
       </div>
-
       <div id="sim-form" class="simulator-layout">
-        <!-- Controls -->
         <div class="simulator-controls reveal">
+          <div class="form-group">
+            <label for="fraction-select" data-i18n="simulator.land_label">Fracción</label>
+            <select id="fraction-select" class="form-select">
+              <option value="frac4" data-i18n="simulator.frac4">Fracción 4 — $85,000 USD</option>
+              <option value="frac5" data-i18n="simulator.frac5">Fracción 5 — $87,000 USD</option>
+            </select>
+          </div>
           <div class="form-group">
             <label for="project-type" data-i18n="simulator.project_label">Tipo de Proyecto</label>
             <select id="project-type" class="form-select">
-              <option value="villa" data-i18n="simulator.project_villa">Villa Boutique / Vacation Rental</option>
-              <option value="estate" data-i18n="simulator.project_estate">Residencia Premium 2 Niveles</option>
+              <option value="villa" data-i18n="simulator.project_villa">Villa Boutique (2-3 recámaras)</option>
+              <option value="estate" data-i18n="simulator.project_estate">Residencia Premium (4-5 recámaras)</option>
             </select>
           </div>
-
           <div class="form-group">
             <label for="surface-slider" data-i18n="simulator.surface_label">Superficie de Construcción</label>
             <div class="range-wrapper">
-              <input type="range" id="surface-slider" class="range-input" min="100" max="800" value="300" step="10">
-              <div class="range-value" id="surface-display">300 <span class="range-unit">m²</span></div>
+              <input type="range" id="surface-slider" class="range-input" min="100" max="800" value="300" step="10" />
+              <div class="range-value" id="surface-display">300 <span class="range-unit">m² construidos</span></div>
             </div>
           </div>
-        </div>
-
-        <!-- Results -->
-        <div class="simulator-results reveal reveal-delay-1">
           <div class="result-card">
             <h4 data-i18n="simulator.land_title">Terreno</h4>
-            <div class="result-row">
-              <span class="label" data-i18n="simulator.land_price">Precio del Lote</span>
-              <span class="value" id="result-land-price">$85,000 USD</span>
-            </div>
-            <div class="result-row">
-              <span class="label" data-i18n="simulator.land_m2_price">Precio por m²</span>
-              <span class="value gold" id="result-land-m2">$56.66 USD</span>
-            </div>
+            <div class="result-row"><span class="label">Precio</span><span class="value" id="result-land-price">$85,000 USD</span></div>
+            <div class="result-row"><span class="label">/m²</span><span class="value gold" id="result-land-m2">$56.66 USD</span></div>
+            <div class="result-row" style="border-bottom:none;"><span class="label" data-i18n="simulator.build_cost">Costo Construcción</span><span class="value" id="result-build-cost">$337,500 USD</span></div>
+            <div class="result-row" style="border-bottom:none;"><span class="label" data-i18n="simulator.build_m2">/m²</span><span class="value" id="result-build-m2">$1,125 /m²</span></div>
           </div>
-
-          <div class="result-card">
-            <h4 data-i18n="simulator.build_title">Construcción</h4>
-            <div class="result-row">
-              <span class="label" data-i18n="simulator.build_cost">Costo de Construcción</span>
-              <span class="value" id="result-build-cost">$300,000 USD</span>
-            </div>
-            <div class="result-row">
-              <span class="label" data-i18n="simulator.build_m2">por m² construido</span>
-              <span class="value" id="result-build-m2">$1,125 /m²</span>
-            </div>
-          </div>
-
+        </div>
+        <div class="simulator-results reveal reveal-delay-1">
           <div class="result-card result-total">
-            <h4 data-i18n="simulator.total_title">Inversión Total Estimada</h4>
-            <div class="result-row">
-              <span class="label" data-i18n="simulator.total_land">Terreno</span>
-              <span class="value" id="result-breakdown-land">$85,000 USD</span>
-            </div>
-            <div class="result-row">
-              <span class="label" data-i18n="simulator.total_build">Construcción</span>
-              <span class="value" id="result-breakdown-build">$300,000 USD</span>
-            </div>
+            <h4 data-i18n="simulator.total_project">Inversión Total</h4>
+            <div class="result-row"><span class="label">Terreno</span><span class="value" id="result-breakdown-land">$85,000 USD</span></div>
+            <div class="result-row"><span class="label">Construcción</span><span class="value" id="result-breakdown-build">$337,500 USD</span></div>
             <div class="result-row" style="border-bottom:none;padding-top:8px;border-top:1px solid rgba(255,153,0,0.2);">
-              <span class="label" style="font-weight:700;color:var(--text-primary);" data-i18n="simulator.total_sum">Total Proyecto</span>
-              <span class="value gold" style="font-size:1.1rem;" id="result-total">$385,000 USD</span>
+              <span class="label" style="font-weight:700;color:var(--text-primary);">Total</span>
+              <span class="value gold" style="font-size:1.1rem;" id="result-total">$422,500 USD</span>
             </div>
           </div>
-
           <div class="result-card">
-            <h4 data-i18n="simulator.rental_title">Proyección de Rentas</h4>
-            <div class="result-row">
-              <span class="label" data-i18n="simulator.rental_long">Renta Mensual (Largo Plazo)</span>
-              <span class="value" id="result-rent-long">$2,500/mes</span>
-            </div>
-            <div class="result-row">
-              <span class="label" data-i18n="simulator.rental_short">Renta por Noche (Temp. Alta)</span>
-              <span class="value gold" id="result-rent-short">$250/noche</span>
-            </div>
-            <div class="result-row">
-              <span class="label" data-i18n="simulator.rental_occ">Ocupación Estimada (Nov-Abr)</span>
-              <span class="value" id="result-occ">80%</span>
-            </div>
-            <div class="result-row">
-              <span class="label" data-i18n="simulator.rental_annual">Ingreso Anual Estimado</span>
-              <span class="value green" id="result-annual">$48,000 USD</span>
-            </div>
-            <div class="result-row">
-              <span class="label" data-i18n="simulator.rental_roi">ROI Anual Estimado</span>
-              <span class="value green" style="font-size:1.1rem;" id="result-roi">12.5%</span>
+            <h4 data-i18n="simulator.rental_title">Proyección Airbnb</h4>
+            <p style="font-size:0.7rem;color:var(--text-muted);margin-bottom:8px;" data-i18n="simulator.rental_note">Basado en datos reales de propiedades comparables</p>
+            <div class="result-row"><span class="label" data-i18n="simulator.nightly_rate">Tarifa noche (temp. alta)</span><span class="value gold" id="result-nightly">$350/noche</span></div>
+            <div class="result-row"><span class="label" data-i18n="simulator.occupancy">Ocupación (6 meses)</span><span class="value" id="result-occ">80%</span></div>
+            <div class="result-row"><span class="label" data-i18n="simulator.monthly_low">Ingreso mes (temp. baja)</span><span class="value" id="result-monthly-low">$3,500/mes</span></div>
+            <div class="result-row"><span class="label" data-i18n="simulator.annual_income">Ingreso Anual</span><span class="value green" id="result-annual">$50,400 USD</span></div>
+            <div class="result-row"><span class="label" data-i18n="simulator.annual_expenses">Gastos (30%)</span><span class="value" id="result-expenses">$15,120 USD</span></div>
+            <div class="result-row" style="border-bottom:none;"><span class="label" style="font-weight:700;" data-i18n="simulator.net_income">Ingreso Neto</span><span class="value green" style="font-weight:700;" id="result-net">$35,280 USD</span></div>
+            <div class="result-row" style="border-bottom:none;">
+              <span class="label" style="font-size:0.9rem;font-weight:700;color:var(--text-primary);" data-i18n="simulator.roi">ROI Neto Anual</span>
+              <span class="value green" style="font-size:1.3rem;font-weight:800;" id="result-roi">8.4%</span>
             </div>
           </div>
-
-          <p style="font-size:0.75rem;color:var(--text-muted);text-align:center;padding:8px;" data-i18n="simulator.disclaimer">* Los costos de construcción son estimados basados en promedios regionales 2025-2026. Consulta con arquitectos locales para presupuestos precisos.</p>
+          <p style="font-size:0.7rem;color:var(--text-muted);text-align:center;padding:8px;" data-i18n="simulator.disclaimer">*Basado en promedios 2025-2026. Consulta con arquitectos locales.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       FINANCING SECTION (Module 5)
-  ============================================================ -->
-  <section id="financing" class="section section-darker">
+  <!-- FINANCING -->
+  <section id="financing" class="section">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag" data-i18n="nav.financing">Financiamiento</span>
-        <h2 class="section-title" data-i18n="financing.title">Financiamiento Directo: Sin Bancos, Sin Burocracia</h2>
-        <p class="section-subtitle" data-i18n="financing.subtitle">Un modelo transparente de financiamiento directo con el desarrollador. No necesitas historial crediticio ni aprobación bancaria.</p>
+        <h2 class="section-title" data-i18n="financing.title">Financiamiento Directo: Sin Bancos, Sin Buró</h2>
+        <p class="section-subtitle" data-i18n="financing.subtitle">El mismo desarrollador te financia. Sin historial crediticio, sin aprobación bancaria, sin intereses ocultos.</p>
       </div>
-
       <div class="financing-grid">
         <div class="reveal">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
             <div class="finance-highlight">
-              <div class="label" data-i18n="financing.down_payment">Enganche Inicial</div>
+              <div class="label">Enganche</div>
               <div class="amount">$17,000</div>
               <div class="sub" data-i18n="financing.down_val">20%</div>
             </div>
             <div class="finance-highlight">
-              <div class="label" data-i18n="financing.term">Plazo</div>
+              <div class="label" data-i18n="financing.term_val">Plazo</div>
               <div class="amount" style="font-size:2rem;">60</div>
-              <div class="sub" data-i18n="financing.term_val">Meses</div>
+              <div class="sub">Meses</div>
             </div>
           </div>
           <div class="finance-highlight reveal reveal-delay-1">
             <div class="label" data-i18n="financing.monthly">Pago Mensual Fijo</div>
-            <div class="amount" style="color:#10B981;">$1,134</div>
+            <div class="amount" style="color:#10B981;" data-i18n-price="1134">$1,134 USD</div>
             <div class="sub">USD · Sin intereses inflacionarios</div>
           </div>
         </div>
-
         <div class="finance-details reveal reveal-delay-1">
-          <div class="finance-detail-card">
-            <div class="icon">🔒</div>
-            <div class="text">
-              <h5 data-i18n="financing.highlight_1_title">Sin intereses inflacionarios</h5>
-              <p data-i18n="financing.highlight_1_desc">El precio se fija en USD desde el día 1. No hay ajustes por inflación ni cláusulas de incremento.</p>
-            </div>
-          </div>
-          <div class="finance-detail-card">
-            <div class="icon">🚀</div>
-            <div class="text">
-              <h5 data-i18n="financing.highlight_2_title">Disponibilidad inmediata</h5>
-              <p data-i18n="financing.highlight_2_desc">Al firmar contrato y cubrir el enganche, puedes iniciar limpieza, nivelación y planeación arquitectónica.</p>
-            </div>
-          </div>
-          <div class="finance-detail-card">
-            <div class="icon">📜</div>
-            <div class="text">
-              <h5 data-i18n="financing.highlight_3_title">Garantía contractual</h5>
-              <p data-i18n="financing.highlight_3_desc">Tu inversión está respaldada por contrato privado de compraventa debidamente formalizado ante notario.</p>
-            </div>
-          </div>
+          <div class="finance-detail-card"><div class="icon">🔒</div><div class="text"><h5>Precio fijo</h5><p data-i18n="financing.highlight_1">Fijado en USD desde el día 1. Sin inflación.</p></div></div>
+          <div class="finance-detail-card"><div class="icon">🚀</div><div class="text"><h5>Disponibilidad inmediata</h5><p data-i18n="financing.highlight_2">Al firmar, inicia limpieza y planeación.</p></div></div>
+          <div class="finance-detail-card"><div class="icon">📜</div><div class="text"><h5>Garantía notarial</h5><p data-i18n="financing.highlight_3">Contrato de compraventa ante notario.</p></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       FAQ SECTION (Module 6)
-  ============================================================ -->
-  <section id="faq" class="section">
+  <!-- FAQ -->
+  <section id="faq" class="section section-darker">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag" data-i18n="nav.faq">FAQ</span>
-        <h2 class="section-title" data-i18n="faq.title">Preguntas Frecuentes para Compradores Analíticos</h2>
-        <p class="section-subtitle" data-i18n="faq.subtitle">Respuestas directas a las preguntas difíciles que todo inversionista inteligente debe hacer.</p>
+        <h2 class="section-title" data-i18n="faq.title">Preguntas que un Comprador Inteligente Hace</h2>
+        <p class="section-subtitle" data-i18n="faq.subtitle">Las respuestas que necesitas antes de invertir. Sin rodeos.</p>
       </div>
-
       <div class="faq-list reveal">
         <div class="faq-item active">
-          <button class="faq-question">
-            <span><span class="q-icon">❓</span> <span data-i18n="faq.q1">¿Cuál es el estatus legal real de la tierra?</span></span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p data-i18n="faq.a1">100% Propiedad Privada regularizada ante el Catastro de BCS con subdivisión oficial autorizada. Cada fracción (1-5) tiene su propio folio de registro. No es terreno ejidal, no es concesión federal. Es propiedad privada con escrituras individuales transferibles.</p>
-          </div>
+          <button class="faq-question"><span><span class="q-icon">❓</span> <span data-i18n="faq.q1">¿Por qué La Ventana y no Tulum?</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-answer"><p data-i18n="faq.a1">Tulum se saturó. La Ventana es la última frontera de crecimiento controlado en BCS. Densidad H1. Precios bajo mercado. Timing perfecto.</p></div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-question">
-            <span><span class="q-icon">❓</span> <span data-i18n="faq.q2">¿Puedo hacer modificaciones topográficas antes de terminar de pagar?</span></span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p data-i18n="faq.a2">Sí. Al firmar el contrato inicial y cubrir el enganche del 20%, el comprador puede iniciar inmediatamente trabajos de limpieza, nivelación del terreno (respetando colindancias oficiales) y desarrollo del proyecto arquitectónico. No necesitas esperar a liquidar el total.</p>
-          </div>
+          <button class="faq-question"><span><span class="q-icon">❓</span> <span data-i18n="faq.q2">¿Estatus legal real?</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-answer"><p data-i18n="faq.a2">100% Propiedad Privada. Regularizada Catastro BCS. Escrituras transferibles. No ejidal.</p></div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-question">
-            <span><span class="q-icon">❓</span> <span data-i18n="faq.q3">¿Hay cuotas ocultas o mantenimientos obligatorios?</span></span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p data-i18n="faq.a3">No. No existen cuotas ocultas ni cargos sorpresa. Al ser un régimen privado de solo 5 propietarios, el mantenimiento del camino de acceso común de 13 m se acuerda cooperativamente entre los vecinos. Sin administradoras externas, sin cuotas inflacionarias.</p>
-          </div>
+          <button class="faq-question"><span><span class="q-icon">❓</span> <span data-i18n="faq.q3">¿Puedo construir antes de pagar todo?</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-answer"><p data-i18n="faq.a3">Sí. Al firmar y pagar el enganche, inicia limpieza, nivelación y proyecto arquitectónico.</p></div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-question">
-            <span><span class="q-icon">❓</span> <span data-i18n="faq.q4">¿Qué servicios de infraestructura están disponibles?</span></span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p data-i18n="faq.a4">La zona cuenta con factibilidad de conexión eléctrica de CFE. Para el agua, los propietarios instalan cisternas de almacenamiento con capacidad suficiente para uso residencial. Se recomiendan sistemas de tratamiento de aguas residuales (biodigestores) y paneles solares para autonomía energética total.</p>
-          </div>
+          <button class="faq-question"><span><span class="q-icon">❓</span> <span data-i18n="faq.q4">¿Cuotas ocultas?</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-answer"><p data-i18n="faq.a4">No. Mantenimiento cooperativo del acceso entre los 5 propietarios. Sin administradoras.</p></div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-question">
-            <span><span class="q-icon">❓</span> <span data-i18n="faq.q5">¿Cuáles son las restricciones de construcción?</span></span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p data-i18n="faq.a5">El uso de suelo H1 permite residencias unifamiliares, villas de descanso o complejos boutique de hasta 2 niveles. No se permiten desarrollos de alta densidad. La intención es preservar la privacidad y las vistas de los 5 propietarios. Se recomienda arquitectura armónica con el entorno desértico-costero.</p>
-          </div>
+          <button class="faq-question"><span><span class="q-icon">❓</span> <span data-i18n="faq.q5">¿Agua y electricidad?</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-answer"><p data-i18n="faq.a5">Factibilidad CFE. Cisterna de agua. Biodigestor + paneles solares recomendados.</p></div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-question">
-            <span><span class="q-icon">❓</span> <span data-i18n="faq.q6">¿Puedo usar el lote para renta vacacional?</span></span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p data-i18n="faq.a6">Sí. La Ventana es un destino global de kiteboarding con temporada alta de noviembre a abril. Las propiedades premium en la zona alcanzan tarifas de $200-$500 USD/noche con ocupaciones del 75-85% en temporada de vientos. Es viable tanto para rentas temporales como para residencia permanente.</p>
-          </div>
+          <button class="faq-question"><span><span class="q-icon">❓</span> <span data-i18n="faq.q6">¿Rentar en Airbnb?</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-answer"><p data-i18n="faq.a6">Sí. Propiedades comparables: $200-500 USD/noche. Ocupación 75-85% en temporada de vientos.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span><span class="q-icon">❓</span> <span data-i18n="faq.q7">¿Escuelas, hospitales?</span></span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-answer"><p data-i18n="faq.a7">Escuela Montessori bilingüe a 5 min. Hospitales La Paz a 35 min. Starlink. Comunidad internacional.</p></div>
         </div>
       </div>
-
       <div style="text-align:center;margin-top:32px;">
-        <a href="https://wa.me/526121055224?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20La%20Calma%20Comunidad" target="_blank" class="btn-primary" data-i18n="faq.cta_text">
-          ¿Otra pregunta? Escríbenos directo
-        </a>
+        <a href="https://wa.me/526121077805?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20La%20Calma%20Comunidad" target="_blank" class="btn-primary" data-i18n="faq.cta_text">¿Otra pregunta? Escríbenos</a>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       CTA FINAL
-  ============================================================ -->
+  <!-- CTA -->
   <section class="cta-section">
     <div class="container">
       <div class="reveal">
-        <p class="cta-sub" data-i18n="cta.subtitle">5 lotes. 5 oportunidades. Una sola decisión.</p>
-        <h2 data-i18n="cta.title">Asegura tu patrimonio en Baja California Sur.</h2>
-        <p data-i18n="cta.desc">Bloquea el precio actual de $56.66 USD/m² antes del próximo ajuste. Agenda hoy tu visita virtual o presencial.</p>
-        <a href="https://wa.me/526121055224?text=Hola%2C%20quiero%20agendar%20una%20visita%20para%20La%20Calma%20Comunidad" target="_blank" class="btn-primary" data-i18n="cta.btn">
-          Agendar Llamada o Visita
-        </a>
+        <p class="cta-sub" data-i18n="cta.subtitle">Fracción 4 y Fracción 5 — las últimas.</p>
+        <h2 data-i18n="cta.title">Dos fracciones. Una decisión.</h2>
+        <p data-i18n="cta.desc">Bloquea el precio de $56.66 USD/m² antes del próximo ajuste. La Ventana no va a esperar.</p>
+        <a href="https://wa.me/526121077805?text=Hola%2C%20quiero%20agendar%20una%20llamada%20para%20La%20Calma%20Comunidad" target="_blank" class="btn-primary" data-i18n="cta.btn">Agendar Llamada</a>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -511,39 +407,36 @@
           <h3>La <span>Calma</span> Comunidad</h3>
           <p data-i18n="footer.tagline">TRANQUILITY · BAJA LIFESTYLE</p>
           <div class="footer-contact" style="margin-top:20px;">
-            <p data-i18n="footer.advisor">Asesor Comercial: Ignacio Ibarra</p>
-            <p data-i18n="footer.phone">+52 (612) 105 5224</p>
+            <p data-i18n="footer.advisor">Ignacio Ibarra — Asesor Comercial</p>
+            <p data-i18n="footer.phone">+52 (612) 107 7805</p>
             <p>tranquilerealestate@gmail.com</p>
           </div>
         </div>
-
         <div class="footer-col">
-          <h5 data-i18n="nav.home">Navegación</h5>
+          <h5>Navegación</h5>
           <a href="#hero" data-i18n="nav.home">Inicio</a>
           <a href="#map-section" data-i18n="nav.map">Ubicación</a>
+          <a href="#areaguide" data-i18n="nav.lifestyle">Estilo de Vida</a>
           <a href="#transparency" data-i18n="nav.transparency">Transparencia</a>
           <a href="#simulator" data-i18n="nav.simulator">Simulador</a>
           <a href="#faq" data-i18n="nav.faq">FAQ</a>
         </div>
-
         <div class="footer-col">
           <h5>Legal</h5>
-          <a href="legal/privacidad.html" data-i18n="footer.legal_privacidad">Aviso de Privacidad</a>
-          <a href="legal/cookies.html" data-i18n="footer.legal_cookies">Política de Cookies</a>
-          <a href="legal/terminos.html" data-i18n="footer.legal_terminos">Términos y Condiciones</a>
+          <a href="legal/privacidad.html" data-i18n="footer.privacy">Aviso de Privacidad</a>
+          <a href="legal/cookies.html" data-i18n="footer.cookies">Política de Cookies</a>
+          <a href="legal/terminos.html" data-i18n="footer.terms">Términos</a>
         </div>
       </div>
-
       <div class="footer-bottom">
         <p data-i18n="footer.rights">La Calma Community © 2026</p>
-        <p>📍 <span data-i18n="footer.location">La Ventana, Baja California Sur, México</span></p>
+        <p>📍 <span data-i18n="footer.location">La Ventana, BCS, México</span></p>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/translations.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="js/map.js"></script>
   <script src="js/app.js"></script>
 </body>

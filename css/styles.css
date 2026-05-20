@@ -1169,14 +1169,332 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================================
+   AREA GUIDE / LIFESTYLE
+   ============================================================ */
+.area-map-embed {
+  width: 100%;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(var(--navy-rgb), 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.area-map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.sport-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(var(--navy-rgb), 0.15);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.sport-card:hover {
+  border-color: rgba(var(--gold-rgb), 0.25);
+  transform: translateY(-2px);
+}
+
+.sport-card .season-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.sport-card h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.sport-card .period {
+  font-size: 0.7rem;
+  color: var(--gold-500);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.sport-card p {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+.day-routine {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.day-block {
+  background: linear-gradient(135deg, rgba(var(--navy-rgb), 0.06), rgba(var(--navy-rgb), 0.02));
+  border: 1px solid rgba(var(--navy-rgb), 0.1);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+.day-block strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.82rem;
+}
+
+.market-card {
+  background: linear-gradient(135deg, rgba(var(--gold-rgb), 0.06), rgba(var(--navy-rgb), 0.06));
+  border: 1px solid rgba(var(--gold-rgb), 0.15);
+  border-radius: 20px;
+  padding: 32px;
+  margin-top: 24px;
+}
+
+.market-card .highlight {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold-500);
+  margin-bottom: 12px;
+  font-family: var(--font-display);
+}
+
+.market-card p {
+  font-size: 0.88rem;
+  color: var(--text-tertiary);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   PRESS / NEWS
+   ============================================================ */
+.press-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.press-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(var(--navy-rgb), 0.12);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.press-card:hover {
+  border-color: rgba(var(--gold-rgb), 0.25);
+  transform: translateY(-2px);
+}
+
+.press-card .press-source {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.press-card .source-name {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-500);
+}
+
+.press-card .source-date {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.press-card blockquote {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 12px;
+  padding-left: 12px;
+  border-left: 2px solid var(--gold-500);
+}
+
+.press-card .press-tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--navy-500);
+  background: rgba(var(--gold-rgb), 0.1);
+  padding: 3px 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   GROWTH TIMELINE
+   ============================================================ */
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold-500), rgba(var(--navy-rgb), 0.3));
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 32px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold-500);
+  border: 3px solid var(--bg-secondary);
+  box-shadow: 0 0 12px rgba(var(--gold-rgb), 0.3);
+}
+
+.timeline-item .year {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--gold-500);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.timeline-item p {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+.keystone-box {
+  background: rgba(var(--gold-rgb), 0.06);
+  border: 1px solid rgba(var(--gold-rgb), 0.15);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.keystone-box strong {
+  color: var(--gold-500);
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.info-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(var(--navy-rgb), 0.12);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.info-card .info-icon {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.info-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.info-card p {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SIMULATOR PRICE TOGGLE MXN/USD
+   ============================================================ */
+.price-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.price-toggle .price-mxn,
+.price-toggle .price-usd {
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.price-toggle .price-sep {
+  color: var(--gold-500);
+}
+
+/* ============================================================
+   STATS BAR UPDATE
+   ============================================================ */
+.stats-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+/* ============================================================
    MOBILE
    ============================================================ */
 @media (max-width: 1024px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .stats-grid-2 { grid-template-columns: repeat(3, 1fr); }
   .transparency-grid { grid-template-columns: 1fr; }
   .simulator-layout { grid-template-columns: 1fr; }
   .financing-grid { grid-template-columns: 1fr; }
   .foda-grid { grid-template-columns: 1fr 1fr; }
+  .sports-grid { grid-template-columns: repeat(2, 1fr); }
+  .day-routine { grid-template-columns: repeat(2, 1fr); }
+  .press-grid { grid-template-columns: 1fr; }
+  .info-cards { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -1213,11 +1531,15 @@ h1, h2, h3, h4, h5, h6 {
   .foda-grid { grid-template-columns: 1fr; }
 
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .stats-grid-2 { grid-template-columns: repeat(2, 1fr); }
   .stat-number { font-size: 2rem; }
+  .sports-grid { grid-template-columns: 1fr; }
+  .day-routine { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
   .section { padding: 60px 0; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid-2 { grid-template-columns: 1fr; }
   .finance-highlight .amount { font-size: 2rem; }
 }
