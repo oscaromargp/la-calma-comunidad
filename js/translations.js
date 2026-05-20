@@ -1,4 +1,4 @@
-// La Calma Comunidad — Translation Engine v2.0
+// La Calma Comunidad — Translation Engine v3.0
 
 const translations = {
   es: {
@@ -24,19 +24,11 @@ const translations = {
     map: {
       title: 'Lotificación Oficial',
       subtitle: 'Fracción 4 y 5 — las únicas disponibles. El resto, vendido.',
-      available: 'Disponible', sold: 'Vendido',
-      lots: {
-        l1: 'Fracción 1 · Vendida',
-        l2: 'Fracción 2 · Vendida',
-        l3: 'Fracción 3 · Vendida',
-        l4: 'Fracción 4 · Disponible — 1,500 m²',
-        l5: 'Fracción 5 · Disponible — 1,505 m²'
-      }
+      available: 'Disponible', sold: 'Vendido'
     },
     area_guide: {
       title: 'Guía Interactiva del Entorno',
       subtitle: 'Esto no es un terreno perdido en el desierto. Esto es La Ventana — un ecosistema completo de deporte, familia, gastronomía y naturaleza.',
-      map_title: 'Explora la Zona',
       sports_title: 'Deportes y Vida Activa',
       sports_desc: 'La Ventana es reconocida por Forbes como uno de los mejores destinos del mundo para kitesurf. El "túnel de viento" natural entre la Isla Cerralvo y la Sierra de La Laguna genera vientos térmicos de 15-30 nudos de noviembre a abril.',
       sports_calendar: 'Calendario Deportivo',
@@ -57,13 +49,13 @@ const translations = {
       season_5_desc: 'Regreso de snowbirds. Festival del Viento (May). Temporada previa al pico de vientos. Clima perfecto, comunidad activa.',
       day_title: 'Un Día en La Ventana',
       morning_title: '🌅 Mañana',
-      morning_desc: 'Mañana (6-10am) — Kitesurf al amanecer. Los vientos térmicos comienzan temprano. Desayuno en Café Bar Km 0.',
+      morning_desc: '6-10am — Kitesurf al amanecer. Los vientos térmicos comienzan temprano. Desayuno en Café Bar Km 0.',
       midday_title: '☀️ Mediodía',
-      midday_desc: 'Mediodía (10am-2pm) — Paddle board en aguas tranquilas o buceo en Isla Cerralvo. Comida en Nómada El Sargento.',
+      midday_desc: '10am-2pm — Paddle board en aguas tranquilas o buceo en Isla Cerralvo. Comida en Nómada El Sargento.',
       afternoon_title: '🌤️ Tarde',
-      afternoon_desc: 'Tarde (2-6pm) — Siesta, lectura frente al mar o MTB en senderos del cerro. Café en Mare Spa.',
+      afternoon_desc: '2-6pm — Siesta, lectura frente al mar o MTB en senderos del cerro. Café en Mare Spa.',
       night_title: '🌙 Noche',
-      night_desc: 'Noche (6-11pm) — Atardecer en el malecón de La Ventana. Cena gourmet. Cielo estrellado sin contaminación lumínica.',
+      night_desc: '6-11pm — Atardecer en el malecón de La Ventana. Cena gourmet. Cielo estrellado sin contaminación lumínica.',
       family_title: 'Logística Familiar',
       family_desc: 'Escuela Montessori bilingüe a 5 min. Farmacias locales. La Paz (hospitales de especialidad) a 35 min por carretera escénica. Starlink para trabajo remoto. Comunidad internacional activa de expatriados.',
       market_title: '¿Para quién es La Calma?',
@@ -73,41 +65,36 @@ const translations = {
     },
     press: {
       title: 'Lo que Dicen de La Ventana',
-      subtitle: 'Noticias reales que respaldan tu decisión de inversión.',
+      subtitle: 'Noticias reales que respaldan tu decisión de inversión. Haz clic para leer la fuente original.',
       articles: [
         {
           source: 'Forbes',
           date: 'Enero 2026',
           quote: '"La Ventana es un destino consentido para el kitesurf. La revista recomienda visitar La Paz y su malecón, y hace un énfasis particular en La Ventana como destino de clase mundial para deportes de viento."',
-          url: 'https://www.posta.com.mx/bcs/forbes-destaca-a-la-ventana-como-un-destino-consentido-para-el-kitesurf/vl2148446',
           tag: 'Reconocimiento Internacional'
         },
         {
           source: 'SETUE BCS',
           date: 'Enero 2026',
           quote: '"La Paz alcanzó 668,800 pasajeros aéreos en 2025, con un crecimiento del 10.9% anual. Entre 2021 y 2025, la región recibió 20.9 millones de pasajeros — cifra histórica."',
-          url: 'https://elmundodigital.com.mx/la-paz-destaca-por-dinamismo-turistico-trafico-aereo-en-bcs-crece-2-en-2025/',
           tag: 'Crecimiento Turístico'
         },
         {
           source: 'Canirac BCS',
           date: 'Enero 2026',
           quote: '"La Paz tuvo 17% más turistas al cierre de 2025 comparado con 2024. Se proyectan de 3 a 5 cruceros por mes durante 2026, generando derrama económica significativa."',
-          url: 'https://www.bcsnoticias.mx/hubo-17-mas-turistas-en-la-paz-al-cierre-del-2025-que-en-2024-consejera-de-canirac/',
           tag: 'Derrama Económica'
         },
         {
           source: 'SEMARNAT',
           date: 'Agosto 2025',
           quote: '"Se aprobó el primer Plan de Manejo para observación y nado con orcas en Latinoamérica, operando en El Sargento, La Ventana y Agua Amarga. Atracción turística única en el mundo."',
-          url: 'https://www.diarioelindependiente.mx/2025/08/aprueban-programa-de-observacion-turistica-de-orcas-en-el-sargento-la-ventana-y-agua-amarga',
           tag: 'Ecoturismo Regulado'
         },
         {
           source: 'Blue Water World Cup',
           date: 'Junio 2026',
           quote: '"20° aniversario del torneo internacional de pesca submarina en Palapas Ventana. Competidores de todo el mundo. $3,000 USD donados a la comunidad local para parques públicos."',
-          url: 'https://www.palapasventana.com/blue-water-world-cup-2026/',
           tag: 'Evento Internacional'
         }
       ]
@@ -127,22 +114,26 @@ const translations = {
       soil_title: 'Suelo y Construcción',
       soil_desc: 'Terreno firme de desierto con capa superficial arenosa y base de arena compactada — ideal para construcción. No hay riesgo de inundación (elevación natural). Factibilidad de CFE. Se recomienda biodigestor y cisterna.',
       density_title: '¿Qué se puede construir?',
-      density_desc: 'Uso de suelo H1 (Habitacional Turística de Baja Densidad). Residencias unifamiliares de hasta 2 niveles, villas de descanso, complejos boutique. Altura máxima sugerida: 8 m. Prohibido: alta densidad, desarrollos masivos.'
+      density_desc: 'Uso de suelo H1 (Habitacional Turística de Baja Densidad). Residencias unifamiliares de hasta 2 niveles, villas de descanso, complejos boutique. Altura máxima sugerida: 8 m. Prohibido: alta densidad, desarrollos masivos. Cobertura máxima de construcción: ~40% del lote.'
     },
     transparency: {
       title: 'Transparencia Técnica Total',
       subtitle: 'Sin marketing vacío. Esto es lo que necesitas saber de un desarrollador que no te oculta nada.',
-      water_title: 'Agua y Energía',
-      water_body: 'La Ventana promueve crecimiento consciente. No dependemos de redes municipales sobrecargadas. Los propietarios implementan: cisternas de almacenamiento, biodigestores para tratamiento de aguas, y sistemas solares fotovoltaicos. Esto no es una limitación — es control total sobre tus servicios.',
+      water_title: 'Agua',
+      water_body: 'La Ventana promueve crecimiento consciente. No dependemos de redes municipales sobrecargadas. Los propietarios implementan cisternas de almacenamiento, captación pluvial y sistemas de tratamiento.',
+      energy_title: 'Energía Eléctrica',
+      energy_body: 'Factibilidad de CFE directa. Sistemas solares fotovoltaicos recomendados para autonomía total. Sin cortes programados. Control total sobre tu consumo.',
       legal_title: '100% Propiedad Privada',
       legal_body: 'Cada fracción está regularizada ante Catastro de BCS con subdivisión autorizada. No es ejidal, no es concesión. Escrituras individuales transferibles. Sin riesgos de titulación.',
       density_title: 'Protección H1',
       density_body: 'Clasificación H1 (Habitacional Turística de Baja Densidad). Solo 5 fracciones. Nadie construirá un bloque que bloquee tu vista. Esa protección es jurídica.',
-      foda_title: 'FODA del Desarrollador',
+      foda_title: 'Análisis Estratégico',
       foda_f: ['Solo 2 fracciones disponibles — escasez real', '1,500 m² con frentes de 44 m promedio', 'Vistas protegidas por topografía escalonada', '$56.66 USD/m² — por debajo del mercado ($70-110 USD/m²)'],
       foda_o: ['Forbes y medios internacionales posicionan La Ventana', '+10.9% tráfico aéreo anual en La Paz', 'Renta vacacional premium: $200-500 USD/noche', 'Escasez de lotes amplios cerca del núcleo deportivo'],
       foda_d: ['Requiere sistemas sustentables (agua/luz)', 'Solo 2 lotes disponibles — oferta limitada', 'Estacionalidad de viento para pico de rentas'],
-      foda_a: ['Incremento en costos de construcción en BCS', 'Posibles desarrollos colindantes de mayor densidad', 'Cambios regulatorios ambientales']
+      foda_a: ['Incremento en costos de construcción en BCS', 'Posibles desarrollos colindantes de mayor densidad', 'Cambios regulatorios ambientales'],
+      dafo_df: ['Sistemas sustentables = autonomía total sin dependencia municipal', 'Escasez = plusvalía asegurada a largo plazo', 'Estacionalidad = 6 meses de renta premium al año'],
+      dafo_ao: ['Costos suben → el valor del lote también se aprecia', 'Desarrollos vecinos → mayor valoración de toda la zona', 'Regulación ambiental protege y preserva la densidad H1']
     },
     simulator: {
       title: 'Simulador de Inversión',
@@ -150,7 +141,7 @@ const translations = {
       project_label: 'Tipo de Proyecto',
       project_villa: 'Villa Boutique (2-3 recámaras)',
       project_estate: 'Residencia Premium (4-5 recámaras)',
-      surface_label: 'Superficie de Construcción',
+      surface_label: 'Superficie de Construcción (máx H1)',
       land_label: 'Fracción',
       frac4: 'Fracción 4 — $85,000 USD',
       frac5: 'Fracción 5 — $87,000 USD',
@@ -159,8 +150,8 @@ const translations = {
       total_project: 'Inversión Total',
       land_title: 'Terreno',
       build_title: 'Construcción',
-      rental_title: 'Proyección Airbnb',
-      rental_note: 'Basado en datos reales de propiedades comparables en La Ventana',
+      rental_title: 'Proyección de Renta',
+      rental_note: 'Basado en datos reales de propiedades comparables en La Ventana y La Paz',
       nightly_rate: 'Tarifa por noche (temp. alta)',
       occupancy: 'Ocupación promedio (6 meses)',
       monthly_low: 'Ingreso mensual (temp. baja)',
@@ -168,24 +159,33 @@ const translations = {
       annual_expenses: 'Gastos operativos (30%)',
       net_income: 'Ingreso Neto Anual',
       roi: 'ROI Neto Anual',
-      disclaimer: '*Basado en promedios del mercado 2025-2026. Consulta con arquitectos y asesores locales.',
-      cta: 'Solicitar Proyección Personalizada'
+      platforms_title: 'Proyección por Plataforma',
+      sources_title: 'Fuentes de Referencia',
+      disclaimer: '*Basado en promedios del mercado 2025-2026. Límite de construcción H1: ~40% del lote (600 m² máx). Consulta con arquitectos y asesores locales.'
     },
     financing: {
       title: 'Financiamiento Directo: Sin Bancos, Sin Buró',
       subtitle: 'El mismo desarrollador te financia. Sin historial crediticio, sin aprobación bancaria, sin intereses ocultos.',
-      down_val: '20%',
-      down_amount: '$17,000 USD',
-      term_val: '60 Meses',
-      monthly: 'Pago Mensual Fijo',
-      monthly_val: '$1,134 USD',
-      monthly_mxn: '~$19,527 MXN/mes',
-      total_paid: 'Pago Total',
-      total_paid_val: '$85,000 USD',
-      highlight_1: 'Precio fijo en USD desde el día 1. Sin ajustes inflacionarios.',
-      highlight_2: 'Al firmar, puedes iniciar limpieza y planeación arquitectónica.',
-      highlight_3: 'Respaldado por contrato de compraventa ante notario.',
-      cta: 'Solicitar Contrato'
+      down_label: 'Enganche',
+      down_val: '20% del precio total',
+      term_label: 'Plazo',
+      term_val: 'Meses (5 años)',
+      monthly_label: 'Pago Mensual Fijo',
+      monthly_sub: 'Sin intereses · Precio fijo en USD',
+      table_title: 'Plan de Pagos',
+      financed_label: 'Saldo a Financiar',
+      num_payments: 'Número de Pagos',
+      total_paid: 'Total a Pagar',
+      custom_title: 'Calcula tu Propio Plan',
+      custom_down: 'Enganche deseado ($ USD)',
+      custom_months: 'Plazo (meses)',
+      custom_result_label: 'Tu pago mensual sería de:',
+      highlight_1_title: 'Precio fijo',
+      highlight_1: 'Fijado en USD desde el día 1. Sin inflación.',
+      highlight_2_title: 'Disponibilidad inmediata',
+      highlight_2: 'Al firmar, inicia limpieza y planeación.',
+      highlight_3_title: 'Garantía notarial',
+      highlight_3: 'Contrato de compraventa ante notario.'
     },
     faq: {
       title: 'Preguntas que un Comprador Inteligente Hace',
@@ -213,11 +213,7 @@ const translations = {
       btn: 'Agendar Llamada'
     },
     footer: {
-      tagline: 'TRANQUILITY · BAJA LIFESTYLE',
-      advisor: 'Ignacio Ibarra — Asesor Comercial',
-      phone: '+52 (612) 107 7805',
-      email: 'tranquilerealestate@gmail.com',
-      rights: 'La Calma Community © 2026',
+      tagline: 'PardeSantos',
       location: 'La Ventana, BCS, México',
       privacy: 'Aviso de Privacidad', cookies: 'Política de Cookies', terms: 'Términos'
     }
@@ -247,19 +243,11 @@ const translations = {
     map: {
       title: 'Official Subdivision',
       subtitle: 'Fraction 4 and 5 — the only ones available. The rest, sold.',
-      available: 'Available', sold: 'Sold',
-      lots: {
-        l1: 'Fraction 1 · Sold',
-        l2: 'Fraction 2 · Sold',
-        l3: 'Fraction 3 · Sold',
-        l4: 'Fraction 4 · Available — 1,500 m²',
-        l5: 'Fraction 5 · Available — 1,505 m²'
-      }
+      available: 'Available', sold: 'Sold'
     },
     area_guide: {
       title: 'Interactive Area Guide',
       subtitle: 'This is not a lost plot in the desert. This is La Ventana — a complete ecosystem of sports, family, gastronomy and nature.',
-      map_title: 'Explore the Zone',
       sports_title: 'Sports & Active Lifestyle',
       sports_desc: 'La Ventana is recognized by Forbes as one of the world\'s best kiteboarding destinations. The natural wind tunnel between Cerralvo Island and the Sierra de La Laguna generates thermal winds of 15-30 knots from November to April.',
       sports_calendar: 'Sports Calendar',
@@ -280,13 +268,13 @@ const translations = {
       season_5_desc: 'Snowbirds return. Wind Festival (May). Pre-wind season. Perfect weather, active community.',
       day_title: 'A Day in La Ventana',
       morning_title: '🌅 Morning',
-      morning_desc: 'Morning (6-10am) — Sunrise kitesurf. Thermal winds start early. Breakfast at Café Bar Km 0.',
+      morning_desc: '6-10am — Sunrise kitesurf. Thermal winds start early. Breakfast at Café Bar Km 0.',
       midday_title: '☀️ Midday',
-      midday_desc: 'Midday (10am-2pm) — Paddle board in calm waters or diving at Cerralvo Island. Lunch at Nómada El Sargento.',
+      midday_desc: '10am-2pm — Paddle board in calm waters or diving at Cerralvo Island. Lunch at Nómada El Sargento.',
       afternoon_title: '🌤️ Afternoon',
-      afternoon_desc: 'Afternoon (2-6pm) — Siesta, oceanfront reading or MTB on mountain trails. Coffee at Mare Spa.',
+      afternoon_desc: '2-6pm — Siesta, oceanfront reading or MTB on mountain trails. Coffee at Mare Spa.',
       night_title: '🌙 Night',
-      night_desc: 'Night (6-11pm) — Sunset at La Ventana boardwalk. Gourmet dinner. Star-filled sky with zero light pollution.',
+      night_desc: '6-11pm — Sunset at La Ventana boardwalk. Gourmet dinner. Star-filled sky with zero light pollution.',
       family_title: 'Family Logistics',
       family_desc: 'Bilingual Montessori school 5 min away. Local pharmacies. La Paz (specialty hospitals) 35 min by scenic highway. Starlink for remote work. Active international expat community.',
       market_title: 'Who is La Calma for?',
@@ -296,41 +284,36 @@ const translations = {
     },
     press: {
       title: 'What They Say About La Ventana',
-      subtitle: 'Real news backing your investment decision.',
+      subtitle: 'Real news backing your investment decision. Click to read the original source.',
       articles: [
         {
           source: 'Forbes',
           date: 'January 2026',
           quote: '"La Ventana is a favored destination for kitesurf. The magazine recommends visiting La Paz and its boardwalk, with special emphasis on La Ventana as a world-class wind sports destination."',
-          url: 'https://www.posta.com.mx/bcs/forbes-destaca-a-la-ventana-como-un-destino-consentido-para-el-kitesurf/vl2148446',
           tag: 'International Recognition'
         },
         {
           source: 'SETUE BCS',
           date: 'January 2026',
           quote: '"La Paz reached 668,800 air passengers in 2025, growing 10.9% annually. Between 2021-2025, the region received 20.9 million passengers — an all-time record."',
-          url: 'https://elmundodigital.com.mx/la-paz-destaca-por-dinamismo-turistico-trafico-aereo-en-bcs-crece-2-en-2025/',
           tag: 'Tourism Growth'
         },
         {
           source: 'Canirac BCS',
           date: 'January 2026',
           quote: '"La Paz had 17% more tourists at the close of 2025 compared to 2024. 3 to 5 cruise ships per month projected for 2026, generating significant economic impact."',
-          url: 'https://www.bcsnoticias.mx/hubo-17-mas-turistas-en-la-paz-al-cierre-del-2025-que-en-2024-consejera-de-canirac/',
           tag: 'Economic Impact'
         },
         {
           source: 'SEMARNAT',
           date: 'August 2025',
           quote: '"Latin America\'s first Management Plan for orca observation and swimming was approved, operating in El Sargento, La Ventana and Agua Amarga. A unique world-class eco-tourism attraction."',
-          url: 'https://www.diarioelindependiente.mx/2025/08/aprueban-programa-de-observacion-turistica-de-orcas-en-el-sargento-la-ventana-y-agua-amarga',
           tag: 'Regulated Ecotourism'
         },
         {
           source: 'Blue Water World Cup',
           date: 'June 2026',
           quote: '"20th anniversary of the international spearfishing tournament at Palapas Ventana. Competitors from around the world. $3,000 USD donated to local community for public parks."',
-          url: 'https://www.palapasventana.com/blue-water-world-cup-2026/',
           tag: 'International Event'
         }
       ]
@@ -350,22 +333,26 @@ const translations = {
       soil_title: 'Soil & Construction',
       soil_desc: 'Firm desert terrain with sandy surface layer and compacted sand base — ideal for construction. No flood risk (natural elevation). CFE electrical feasibility. Biodigester and cistern recommended.',
       density_title: 'What can be built?',
-      density_desc: 'H1 land use (Low-Density Tourist Residential). Single-family residences up to 2 levels, vacation villas, boutique complexes. Max suggested height: 8 m. Prohibited: high density, massive developments.'
+      density_desc: 'H1 land use (Low-Density Tourist Residential). Single-family residences up to 2 levels, vacation villas, boutique complexes. Max suggested height: 8 m. Prohibited: high density, massive developments. Max construction coverage: ~40% of lot.'
     },
     transparency: {
       title: 'Full Technical Transparency',
       subtitle: 'No empty marketing. What you need to know from a developer hiding nothing.',
-      water_title: 'Water & Energy',
-      water_body: 'La Ventana promotes conscious growth. We don\'t rely on overloaded municipal grids. Owners implement: storage cisterns, biodigesters for wastewater treatment, and solar PV systems. This isn\'t a limitation — it\'s total control over your utilities.',
+      water_title: 'Water',
+      water_body: 'La Ventana promotes conscious growth. We don\'t rely on overloaded municipal grids. Owners implement storage cisterns, rainwater collection, and treatment systems.',
+      energy_title: 'Electricity',
+      energy_body: 'Direct CFE electrical feasibility. Solar PV systems recommended for total autonomy. No scheduled blackouts. Full control over your utilities.',
       legal_title: '100% Private Property',
       legal_body: 'Each fraction is regularized with the BCS Cadastre with authorized subdivision. Not ejidal, not a concession. Individual transferable deeds. No title risks.',
       density_title: 'H1 Protection',
       density_body: 'H1 classification (Low-Density Tourist Residential). Only 5 fractions. Nobody will build a block blocking your view. That protection is legal.',
-      foda_title: 'Developer SWOT',
+      foda_title: 'Strategic Analysis',
       foda_f: ['Only 2 fractions available — real scarcity', '1,500 m² with 44 m average fronts', 'Views protected by stepped topography', '$56.66 USD/m² — below market ($70-110 USD/m²)'],
       foda_o: ['Forbes & international media position La Ventana', '+10.9% annual air traffic in La Paz', 'Premium vacation rental: $200-500 USD/night', 'Scarcity of large lots near sports core'],
       foda_d: ['Requires sustainable systems (water/power)', 'Only 2 lots available — limited supply', 'Wind seasonality for peak rentals'],
-      foda_a: ['Rising construction costs in BCS', 'Possible higher-density adjacent developments', 'Environmental regulatory changes']
+      foda_a: ['Rising construction costs in BCS', 'Possible higher-density adjacent developments', 'Environmental regulatory changes'],
+      dafo_df: ['Sustainable systems = total autonomy from municipal grids', 'Scarcity = guaranteed long-term appreciation', 'Seasonality = 6 months of premium rental income per year'],
+      dafo_ao: ['Costs rise → lot value appreciates too', 'Neighboring developments → higher zone valuation', 'Environmental regulation protects H1 density']
     },
     simulator: {
       title: 'Investment Simulator',
@@ -373,7 +360,7 @@ const translations = {
       project_label: 'Project Type',
       project_villa: 'Boutique Villa (2-3 bedrooms)',
       project_estate: 'Premium Residence (4-5 bedrooms)',
-      surface_label: 'Construction Surface',
+      surface_label: 'Construction Surface (H1 max)',
       land_label: 'Fraction',
       frac4: 'Fraction 4 — $85,000 USD',
       frac5: 'Fraction 5 — $87,000 USD',
@@ -382,8 +369,8 @@ const translations = {
       total_project: 'Total Investment',
       land_title: 'Land',
       build_title: 'Construction',
-      rental_title: 'Airbnb Projection',
-      rental_note: 'Based on real comparable property data in La Ventana',
+      rental_title: 'Rental Projection',
+      rental_note: 'Based on real comparable property data in La Ventana & La Paz',
       nightly_rate: 'Nightly rate (high season)',
       occupancy: 'Average occupancy (6 months)',
       monthly_low: 'Monthly income (low season)',
@@ -391,24 +378,33 @@ const translations = {
       annual_expenses: 'Operating expenses (30%)',
       net_income: 'Net Annual Income',
       roi: 'Net Annual ROI',
-      disclaimer: '*Based on 2025-2026 market averages. Consult with local architects and advisors.',
-      cta: 'Request Personalized Projection'
+      platforms_title: 'Projection by Platform',
+      sources_title: 'Reference Sources',
+      disclaimer: '*Based on 2025-2026 market averages. H1 construction limit: ~40% of lot (600 m² max). Consult with local architects and advisors.'
     },
     financing: {
       title: 'Direct Financing: No Banks, No Credit Check',
       subtitle: 'The developer finances you directly. No credit history, no bank approval, no hidden interest.',
-      down_val: '20%',
-      down_amount: '$17,000 USD',
-      term_val: '60 Months',
-      monthly: 'Fixed Monthly Payment',
-      monthly_val: '$1,134 USD',
-      monthly_mxn: '~MX$19,527/mo',
-      total_paid: 'Total Payment',
-      total_paid_val: '$85,000 USD',
-      highlight_1: 'Price fixed in USD from day 1. No inflation adjustments.',
-      highlight_2: 'Upon signing, start clearing and architectural planning.',
-      highlight_3: 'Backed by notarized purchase agreement.',
-      cta: 'Request Contract'
+      down_label: 'Down Payment',
+      down_val: '20% of total price',
+      term_label: 'Term',
+      term_val: 'Months (5 years)',
+      monthly_label: 'Fixed Monthly Payment',
+      monthly_sub: 'No interest · Fixed price in USD',
+      table_title: 'Payment Plan',
+      financed_label: 'Financed Balance',
+      num_payments: 'Number of Payments',
+      total_paid: 'Total to Pay',
+      custom_title: 'Calculate Your Own Plan',
+      custom_down: 'Desired down payment ($ USD)',
+      custom_months: 'Term (months)',
+      custom_result_label: 'Your monthly payment would be:',
+      highlight_1_title: 'Fixed price',
+      highlight_1: 'Fixed in USD from day 1. No inflation.',
+      highlight_2_title: 'Immediate availability',
+      highlight_2: 'Upon signing, start clearing and planning.',
+      highlight_3_title: 'Notarial guarantee',
+      highlight_3: 'Backed by notarized purchase agreement.'
     },
     faq: {
       title: 'Questions a Smart Buyer Asks',
@@ -436,11 +432,7 @@ const translations = {
       btn: 'Schedule a Call'
     },
     footer: {
-      tagline: 'TRANQUILITY · BAJA LIFESTYLE',
-      advisor: 'Ignacio Ibarra — Commercial Advisor',
-      phone: '+52 (612) 107 7805',
-      email: 'tranquilerealestate@gmail.com',
-      rights: 'La Calma Community © 2026',
+      tagline: 'PardeSantos',
       location: 'La Ventana, BCS, Mexico',
       privacy: 'Privacy Notice', cookies: 'Cookie Policy', terms: 'Terms & Conditions'
     }

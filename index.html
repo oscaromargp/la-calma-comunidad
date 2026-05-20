@@ -15,7 +15,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -32,6 +31,7 @@
         <a href="#hero" data-i18n="nav.home">Inicio</a>
         <a href="#map-section" data-i18n="nav.map">Ubicación</a>
         <a href="#areaguide" data-i18n="nav.lifestyle">Estilo de Vida</a>
+        <a href="#press" data-i18n="nav.press">Prensa</a>
         <a href="#transparency" data-i18n="nav.transparency">Transparencia</a>
         <a href="#simulator" data-i18n="nav.simulator">Simulador</a>
         <a href="#faq" data-i18n="nav.faq">FAQ</a>
@@ -76,7 +76,7 @@
     </div>
   </section>
 
-  <!-- MAP SECTION -->
+  <!-- MAP SECTION — Google My Maps Oficial -->
   <section id="map-section" class="section">
     <div class="container">
       <div class="section-header reveal">
@@ -84,14 +84,14 @@
         <h2 class="section-title" data-i18n="map.title">Lotificación Oficial</h2>
         <p class="section-subtitle" data-i18n="map.subtitle">Fracción 4 y 5 — las únicas disponibles. El resto, vendido.</p>
       </div>
-      <div id="interactive-map" class="reveal"></div>
-      <div class="map-layers reveal reveal-delay-1">
-        <button class="map-layer-btn active" data-layer="lots">🏠 Lotes</button>
-        <button class="map-layer-btn" data-layer="sports">🏄 Deportes</button>
-        <button class="map-layer-btn" data-layer="family">👨‍👩‍👧‍👦 Familia y Salud</button>
-        <button class="map-layer-btn" data-layer="gastro">🍽️ Gastronomía</button>
+      <div class="map-embed reveal">
+        <iframe src="https://www.google.com/maps/d/embed?mid=14hbeht2ynsn_PhsjYD-Pz8QWHbFYcN4" width="100%" height="560" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <div id="map-layer-desc" class="map-layer-desc"></div>
+      <div class="map-legend reveal reveal-delay-1">
+        <div class="legend-item"><span class="legend-dot avail"></span> Disponible</div>
+        <div class="legend-item"><span class="legend-dot sold"></span> Vendido</div>
+        <div class="legend-item"><span class="legend-dot access"></span> Acceso Privado 13m</div>
+      </div>
     </div>
   </section>
 
@@ -109,7 +109,7 @@
         <iframe src="https://maps.google.com/maps?q=La+Ventana+BCS+M%C3%A9xico&z=13&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
-      <!-- Sports -->
+      <!-- Sports Calendar -->
       <div style="margin-top:48px;">
         <div class="reveal">
           <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin-bottom:8px;" data-i18n="area_guide.sports_title">Deportes y Vida Activa</h3>
@@ -125,14 +125,42 @@
         </div>
       </div>
 
-      <!-- Day Routine -->
-      <div style="margin-top:40px;">
-        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:16px;" data-i18n="area_guide.day_title">Un Día en La Ventana</h3>
-        <div class="day-routine reveal">
-          <div class="day-block"><strong data-i18n="area_guide.morning_title">🌅 Mañana</strong><span data-i18n="area_guide.morning_desc">Mañana (6-10am) — Kitesurf al amanecer. Los vientos térmicos comienzan temprano. Desayuno en Café Bar Km 0.</span></div>
-          <div class="day-block"><strong data-i18n="area_guide.midday_title">☀️ Mediodía</strong><span data-i18n="area_guide.midday_desc">Mediodía (10am-2pm) — Paddle board en aguas tranquilas o buceo en Isla Cerralvo. Comida en Nómada El Sargento.</span></div>
-          <div class="day-block"><strong data-i18n="area_guide.afternoon_title">🌤️ Tarde</strong><span data-i18n="area_guide.afternoon_desc">Tarde (2-6pm) — Siesta, lectura frente al mar o MTB en senderos del cerro. Café en Mare Spa.</span></div>
-          <div class="day-block"><strong data-i18n="area_guide.night_title">🌙 Noche</strong><span data-i18n="area_guide.night_desc">Noche (6-11pm) — Atardecer en el malecón de La Ventana. Cena gourmet. Cielo estrellado sin contaminación lumínica.</span></div>
+      <!-- Un Día en La Ventana — Rediseñado con imagen parallax -->
+      <div class="day-routine-section reveal" style="margin-top:56px;">
+        <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin-bottom:24px;text-align:center;" data-i18n="area_guide.day_title">Un Día en La Ventana</h3>
+        <div class="day-routine-grid">
+          <div class="day-card day-card-morning">
+            <div class="day-card-bg"></div>
+            <div class="day-card-content">
+              <span class="day-emoji">🌅</span>
+              <h4 data-i18n="area_guide.morning_title">Mañana</h4>
+              <p data-i18n="area_guide.morning_desc">6-10am — Kitesurf al amanecer. Los vientos térmicos comienzan temprano. Desayuno en Café Bar Km 0.</p>
+            </div>
+          </div>
+          <div class="day-card day-card-midday">
+            <div class="day-card-bg"></div>
+            <div class="day-card-content">
+              <span class="day-emoji">☀️</span>
+              <h4 data-i18n="area_guide.midday_title">Mediodía</h4>
+              <p data-i18n="area_guide.midday_desc">10am-2pm — Paddle board en aguas tranquilas o buceo en Isla Cerralvo. Comida en Nómada El Sargento.</p>
+            </div>
+          </div>
+          <div class="day-card day-card-afternoon">
+            <div class="day-card-bg"></div>
+            <div class="day-card-content">
+              <span class="day-emoji">🌤️</span>
+              <h4 data-i18n="area_guide.afternoon_title">Tarde</h4>
+              <p data-i18n="area_guide.afternoon_desc">2-6pm — Siesta, lectura frente al mar o MTB en senderos del cerro. Café en Mare Spa.</p>
+            </div>
+          </div>
+          <div class="day-card day-card-night">
+            <div class="day-card-bg"></div>
+            <div class="day-card-content">
+              <span class="day-emoji">🌙</span>
+              <h4 data-i18n="area_guide.night_title">Noche</h4>
+              <p data-i18n="area_guide.night_desc">6-11pm — Atardecer en el malecón de La Ventana. Cena gourmet. Cielo estrellado sin contaminación lumínica.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -152,45 +180,63 @@
     </div>
   </section>
 
-  <!-- PRESS & NEWS -->
+  <!-- PRESS & NEWS — Rediseñado con tarjetas visuales -->
   <section id="press" class="section">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag" data-i18n="nav.press">Prensa</span>
         <h2 class="section-title" data-i18n="press.title">Lo que Dicen de La Ventana</h2>
-        <p class="section-subtitle" data-i18n="press.subtitle">Noticias reales que respaldan tu decisión de inversión.</p>
+        <p class="section-subtitle" data-i18n="press.subtitle">Noticias reales que respaldan tu decisión de inversión. Haz clic para leer la fuente original.</p>
       </div>
       <div class="press-grid reveal">
-        <div class="press-card" data-url="https://www.posta.com.mx/bcs/forbes-destaca-a-la-ventana-como-un-destino-consentido-para-el-kitesurf/vl2148446">
-          <div class="press-source"><span class="source-name">Forbes</span><span class="source-date" data-i18n="press.articles.0.date">Enero 2026</span></div>
-          <blockquote data-i18n="press.articles.0.quote">"La Ventana es un destino consentido para el kitesurf. La revista recomienda visitar La Paz y su malecón."</blockquote>
-          <span class="press-tag" data-i18n="press.articles.0.tag">Reconocimiento Internacional</span>
-        </div>
-        <div class="press-card" data-url="https://elmundodigital.com.mx/la-paz-destaca-por-dinamismo-turistico-trafico-aereo-en-bcs-crece-2-en-2025/">
-          <div class="press-source"><span class="source-name">SETUE BCS</span><span class="source-date" data-i18n="press.articles.1.date">Enero 2026</span></div>
-          <blockquote data-i18n="press.articles.1.quote">"La Paz alcanzó 668,800 pasajeros aéreos en 2025, con un crecimiento del 10.9% anual."</blockquote>
-          <span class="press-tag" data-i18n="press.articles.1.tag">Crecimiento Turístico</span>
-        </div>
-        <div class="press-card" data-url="https://www.bcsnoticias.mx/hubo-17-mas-turistas-en-la-paz-al-cierre-del-2025-que-en-2024-consejera-de-canirac/">
-          <div class="press-source"><span class="source-name">Canirac BCS</span><span class="source-date" data-i18n="press.articles.2.date">Enero 2026</span></div>
-          <blockquote data-i18n="press.articles.2.quote">"La Paz tuvo 17% más turistas al cierre de 2025. Se proyectan 3-5 cruceros por mes en 2026."</blockquote>
-          <span class="press-tag" data-i18n="press.articles.2.tag">Derrama Económica</span>
-        </div>
-        <div class="press-card" data-url="https://www.diarioelindependiente.mx/2025/08/aprueban-programa-de-observacion-turistica-de-orcas-en-el-sargento-la-ventana-y-agua-amarga">
-          <div class="press-source"><span class="source-name">SEMARNAT</span><span class="source-date" data-i18n="press.articles.3.date">Agosto 2025</span></div>
-          <blockquote data-i18n="press.articles.3.quote">"Primer Plan de Manejo para nado con orcas en Latinoamérica. Opera en El Sargento, La Ventana."</blockquote>
-          <span class="press-tag" data-i18n="press.articles.3.tag">Ecoturismo Regulado</span>
-        </div>
-        <div class="press-card reveal reveal-delay-1" data-url="https://www.palapasventana.com/blue-water-world-cup-2026/">
-          <div class="press-source"><span class="source-name">Blue Water World Cup</span><span class="source-date" data-i18n="press.articles.4.date">Junio 2026</span></div>
-          <blockquote data-i18n="press.articles.4.quote">"20° aniversario del torneo internacional de pesca submarina en Palapas Ventana. Competidores de todo el mundo. $3,000 USD donados a la comunidad local para parques públicos."</blockquote>
-          <span class="press-tag" data-i18n="press.articles.4.tag">Evento Internacional</span>
-        </div>
+        <a href="https://www.posta.com.mx/bcs/forbes-destaca-a-la-ventana-como-un-destino-consentido-para-el-kitesurf/vl2148446" target="_blank" class="press-card press-card-forbes">
+          <div class="press-card-media" style="background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22%3E%3Crect fill=%22%23003366%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%22200%22 y=%22100%22 text-anchor=%22middle%22 fill=%22%23FF9900%22 font-family=%22Georgia%22 font-size=%2240%22 font-weight=%22bold%22%3EFORBES%3C/text%3E%3C/svg%3E')"></div>
+          <div class="press-card-body">
+            <div class="press-source"><span class="source-name">Forbes</span><span class="source-date" data-i18n="press.articles.0.date">Enero 2026</span></div>
+            <blockquote data-i18n="press.articles.0.quote">"La Ventana es un destino consentido para el kitesurf. La revista recomienda visitar La Paz y su malecón."</blockquote>
+            <span class="press-tag" data-i18n="press.articles.0.tag">Reconocimiento Internacional</span>
+          </div>
+        </a>
+        <a href="https://elmundodigital.com.mx/la-paz-destaca-por-dinamismo-turistico-trafico-aereo-en-bcs-crece-2-en-2025/" target="_blank" class="press-card">
+          <div class="press-card-media" style="background:linear-gradient(135deg,#003366,#004080);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;color:var(--gold-500);font-family:'Georgia',serif;">SETUE</div>
+          <div class="press-card-body">
+            <div class="press-source"><span class="source-name">SETUE BCS</span><span class="source-date" data-i18n="press.articles.1.date">Enero 2026</span></div>
+            <blockquote data-i18n="press.articles.1.quote">"La Paz alcanzó 668,800 pasajeros aéreos en 2025, con un crecimiento del 10.9% anual."</blockquote>
+            <span class="press-tag" data-i18n="press.articles.1.tag">Crecimiento Turístico</span>
+          </div>
+        </a>
+        <a href="https://www.bcsnoticias.mx/hubo-17-mas-turistas-en-la-paz-al-cierre-del-2025-que-en-2024-consejera-de-canirac/" target="_blank" class="press-card">
+          <div class="press-card-media" style="background:linear-gradient(135deg,#00264D,#003366);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;color:var(--gold-500);font-family:'Georgia',serif;text-align:center;line-height:1.3;">CANIRAC<br>BCS</div>
+          <div class="press-card-body">
+            <div class="press-source"><span class="source-name">Canirac BCS</span><span class="source-date" data-i18n="press.articles.2.date">Enero 2026</span></div>
+            <blockquote data-i18n="press.articles.2.quote">"La Paz tuvo 17% más turistas al cierre de 2025. Se proyectan 3-5 cruceros por mes en 2026."</blockquote>
+            <span class="press-tag" data-i18n="press.articles.2.tag">Derrama Económica</span>
+          </div>
+        </a>
+        <a href="https://www.diarioelindependiente.mx/2025/08/aprueban-programa-de-observacion-turistica-de-orcas-en-el-sargento-la-ventana-y-agua-amarga" target="_blank" class="press-card">
+          <div class="press-card-media" style="background:linear-gradient(135deg,#00264D,#0A1628);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:var(--gold-500);font-family:'Georgia',serif;text-align:center;line-height:1.3;">SEMARNAT</div>
+          <div class="press-card-body">
+            <div class="press-source"><span class="source-name">SEMARNAT</span><span class="source-date" data-i18n="press.articles.3.date">Agosto 2025</span></div>
+            <blockquote data-i18n="press.articles.3.quote">"Primer Plan de Manejo para nado con orcas en Latinoamérica. Opera en El Sargento, La Ventana."</blockquote>
+            <span class="press-tag" data-i18n="press.articles.3.tag">Ecoturismo Regulado</span>
+          </div>
+        </a>
+        <a href="https://www.palapasventana.com/blue-water-world-cup-2026/" target="_blank" class="press-card" style="grid-column:span 2;">
+          <div class="press-card-media" style="background:linear-gradient(135deg,#003366,#001A33);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:20px;">
+            <span style="font-size:2.5rem;">🏆</span>
+            <span style="font-size:0.9rem;font-weight:800;color:var(--gold-500);font-family:'Georgia',serif;text-align:center;">Blue Water<br>World Cup</span>
+          </div>
+          <div class="press-card-body">
+            <div class="press-source"><span class="source-name">Blue Water World Cup</span><span class="source-date" data-i18n="press.articles.4.date">Junio 2026</span></div>
+            <blockquote data-i18n="press.articles.4.quote">"20° aniversario del torneo internacional de pesca submarina en Palapas Ventana. $3,000 USD donados a la comunidad."</blockquote>
+            <span class="press-tag" data-i18n="press.articles.4.tag">Evento Internacional</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- GROWTH PROJECTIONS -->
+  <!-- GROWTH PROJECTIONS — 2 columnas alternadas con imágenes -->
   <section class="section section-darker">
     <div class="container">
       <div class="section-header reveal">
@@ -212,15 +258,36 @@
         <strong>Dato clave:</strong> La Ventana-El Sargento cuenta con 22 hoteles, 283 habitaciones, y está superando la estacionalidad turística.
       </div>
 
-      <div class="info-cards reveal">
-        <div class="info-card"><span class="info-icon">🌵</span><h4 data-i18n="growth.flora_title">Flora y Fauna</h4><p data-i18n="growth.flora_desc">Cardones, biznagas, pitahayas. Santuario de ballenas, orcas, delfines, lobos marinos y tortugas.</p></div>
-        <div class="info-card"><span class="info-icon">🏗️</span><h4 data-i18n="growth.soil_title">Suelo y Construcción</h4><p data-i18n="growth.soil_desc">Terreno firme de desierto. Sin riesgo de inundación. Factibilidad CFE. Biodigestor y cisterna recomendados.</p></div>
-        <div class="info-card"><span class="info-icon">📐</span><h4 data-i18n="growth.density_title">¿Qué se puede construir?</h4><p data-i18n="growth.density_desc">Uso H1. Residencias hasta 2 niveles, villas, complejos boutique. Máx 8 m. Prohibida alta densidad.</p></div>
+      <!-- Flora & Fauna — 2 columnas con imagen -->
+      <div class="alt-grid reveal" style="margin-top:48px;">
+        <div class="alt-image" style="background-image:url('images/IMG-20260406-WA0017.jpg');"></div>
+        <div class="alt-content">
+          <h3 data-i18n="growth.flora_title">🌵 Flora y Fauna</h3>
+          <p data-i18n="growth.flora_desc">Cardones, biznagas, pitahayas. Santuario de ballenas, orcas, delfines, lobos marinos y tortugas.</p>
+        </div>
+      </div>
+
+      <!-- Suelo y Construcción — 2 columnas invertida -->
+      <div class="alt-grid alt-reverse reveal">
+        <div class="alt-content">
+          <h3 data-i18n="growth.soil_title">🏗️ Suelo y Construcción</h3>
+          <p data-i18n="growth.soil_desc">Terreno firme de desierto. Sin riesgo de inundación. Factibilidad CFE. Biodigestor y cisterna recomendados.</p>
+        </div>
+        <div class="alt-image" style="background-image:url('images/IMG-20260406-WA0015.jpg');"></div>
+      </div>
+
+      <!-- ¿Qué se puede construir? — 2 columnas con imagen -->
+      <div class="alt-grid reveal">
+        <div class="alt-image" style="background-image:url('images/Planos.jpg');"></div>
+        <div class="alt-content">
+          <h3 data-i18n="growth.density_title">📐 ¿Qué se puede construir?</h3>
+          <p data-i18n="growth.density_desc">Uso H1. Residencias hasta 2 niveles, villas, complejos boutique. Máx 8 m. Prohibida alta densidad.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- TRANSPARENCY -->
+  <!-- TRANSPARENCY — Separada por temas + DAFO -->
   <section id="transparency" class="section">
     <div class="container">
       <div class="section-header reveal">
@@ -228,21 +295,58 @@
         <h2 class="section-title" data-i18n="transparency.title">Transparencia Técnica Total</h2>
         <p class="section-subtitle" data-i18n="transparency.subtitle">Sin marketing vacío. Lo que necesitas saber de un desarrollador que no te oculta nada.</p>
       </div>
-      <div class="transparency-grid">
-        <div class="glass-card reveal"><span class="card-icon">💧</span><h3><span>//</span> <span data-i18n="transparency.water_title">Agua y Energía</span></h3><p data-i18n="transparency.water_body">Cisternas, biodigestores, paneles solares. Control total de tus servicios.</p></div>
-        <div class="glass-card reveal reveal-delay-1"><span class="card-icon">🏛️</span><h3><span>//</span> <span data-i18n="transparency.legal_title">100% Propiedad Privada</span></h3><p data-i18n="transparency.legal_body">Regularizada ante Catastro. Subdivisión autorizada. Escrituras transferibles.</p></div>
-        <div class="glass-card reveal reveal-delay-2"><span class="card-icon">📐</span><h3><span>//</span> <span data-i18n="transparency.density_title">Protección H1</span></h3><p data-i18n="transparency.density_body">Solo 5 fracciones. Nadie construirá un bloque que bloquee tu vista.</p></div>
+
+      <!-- Cards de transparencia separadas -->
+      <div class="transparency-showcase">
+        <div class="transparency-card reveal">
+          <div class="tc-icon">💧</div>
+          <div class="tc-content">
+            <h3 data-i18n="transparency.water_title">Agua</h3>
+            <p data-i18n="transparency.water_body">Cisternas de almacenamiento. Captación pluvial. Control total de tu suministro. Sin dependencia municipal.</p>
+          </div>
+        </div>
+        <div class="transparency-card reveal reveal-delay-1">
+          <div class="tc-icon">⚡</div>
+          <div class="tc-content">
+            <h3 data-i18n="transparency.energy_title">Energía Eléctrica</h3>
+            <p data-i18n="transparency.energy_body">Factibilidad CFE directa. Paneles solares fotovoltaicos recomendados para autonomía total. Sin cortes programados.</p>
+          </div>
+        </div>
+        <div class="transparency-card reveal reveal-delay-2">
+          <div class="tc-icon">🏛️</div>
+          <div class="tc-content">
+            <h3 data-i18n="transparency.legal_title">100% Propiedad Privada</h3>
+            <p data-i18n="transparency.legal_body">Regularizada ante Catastro. Subdivisión autorizada. Escrituras transferibles. No ejidal, no concesión.</p>
+          </div>
+        </div>
+        <div class="transparency-card reveal reveal-delay-3">
+          <div class="tc-icon">📐</div>
+          <div class="tc-content">
+            <h3 data-i18n="transparency.density_title">Protección H1</h3>
+            <p data-i18n="transparency.density_body">Solo 5 fracciones. Nadie construirá un bloque que bloquee tu vista. Protección jurídica permanente.</p>
+          </div>
+        </div>
       </div>
-      <div class="foda-grid reveal">
-        <div class="foda-card foda-f"><h4>🟢 Fortalezas</h4><ul><li>Solo 2 fracciones disponibles</li><li>1,500 m² c/u</li><li>Vistas protegidas</li><li>$56.66 USD/m² — bajo mercado</li></ul></div>
-        <div class="foda-card foda-o"><h4>🔵 Oportunidades</h4><ul><li>Forbes destaca La Ventana</li><li>+10.9% tráfico aéreo anual</li><li>Renta $200-500 USD/noche</li><li>Escasez de lotes amplios</li></ul></div>
-        <div class="foda-card foda-d"><h4>🟡 Debilidades</h4><ul><li>Requiere sistemas sustentables</li><li>Solo 2 lotes disponibles</li><li>Estacionalidad de viento</li></ul></div>
-        <div class="foda-card foda-a"><h4>🔴 Amenazas</h4><ul><li>Incremento costos construcción</li><li>Desarrollos colindantes</li><li>Cambios regulatorios</li></ul></div>
+
+      <!-- FODA + DAFO combinados -->
+      <div class="foda-wrapper reveal" style="margin-top:48px;">
+        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:20px;text-align:center;">Análisis Estratégico</h3>
+        <div class="foda-grid">
+          <div class="foda-card foda-f"><h4>🟢 Fortalezas</h4><ul><li data-i18n="transparency.foda_f.0">Solo 2 fracciones disponibles</li><li data-i18n="transparency.foda_f.1">1,500 m² c/u</li><li data-i18n="transparency.foda_f.2">Vistas protegidas</li><li data-i18n="transparency.foda_f.3">$56.66 USD/m² — bajo mercado</li></ul></div>
+          <div class="foda-card foda-o"><h4>🔵 Oportunidades</h4><ul><li data-i18n="transparency.foda_o.0">Forbes destaca La Ventana</li><li data-i18n="transparency.foda_o.1">+10.9% tráfico aéreo anual</li><li data-i18n="transparency.foda_o.2">Renta $200-500 USD/noche</li><li data-i18n="transparency.foda_o.3">Escasez de lotes amplios</li></ul></div>
+          <div class="foda-card foda-d"><h4>🟡 Debilidades</h4><ul><li data-i18n="transparency.foda_d.0">Requiere sistemas sustentables</li><li data-i18n="transparency.foda_d.1">Solo 2 lotes disponibles</li><li data-i18n="transparency.foda_d.2">Estacionalidad de viento</li></ul></div>
+          <div class="foda-card foda-a"><h4>🔴 Amenazas</h4><ul><li data-i18n="transparency.foda_a.0">Incremento costos construcción</li><li data-i18n="transparency.foda_a.1">Desarrollos colindantes</li><li data-i18n="transparency.foda_a.2">Cambios regulatorios</li></ul></div>
+        </div>
+        <!-- DAFO debajo -->
+        <div class="foda-grid" style="margin-top:12px;">
+          <div class="foda-card foda-f"><h4>🟢 D — Debilidades a Fortalezas</h4><ul><li data-i18n="transparency.dafo_df.0">Sistemas sustentables = autonomía total</li><li data-i18n="transparency.dafo_df.1">Escasez = plusvalía asegurada</li><li data-i18n="transparency.dafo_df.2">Estacionalidad = 6 meses de renta premium</li></ul></div>
+          <div class="foda-card foda-o"><h4>🔵 A — Amenazas a Oportunidades</h4><ul><li data-i18n="transparency.dafo_ao.0">Costos suben → plusvalía del lote también</li><li data-i18n="transparency.dafo_ao.1">Desarrollos vecinos → más valoración zonal</li><li data-i18n="transparency.dafo_ao.2">Regulación ambiental protege densidad H1</li></ul></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SIMULATOR -->
+  <!-- SIMULATOR — Corregido con límite H1 + multi-plataforma -->
   <section id="simulator" class="section section-darker">
     <div class="container">
       <div class="section-header reveal">
@@ -267,17 +371,17 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="surface-slider" data-i18n="simulator.surface_label">Superficie de Construcción</label>
+            <label for="surface-slider" data-i18n="simulator.surface_label">Superficie de Construcción (máx H1)</label>
             <div class="range-wrapper">
-              <input type="range" id="surface-slider" class="range-input" min="100" max="800" value="300" step="10" />
-              <div class="range-value" id="surface-display">300 <span class="range-unit">m² construidos</span></div>
+              <input type="range" id="surface-slider" class="range-input" min="50" max="600" value="250" step="10" />
+              <div class="range-value" id="surface-display">250 <span class="range-unit">m² construidos (límite H1)</span></div>
             </div>
           </div>
           <div class="result-card">
             <h4 data-i18n="simulator.land_title">Terreno</h4>
             <div class="result-row"><span class="label">Precio</span><span class="value" id="result-land-price">$85,000 USD</span></div>
             <div class="result-row"><span class="label">/m²</span><span class="value gold" id="result-land-m2">$56.66 USD</span></div>
-            <div class="result-row" style="border-bottom:none;"><span class="label" data-i18n="simulator.build_cost">Costo Construcción</span><span class="value" id="result-build-cost">$337,500 USD</span></div>
+            <div class="result-row" style="border-bottom:none;"><span class="label" data-i18n="simulator.build_cost">Costo Construcción</span><span class="value" id="result-build-cost">$281,250 USD</span></div>
             <div class="result-row" style="border-bottom:none;"><span class="label" data-i18n="simulator.build_m2">/m²</span><span class="value" id="result-build-m2">$1,125 /m²</span></div>
           </div>
         </div>
@@ -285,33 +389,51 @@
           <div class="result-card result-total">
             <h4 data-i18n="simulator.total_project">Inversión Total</h4>
             <div class="result-row"><span class="label">Terreno</span><span class="value" id="result-breakdown-land">$85,000 USD</span></div>
-            <div class="result-row"><span class="label">Construcción</span><span class="value" id="result-breakdown-build">$337,500 USD</span></div>
+            <div class="result-row"><span class="label">Construcción</span><span class="value" id="result-breakdown-build">$281,250 USD</span></div>
             <div class="result-row" style="border-bottom:none;padding-top:8px;border-top:1px solid rgba(255,153,0,0.2);">
               <span class="label" style="font-weight:700;color:var(--text-primary);">Total</span>
-              <span class="value gold" style="font-size:1.1rem;" id="result-total">$422,500 USD</span>
+              <span class="value gold" style="font-size:1.1rem;" id="result-total">$366,250 USD</span>
             </div>
           </div>
           <div class="result-card">
-            <h4 data-i18n="simulator.rental_title">Proyección Airbnb</h4>
-            <p style="font-size:0.7rem;color:var(--text-muted);margin-bottom:8px;" data-i18n="simulator.rental_note">Basado en datos reales de propiedades comparables</p>
+            <h4 data-i18n="simulator.rental_title">Proyección de Renta</h4>
+            <p style="font-size:0.7rem;color:var(--text-muted);margin-bottom:8px;" data-i18n="simulator.rental_note">Basado en datos reales de propiedades comparables en La Ventana y La Paz</p>
             <div class="result-row"><span class="label" data-i18n="simulator.nightly_rate">Tarifa noche (temp. alta)</span><span class="value gold" id="result-nightly">$350/noche</span></div>
             <div class="result-row"><span class="label" data-i18n="simulator.occupancy">Ocupación (6 meses)</span><span class="value" id="result-occ">80%</span></div>
             <div class="result-row"><span class="label" data-i18n="simulator.monthly_low">Ingreso mes (temp. baja)</span><span class="value" id="result-monthly-low">$3,500/mes</span></div>
-            <div class="result-row"><span class="label" data-i18n="simulator.annual_income">Ingreso Anual</span><span class="value green" id="result-annual">$50,400 USD</span></div>
-            <div class="result-row"><span class="label" data-i18n="simulator.annual_expenses">Gastos (30%)</span><span class="value" id="result-expenses">$15,120 USD</span></div>
-            <div class="result-row" style="border-bottom:none;"><span class="label" style="font-weight:700;" data-i18n="simulator.net_income">Ingreso Neto</span><span class="value green" style="font-weight:700;" id="result-net">$35,280 USD</span></div>
+            <div class="result-row"><span class="label" data-i18n="simulator.annual_income">Ingreso Anual Estimado</span><span class="value green" id="result-annual">$50,400 USD</span></div>
+            <div class="result-row"><span class="label" data-i18n="simulator.annual_expenses">Gastos operativos (30%)</span><span class="value" id="result-expenses">$15,120 USD</span></div>
+            <div class="result-row" style="border-bottom:none;"><span class="label" style="font-weight:700;" data-i18n="simulator.net_income">Ingreso Neto Anual</span><span class="value green" style="font-weight:700;" id="result-net">$35,280 USD</span></div>
             <div class="result-row" style="border-bottom:none;">
               <span class="label" style="font-size:0.9rem;font-weight:700;color:var(--text-primary);" data-i18n="simulator.roi">ROI Neto Anual</span>
-              <span class="value green" style="font-size:1.3rem;font-weight:800;" id="result-roi">8.4%</span>
+              <span class="value green" style="font-size:1.3rem;font-weight:800;" id="result-roi">9.6%</span>
             </div>
           </div>
-          <p style="font-size:0.7rem;color:var(--text-muted);text-align:center;padding:8px;" data-i18n="simulator.disclaimer">*Basado en promedios 2025-2026. Consulta con arquitectos locales.</p>
+          <!-- Plataformas adicionales -->
+          <div class="result-card">
+            <h4 data-i18n="simulator.platforms_title">Proyección por Plataforma</h4>
+            <div class="result-row"><span class="label">Airbnb</span><span class="value gold">$350-500/noche</span></div>
+            <div class="result-row"><span class="label">Booking.com</span><span class="value gold">$280-420/noche</span></div>
+            <div class="result-row"><span class="label">Renta Mensual</span><span class="value gold">$2,500-4,500/mes</span></div>
+            <div class="result-row" style="border-bottom:none;"><span class="label">Venta Directa</span><span class="value gold">$200-350/noche</span></div>
+          </div>
+          <!-- Fuentes de verificación -->
+          <div class="result-card">
+            <h4 data-i18n="simulator.sources_title">📊 Fuentes de Referencia</h4>
+            <p style="font-size:0.75rem;color:var(--text-tertiary);line-height:1.7;">
+              <a href="https://www.posta.com.mx/bcs/forbes-destaca-a-la-ventana-como-un-destino-consentido-para-el-kitesurf/vl2148446" target="_blank" style="color:var(--gold-500);">→ Forbes: La Ventana, destino kitesurf</a><br>
+              <a href="https://elmundodigital.com.mx/la-paz-destaca-por-dinamismo-turistico-trafico-aereo-en-bcs-crece-2-en-2025/" target="_blank" style="color:var(--gold-500);">→ SETUE: +10.9% tráfico aéreo La Paz</a><br>
+              <a href="https://www.airbnb.com.mx/s/La-Ventana--BCS--Mexico" target="_blank" style="color:var(--gold-500);">→ Airbnb: Tarifas actuales en La Ventana</a><br>
+              <a href="https://www.booking.com/city/mx/la-ventana.html" target="_blank" style="color:var(--gold-500);">→ Booking.com: Precios de referencia</a>
+            </p>
+          </div>
+          <p style="font-size:0.7rem;color:var(--text-muted);text-align:center;padding:8px;" data-i18n="simulator.disclaimer">*Basado en promedios 2025-2026. Consulta con arquitectos locales. Límite construcción H1: ~40% del lote.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FINANCING -->
+  <!-- FINANCING — Con tabla de pagos interactiva -->
   <section id="financing" class="section">
     <div class="container">
       <div class="section-header reveal">
@@ -319,30 +441,78 @@
         <h2 class="section-title" data-i18n="financing.title">Financiamiento Directo: Sin Bancos, Sin Buró</h2>
         <p class="section-subtitle" data-i18n="financing.subtitle">El mismo desarrollador te financia. Sin historial crediticio, sin aprobación bancaria, sin intereses ocultos.</p>
       </div>
-      <div class="financing-grid">
-        <div class="reveal">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-            <div class="finance-highlight">
-              <div class="label">Enganche</div>
-              <div class="amount">$17,000</div>
-              <div class="sub" data-i18n="financing.down_val">20%</div>
-            </div>
-            <div class="finance-highlight">
-              <div class="label" data-i18n="financing.term_val">Plazo</div>
-              <div class="amount" style="font-size:2rem;">60</div>
-              <div class="sub">Meses</div>
-            </div>
+
+      <div class="financing-showcase">
+        <!-- Resumen -->
+        <div class="finance-summary reveal">
+          <div class="finance-highlight">
+            <div class="label" data-i18n="financing.down_label">Enganche</div>
+            <div class="amount" data-i18n-price="17000">$17,000 USD</div>
+            <div class="sub" data-i18n="financing.down_val">20% del precio total</div>
           </div>
-          <div class="finance-highlight reveal reveal-delay-1">
-            <div class="label" data-i18n="financing.monthly">Pago Mensual Fijo</div>
+          <div class="finance-highlight">
+            <div class="label" data-i18n="financing.term_label">Plazo</div>
+            <div class="amount" style="font-size:2rem;">60</div>
+            <div class="sub" data-i18n="financing.term_val">Meses (5 años)</div>
+          </div>
+          <div class="finance-highlight">
+            <div class="label" data-i18n="financing.monthly_label">Pago Mensual Fijo</div>
             <div class="amount" style="color:#10B981;" data-i18n-price="1134">$1,134 USD</div>
-            <div class="sub">USD · Sin intereses inflacionarios</div>
+            <div class="sub" data-i18n="financing.monthly_sub">Sin intereses · Precio fijo en USD</div>
           </div>
         </div>
-        <div class="finance-details reveal reveal-delay-1">
-          <div class="finance-detail-card"><div class="icon">🔒</div><div class="text"><h5>Precio fijo</h5><p data-i18n="financing.highlight_1">Fijado en USD desde el día 1. Sin inflación.</p></div></div>
-          <div class="finance-detail-card"><div class="icon">🚀</div><div class="text"><h5>Disponibilidad inmediata</h5><p data-i18n="financing.highlight_2">Al firmar, inicia limpieza y planeación.</p></div></div>
-          <div class="finance-detail-card"><div class="icon">📜</div><div class="text"><h5>Garantía notarial</h5><p data-i18n="financing.highlight_3">Contrato de compraventa ante notario.</p></div></div>
+
+        <!-- Tabla de amortización -->
+        <div class="payment-table-wrapper reveal reveal-delay-1">
+          <h4 style="font-size:0.9rem;font-weight:700;color:var(--text-primary);margin-bottom:16px;" data-i18n="financing.table_title">Plan de Pagos</h4>
+          <div class="payment-calc">
+            <div class="calc-row">
+              <span class="calc-label" data-i18n="financing.down_label">Enganche (20%)</span>
+              <span class="calc-value" id="pay-down">$17,000 USD</span>
+            </div>
+            <div class="calc-row">
+              <span class="calc-label" data-i18n="financing.financed_label">Saldo a Financiar</span>
+              <span class="calc-value" id="pay-financed">$68,000 USD</span>
+            </div>
+            <div class="calc-row">
+              <span class="calc-label" data-i18n="financing.monthly_label">Pago Mensual</span>
+              <span class="calc-value gold" id="pay-monthly">$1,134 USD</span>
+            </div>
+            <div class="calc-row">
+              <span class="calc-label" data-i18n="financing.num_payments">Número de Pagos</span>
+              <span class="calc-value" id="pay-count">60</span>
+            </div>
+            <div class="calc-row total-row">
+              <span class="calc-label" data-i18n="financing.total_paid">Total a Pagar</span>
+              <span class="calc-value gold" id="pay-total">$85,000 USD</span>
+            </div>
+          </div>
+          <!-- Calculadora personalizable -->
+          <div class="custom-payment" style="margin-top:20px;padding:20px;background:var(--bg-card);border-radius:16px;border:1px solid rgba(var(--gold-rgb),0.15);">
+            <h5 style="font-size:0.8rem;font-weight:700;color:var(--gold-500);margin-bottom:12px;" data-i18n="financing.custom_title">Calcula tu Propio Plan</h5>
+            <div class="form-group">
+              <label for="custom-down" data-i18n="financing.custom_down">Enganche deseado ($ USD)</label>
+              <input type="range" id="custom-down" class="range-input" min="8500" max="68000" value="17000" step="500">
+              <div class="range-value" id="custom-down-display">$17,000 USD</div>
+            </div>
+            <div class="form-group">
+              <label for="custom-months" data-i18n="financing.custom_months">Plazo (meses)</label>
+              <input type="range" id="custom-months" class="range-input" min="12" max="120" value="60" step="6">
+              <div class="range-value" id="custom-months-display">60 meses</div>
+            </div>
+            <div class="custom-result" id="custom-result" style="margin-top:12px;padding:16px;background:rgba(16,185,129,0.08);border-radius:12px;border:1px solid rgba(16,185,129,0.2);text-align:center;">
+              <span style="font-size:0.75rem;color:var(--text-tertiary);display:block;" data-i18n="financing.custom_result_label">Tu pago mensual sería de:</span>
+              <span style="font-size:1.8rem;font-weight:800;color:#10B981;display:block;" id="custom-payment-result">$1,134 USD</span>
+              <span style="font-size:0.7rem;color:var(--text-muted);">x 60 meses · Sin intereses</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detalles -->
+        <div class="finance-details reveal reveal-delay-2">
+          <div class="finance-detail-card"><div class="icon">🔒</div><div class="text"><h5 data-i18n="financing.highlight_1_title">Precio fijo</h5><p data-i18n="financing.highlight_1">Fijado en USD desde el día 1. Sin inflación.</p></div></div>
+          <div class="finance-detail-card"><div class="icon">🚀</div><div class="text"><h5 data-i18n="financing.highlight_2_title">Disponibilidad inmediata</h5><p data-i18n="financing.highlight_2">Al firmar, inicia limpieza y planeación.</p></div></div>
+          <div class="finance-detail-card"><div class="icon">📜</div><div class="text"><h5 data-i18n="financing.highlight_3_title">Garantía notarial</h5><p data-i18n="financing.highlight_3">Contrato de compraventa ante notario.</p></div></div>
         </div>
       </div>
     </div>
@@ -410,10 +580,9 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>La <span>Calma</span> Comunidad</h3>
-          <p data-i18n="footer.tagline">TRANQUILITY · BAJA LIFESTYLE</p>
+          <p>PardeSantos</p>
           <div class="footer-contact" style="margin-top:20px;">
-            <p data-i18n="footer.advisor">Ignacio Ibarra — Asesor Comercial</p>
-            <p data-i18n="footer.phone">+52 (612) 107 7805</p>
+            <p>+52 (612) 107 7805</p>
             <p>tranquilerealestate@gmail.com</p>
           </div>
         </div>
@@ -434,15 +603,13 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p data-i18n="footer.rights">La Calma Community © 2026</p>
+        <p>La Calma Community © 2026</p>
         <p>📍 <span data-i18n="footer.location">La Ventana, BCS, México</span></p>
       </div>
     </div>
   </footer>
 
   <script src="js/translations.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-  <script src="js/map.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

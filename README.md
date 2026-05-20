@@ -1,6 +1,6 @@
-# La Calma Comunidad
+# La Calma Comunidad — PardeSantos
 
-**Landing page premium dark mode** para desarrollo inmobiliario exclusivo de **5 lotes Estate** en La Ventana, Baja California Sur, México.
+**Landing page premium dark mode v3.0** para desarrollo inmobiliario exclusivo de **5 lotes Estate** en La Ventana, Baja California Sur, México.
 
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen)](https://oscaromargp.github.io/la-calma-comunidad/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://oscaromargp.github.io/la-calma-comunidad/)
@@ -40,17 +40,16 @@
 
 ```
 la-calma-comunidad/
-├── index.html              # SPA principal (6 módulos + hero + footer)
+├── index.html              # SPA principal (9 módulos + hero + footer)
 ├── css/
-│   └── styles.css          # Dark Luxury theme (Navy + Gold)
+│   └── styles.css          # Dark Luxury v3.0 (Navy + Gold)
 ├── js/
-│   ├── translations.js     # Motor i18n ES/EN
-│   ├── app.js              # Lógica principal (navbar, partículas, calculator)
-│   └── map.js              # Leaflet.js + OpenStreetMap
-├── images/                 # Multimedia (videos drone, fotos, planos)
+│   ├── translations.js     # Motor i18n ES/EN v3.0
+│   └── app.js              # Lógica principal (navbar, partículas, simulador, financiamiento)
+├── images/                 # Multimedia (videos drone, fotos reales, planos)
 │   ├── hero-drone.mp4      # Video drone hero
 │   ├── hero-poster.jpg     # Poster del video
-│   └── ...                 # Fotos reales del terreno
+│   └── *.jpg               # Fotos reales del terreno (parallax backgrounds)
 ├── legal/
 │   ├── privacidad.html
 │   ├── cookies.html
@@ -62,10 +61,11 @@ la-calma-comunidad/
 
 | Tecnología | Uso | Detalle |
 |------------|-----|---------|
-| **HTML5** | Estructura semántica | SPA con 6 módulos de contenido |
-| **CSS3** | Dark Luxury Theme | Variables CSS, glassmorphism, animaciones @keyframes |
-| **Vanilla JS** | Interactividad | Motor i18n propio, partículas, calculadora, FAQ accordion |
-| **Leaflet.js** | Mapas interactivos | OpenStreetMap + CartoDB Dark Matter tiles |
+| **HTML5** | Estructura semántica | SPA con 9 módulos de contenido |
+| **CSS3** | Dark Luxury Theme | Variables CSS, glassmorphism, parallax, 3D card effects |
+| **Vanilla JS** | Interactividad | Motor i18n propio, partículas, simulador, financing calc, parallax |
+| **Google My Maps** | Mapa oficial de lotificación | Embed del mapa real con polígonos exactos del desarrollador |
+| **Google Maps Embed** | Mapa de contexto de zona | Referencia geográfica del área La Ventana |
 | **Google Fonts** | Tipografía | Plus Jakarta Sans + Inter + JetBrains Mono |
 
 ---
@@ -141,23 +141,26 @@ Toggle con botón en navbar. La preferencia se persiste en localStorage.
 
 ---
 
-## ✨ Características Premium
+## ✨ Características Premium v3.0
 
-- [x] Video drone hero con overlay gradiente
-- [x] Partículas flotantes animadas (canvas)
-- [x] Glassmorphism cards con hover 3D
-- [x] Contadores animados (IntersectionObserver)
-- [x] Reveal animations en scroll
-- [x] Navbar sticky con blur al scroll
-- [x] Menú móvil responsive
-- [x] Mapa interactivo con 3 capas de POIs
-- [x] Calculadora de inversión dinámica
-- [x] FAQ accordion
+- [x] Video drone hero con overlay gradiente y partículas canvas
+- [x] Mapa oficial Google My Maps con polígonos exactos de los 5 lotes
+- [x] Guía de Estilo de Vida con calendario deportivo interactivo
+- [x] Cards "Un día en La Ventana" con imágenes reales de fondo y efecto 3D parallax al hover
+- [x] Sección de Prensa con tarjetas visuales que enlazan a fuentes originales (Forbes, SETUE, Canirac, SEMARNAT, Blue Water World Cup)
+- [x] Proyección de Crecimiento con timeline + bloques alternados de imagen/info (Flora, Suelo, Construcción)
+- [x] Transparencia Técnica: secciones separadas (Agua, Energía, Propiedad Privada, H1) + FODA + DAFO
+- [x] Calculadora de inversión con límites H1 reales (600 m² máx construcción)
+- [x] Proyección multi-plataforma (Airbnb, Booking, renta mensual, venta directa)
+- [x] Fuentes de referencia con enlaces a estadísticas reales
+- [x] Financiamiento: tabla de pagos fija + calculadora personalizable (sliders de enganche y plazo)
+- [x] FAQ accordion con 7 preguntas clave
 - [x] i18n ES/EN propio (sin Google Translate)
-- [x] Diseño 100% responsive
-- [x] Open Graph tags
-- [x] Páginas legales (privacidad, cookies, términos)
-- [x] Optimizado para GitHub Pages (0 server-side)
+- [x] Partículas flotantes, glassmorphism, reveal animations, contadores
+- [x] Navbar sticky con blur, menú móvil responsive
+- [x] Diseño 100% responsive (mobile/tablet/desktop)
+- [x] Open Graph tags, páginas legales
+- [x] 100% client-side, optimizado para GitHub Pages
 
 ---
 
@@ -174,7 +177,6 @@ Toggle con botón en navbar. La preferencia se persiste en localStorage.
 
 ## 📬 Contacto
 
-**Asesor Comercial:** Ignacio Ibarra
 - 📞 +52 (612) 107 7805
 - 📧 tranquilerealestate@gmail.com
 

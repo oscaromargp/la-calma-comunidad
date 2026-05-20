@@ -1,11 +1,11 @@
-/* La Calma Comunidad — Main Application v2.0 */
+/* La Calma Comunidad — Main Application v3.0 */
 
 document.addEventListener('DOMContentLoaded', () => {
   let currentLang = localStorage.getItem('la-calma-lang') || 'es';
   let exchangeRate = 17.22;
 
   // ----------------------------------------------------------
-  // 1. EXCHANGE RATE API (free, no key needed)
+  // 1. EXCHANGE RATE API
   // ----------------------------------------------------------
   async function fetchExchangeRate() {
     try {
@@ -13,11 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await res.json();
       if (data.rates && data.rates.MXN) {
         exchangeRate = data.rates.MXN;
-        console.log(`💱 Exchange rate updated: 1 USD = ${exchangeRate} MXN`);
       }
-    } catch (e) {
-      console.log('💱 Using fallback exchange rate: 17.22');
-    }
+    } catch (e) {}
   }
 
   // ----------------------------------------------------------
@@ -41,9 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       const text = t(key);
-      if (text && text !== key) {
-        el.textContent = text;
-      }
+      if (text && text !== key) el.textContent = text;
     });
     document.querySelectorAll('[data-i18n-html]').forEach(el => {
       const key = el.getAttribute('data-i18n-html');
@@ -66,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentLang = currentLang === 'es' ? 'en' : 'es';
     applyTranslations();
     updateSimulator();
+    updatePaymentCalc();
     document.querySelectorAll('[data-i18n-price]').forEach(el => {
       const usd = parseFloat(el.getAttribute('data-i18n-price'));
       if (!isNaN(usd)) {
@@ -167,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ----------------------------------------------------------
-  // 6. INVESTMENT SIMULATOR
+  // 6. INVESTMENT SIMULATOR (H1 limit: 600 m² max)
   // ----------------------------------------------------------
   const LAND_PRICE_4 = 85000;
   const LAND_PRICE_5 = 87000;
@@ -179,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const SEASON_MONTHS = 6;
   const LOW_SEASON_MONTHLY = 3500;
   const EXPENSE_RATIO = 0.30;
+  const H1_MAX_M2 = 600;
 
   const simForm = document.getElementById('sim-form');
   const surfaceSlider = document.getElementById('surface-slider');
@@ -187,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateSimulator() {
     const projectType = document.getElementById('project-type').value;
     const fraction = document.getElementById('fraction-select').value;
-    const surface = parseInt(surfaceSlider.value);
+    const surface = Math.min(parseInt(surfaceSlider.value), H1_MAX_M2);
 
     const landPrice = fraction === 'frac5' ? LAND_PRICE_5 : LAND_PRICE_4;
     const costPerM2 = projectType === 'villa' ? COST_VILLA_M2 : COST_ESTATE_M2;
@@ -221,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('result-roi').textContent = roi.toFixed(1) + '%';
 
     if (surfaceDisplay) {
-      const label = currentLang === 'es' ? 'm² construidos' : 'm² built';
+      const label = currentLang === 'es' ? 'm² construidos (límite H1)' : 'm² built (H1 limit)';
       surfaceDisplay.innerHTML = surface.toLocaleString() + ` <span class="range-unit">${label}</span>`;
     }
   }
@@ -234,7 +231,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ----------------------------------------------------------
-  // 7. FAQ ACCORDION
+  // 7. FINANCING CALCULATOR (customizable)
+  // ----------------------------------------------------------
+  const TOTAL_PRICE = 85000;
+  const DEFAULT_DOWN = 17000;
+  const DEFAULT_MONTHS = 60;
+
+  function updatePaymentCalc() {
+    const downSlider = document.getElementById('custom-down');
+    const monthsSlider = document.getElementById('custom-months');
+    if (!downSlider || !monthsSlider) return;
+
+    const down = parseInt(downSlider.value);
+    const months = parseInt(monthsSlider.value);
+    const financed = TOTAL_PRICE - down;
+    const monthly = months > 0 ? financed / months : 0;
+
+    const fm = (n) => currentLang === 'es' ? fmtMXN(n) : fmtUSD(n);
+
+    document.getElementById('pay-down').textContent = fm(down);
+    document.getElementById('pay-financed').textContent = fm(financed);
+    document.getElementById('pay-monthly').textContent = fm(Math.round(monthly));
+    document.getElementById('pay-count').textContent = months;
+    document.getElementById('pay-total').textContent = fm(TOTAL_PRICE);
+
+    document.getElementById('custom-down-display').innerHTML = fm(down);
+    document.getElementById('custom-months-display').innerHTML = months + ' ' + (currentLang === 'es' ? 'meses' : 'months');
+    document.getElementById('custom-payment-result').textContent = fm(Math.round(monthly));
+
+    // Update the secondary label
+    const sub = document.querySelector('#custom-result span:last-child');
+    if (sub) {
+      sub.textContent = 'x ' + months + ' ' + (currentLang === 'es' ? 'meses' : 'months') + ' · Sin intereses';
+    }
+  }
+
+  const downSlider = document.getElementById('custom-down');
+  const monthsSlider = document.getElementById('custom-months');
+  if (downSlider) downSlider.addEventListener('input', updatePaymentCalc);
+  if (monthsSlider) monthsSlider.addEventListener('input', updatePaymentCalc);
+
+  // ----------------------------------------------------------
+  // 8. FAQ ACCORDION
   // ----------------------------------------------------------
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -246,22 +284,42 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ----------------------------------------------------------
-  // 8. PRESS CARD CLICK
+  // 9. DAY CARD PARALLAX (mouse move effect)
   // ----------------------------------------------------------
-  document.querySelectorAll('.press-card').forEach(card => {
-    card.addEventListener('click', function() {
-      const url = this.getAttribute('data-url');
-      if (url) window.open(url, '_blank');
+  document.querySelectorAll('.day-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${y * -8}deg) translateZ(10px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg) translateZ(0)';
     });
   });
 
   // ----------------------------------------------------------
-  // 9. INIT
+  // 10. PARALLAX SCROLL
+  // ----------------------------------------------------------
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.parallax-bg').forEach(el => {
+      const speed = el.getAttribute('data-speed') || 0.3;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const offset = rect.top * speed;
+        el.style.transform = `translateY(${offset}px)`;
+      }
+    });
+  });
+
+  // ----------------------------------------------------------
+  // 11. INIT
   // ----------------------------------------------------------
   fetchExchangeRate().then(() => {
     applyTranslations();
     initReveal();
     updateSimulator();
+    updatePaymentCalc();
     document.querySelectorAll('[data-i18n-price]').forEach(el => {
       const usd = parseFloat(el.getAttribute('data-i18n-price'));
       if (!isNaN(usd)) {
@@ -270,6 +328,5 @@ document.addEventListener('DOMContentLoaded', () => {
           : fmtUSD(usd) + ` (~${fmtMXN(usd)})`;
       }
     });
-    console.log(`📍 La Calma Comunidad v2.0 — Initialized | Lang: ${currentLang} | Rate: ${exchangeRate}`);
   });
 });
