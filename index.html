@@ -1,1395 +1,550 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Calma Comunidad | Premium Lots in La Ventana, BCS</title>
-    <meta name="description" content="La Calma Comunidad - Exclusive development of 5 premium lots of 1,500 m² with panoramic views of the Sea of Cortez. La Ventana, Baja California Sur.">
-    <meta name="keywords" content="La Calma, lotes, La Ventana, BCS, real estate, Mexico, premium lots, Sea of Cortez, investment">
-    
-    <meta property="og:title" content="La Calma Comunidad | Premium Lots in La Ventana">
-    <meta property="og:description" content="Exclusive development of 5 premium lots of 1,500 m² with panoramic views of the Sea of Cortez.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="images/vista-general.jpg">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="robots" content="index, follow">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#003366',
-                        'primary-light': '#004488',
-                        'accent': '#FF9900',
-                        'accent-light': '#FFAA22',
-                        'bg-primary': '#000000',
-                        'bg-secondary': '#09090B',
-                        'bg-tertiary': '#18181B',
-                        'text-primary': '#FFFFFF',
-                        'text-secondary': '#E4E4E7',
-                        'text-tertiary': '#A1A1AA',
-                    },
-                    fontFamily: {
-                        display: ['Plus Jakarta Sans', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        * { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, h4, h5 { font-family: 'Plus Jakarta Sans', sans-serif; }
-        
-        /* Lightbox */
-        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 10000; justify-content: center; align-items: center; padding: 20px; }
-        .lightbox.active { display: flex; }
-        .lightbox img { max-width: 95%; max-height: 90vh; object-fit: contain; border-radius: 12px; box-shadow: 0 0 60px rgba(255, 153, 0, 0.3); }
-        .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; transition: all 0.3s; }
-        .lightbox-close:hover { color: #FF9900; transform: scale(1.1); }
-        .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 50px; cursor: pointer; padding: 20px; transition: all 0.3s; }
-        .lightbox-nav:hover { color: #FF9900; }
-        .lightbox-prev { left: 20px; }
-        .lightbox-next { right: 20px; }
-        
-        .glass-card { background: linear-gradient(135deg, rgba(0, 51, 102, 0.15) 0%, rgba(0, 51, 102, 0.08) 50%, rgba(0, 51, 102, 0.15) 100%); backdrop-filter: blur(24px) saturate(180%); border: 1px solid rgba(255, 153, 0, 0.2); border-radius: 24px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3); }
-        
-        .btn-primary { background: linear-gradient(135deg, #FF9900 0%, #FFAA22 50%, #FF9900 100%); background-size: 200% 200%; animation: gradient-shift 4s ease infinite; color: #000; font-weight: 700; padding: 16px 32px; border-radius: 12px; border: none; box-shadow: 0 0 0 1px rgba(255, 153, 0, 0.5), 0 4px 24px rgba(255, 153, 0, 0.4); transition: all 0.3s; }
-        .btn-primary:hover { transform: translateY(-2px) scale(1.02); filter: brightness(1.1); box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.8), 0 8px 40px rgba(255, 153, 0, 0.6); }
-        
-        .btn-secondary { background: transparent; color: #FF9900; font-weight: 600; padding: 16px 32px; border-radius: 12px; border: 2px solid #FF9900; transition: all 0.3s; }
-        .btn-secondary:hover { background: rgba(255, 153, 0, 0.1); transform: translateY(-2px); }
-        
-        @keyframes gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-        @keyframes fade-in-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 1px rgba(255, 153, 0, 0.5), 0 4px 24px rgba(255, 153, 0, 0.4), 0 0 60px rgba(255, 153, 0, 0.3); } 50% { box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.8), 0 8px 40px rgba(255, 153, 0, 0.6), 0 0 80px rgba(255, 153, 0, 0.5); } }
-        
-        .animate-fade-in { animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-        .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-        
-        .hero-bg { background: radial-gradient(ellipse at top, rgba(0, 51, 102, 0.4) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(255, 153, 0, 0.2) 0%, transparent 50%); }
-        .hero-overlay { background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.6) 100%); }
-        
-        .glow-text { text-shadow: 0 0 20px rgba(255, 153, 0, 0.8), 0 0 40px rgba(255, 153, 0, 0.5); }
-        .glow-accent { filter: drop-shadow(0 0 20px rgba(255, 153, 0, 0.6)); }
-        
-        .navbar { transition: all 0.3s ease; }
-        .navbar.scrolled { background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255, 153, 0, 0.1); }
-        
-        .particle { position: absolute; width: 4px; height: 4px; background: rgba(255, 153, 0, 0.6); border-radius: 50%; animation: float-particle 20s infinite ease-in-out; }
-        @keyframes float-particle { 0%, 100% { transform: translate(0, 0); opacity: 0.4; } 25% { transform: translate(100px, -100px); opacity: 0.8; } 50% { transform: translate(-50px, -200px); opacity: 0.6; } 75% { transform: translate(-100px, -100px); opacity: 0.8; } }
-        
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; z-index: 9998; width: 65px; height: 65px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5); transition: all 0.3s; animation: whatsapp-pulse 2s infinite; }
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 10px 40px rgba(37, 211, 102, 0.7); }
-        .whatsapp-float i { color: white; font-size: 35px; }
-        @keyframes whatsapp-pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-        
-        .lot-card { position: relative; overflow: hidden; border-radius: 24px; cursor: pointer; transition: all 0.4s; }
-        .lot-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(255, 153, 0, 0.3); }
-        .lot-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
-        .lot-card:hover img { transform: scale(1.1); }
-        
-        /* Testimonial Carousel */
-        .testimonial-track { display: flex; animation: scroll-testimonials 30s linear infinite; }
-        @keyframes scroll-testimonials { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .testimonial-track:hover { animation-play-state: paused; }
-        
-        /* SVG Interactive Map */
-        .lot-path { transition: all 0.3s; cursor: pointer; }
-        .lot-path:hover { fill: rgba(255, 153, 0, 0.5) !important; stroke: #FF9900 !important; stroke-width: 3px !important; filter: drop-shadow(0 0 20px rgba(255, 153, 0, 0.8)); }
-        
-        .section-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .section-reveal.visible { opacity: 1; transform: translateY(0); }
-        
-        .counter { font-variant-numeric: tabular-nums; }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #09090B; }
-        ::-webkit-scrollbar-thumb { background: #FF9900; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #FFAA22; }
-        
-        /* FAQ Accordion */
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease; }
-        .faq-item.active .faq-answer { max-height: 500px; padding-top: 16px; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
-        .faq-icon { transition: transform 0.3s ease; }
-        
-        /* Video Section */
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 24px; box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5); }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        
-        /* Feature Cards */
-        .feature-card { transition: all 0.3s; }
-        .feature-card:hover { transform: translateY(-4px); border-color: rgba(255, 153, 0, 0.4); box-shadow: 0 20px 40px rgba(255, 153, 0, 0.2); }
-        
-        .goog-te-gadget { font-family: 'Inter', sans-serif !important; font-size: 12px !important; }
-        .goog-te-gadget .goog-te-combo { background: linear-gradient(135deg, rgba(255, 153, 0, 0.15) 0%, rgba(255, 153, 0, 0.08) 100%) !important; border: 1px solid rgba(255, 153, 0, 0.3) !important; border-radius: 8px !important; padding: 8px 12px !important; color: #FFFFFF !important; }
-        .goog-te-banner-frame { display: none !important; }
-        body { top: 0 !important; }
-        .skiptranslate { display: none !important; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="nav.title">La Calma Comunidad | Lotes Premium La Ventana, BCS</title>
+  <meta name="description" content="La Calma Comunidad — 5 lotes Estate de 1,500 m² con acceso privado de 13m y vistas protegidas al Mar de Cortés. Financiamiento directo sin bancos. La Ventana, BCS.">
+  <meta name="keywords" content="La Calma, lotes, La Ventana, BCS, real estate, Mexico, premium lots, Mar de Cortes, kiteboarding, inversion, propiedad privada">
+  <meta property="og:title" content="La Calma Comunidad | Lotes Premium en La Ventana">
+  <meta property="og:description" content="5 lotes Estate de 1,500 m² con vistas panorámicas al Mar de Cortés. Financiamiento directo.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://oscaromargp.github.io/la-calma-comunidad/">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-bg-primary text-text-primary overflow-x-hidden" oncontextmenu="return false">
+<body>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <span class="lightbox-nav lightbox-prev" onclick="changeLightboxImage(-1)">&#10094;</span>
-        <span class="lightbox-nav lightbox-next" onclick="changeLightboxImage(1)">&#10095;</span>
-        <img id="lightbox-img" src="" alt="Image">
+  <!-- Particles Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="#" class="navbar-brand">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="#003366"/>
+          <text x="16" y="22" text-anchor="middle" fill="#FF9900" font-family="Plus Jakarta Sans" font-weight="800" font-size="18">LC</text>
+        </svg>
+        <span>La <span class="brand-accent">Calma</span></span>
+      </a>
+
+      <div class="navbar-links">
+        <a href="#hero" data-i18n="nav.home">Inicio</a>
+        <a href="#map-section" data-i18n="nav.map">Ubicación</a>
+        <a href="#transparency" data-i18n="nav.transparency">Transparencia</a>
+        <a href="#simulator" data-i18n="nav.simulator">Simulador</a>
+        <a href="#financing" data-i18n="nav.financing">Financiamiento</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="https://wa.me/526121055224?text=Hola%2C%20solicito%20informaci%C3%B3n%20sobre%20La%20Calma%20Comunidad" target="_blank" data-i18n="nav.contact">Contacto</a>
+        <button class="lang-toggle" onclick="toggleLang()">
+          <span id="lang-btn-text" data-i18n="nav.lang_btn">EN</span>
+        </button>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <!-- Particles Background -->
-    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div class="particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 20%; top: 60%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 40%; top: 30%; animation-delay: 4s;"></div>
-        <div class="particle" style="left: 60%; top: 70%; animation-delay: 6s;"></div>
-        <div class="particle" style="left: 80%; top: 40%; animation-delay: 8s;"></div>
-        <div class="particle" style="left: 90%; top: 80%; animation-delay: 10s;"></div>
-    </div>
+  <!-- ============================================================
+       HERO SECTION (Module 1)
+  ============================================================ -->
+  <section id="hero" class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="images/hero-poster.jpg">
+      <source src="images/hero-drone.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
 
-    <!-- Floating CTA Buttons -->
-    <div class="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
-        <a href="#contacto" class="bg-accent hover:bg-accent-light text-black font-bold py-3 px-5 rounded-full shadow-lg flex items-center gap-2 transition-all hover:scale-105">
-            <i class="fas fa-calculator"></i>
-            <span class="hidden lg:inline">Calcular</span>
+    <div class="container">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span data-i18n="hero.badge">SOLO 5 LOTES ESTATE · PROPIEDAD PRIVADA · BAJA DENSIDAD H1</span>
+      </div>
+
+      <h1>
+        <span data-i18n="hero.title">La Calma Comunidad:</span>
+        <span class="gradient-text" data-i18n="hero.subtitle">Tu lienzo de baja densidad en el epicentro del viento.</span>
+      </h1>
+
+      <p data-i18n="hero.desc">Cinco lotes tipo Estate de 1,500 m² con acceso privado de 13 m de ancho, vistas panorámicas protegidas a Isla Cerralvo y el Mar de Cortés. El último desarrollo de baja densidad en La Ventana, BCS.</p>
+
+      <div class="hero-actions">
+        <a href="https://wa.me/526121055224?text=Hola%2C%20solicito%20informaci%C3%B3n%20sobre%20La%20Calma%20Comunidad" target="_blank" class="btn-primary" data-i18n="hero.cta_primary">
+          Agendar Visita
         </a>
+        <a href="#map-section" class="btn-secondary" data-i18n="hero.cta_secondary">
+          Explorar Mapa
+        </a>
+      </div>
+
+      <div class="hero-coords">
+        <span class="label" data-i18n="hero.coord_label">UBICACIÓN GEOGRÁFICA</span>
+        <span class="val">24.070988° N · 109.998741° O</span>
+      </div>
     </div>
+  </section>
 
-    <!-- Exit Intent Popup -->
-    <div id="exitPopup" class="fixed inset-0 bg-black/80 z-[10000] hidden items-center justify-center p-4">
-        <div class="glass-card max-w-lg w-full p-8 rounded-3xl text-center relative">
-            <button onclick="closeExitPopup()" class="absolute top-4 right-4 text-text-tertiary hover:text-white text-2xl">&times;</button>
-            <div class="text-6xl mb-4">🚨</div>
-            <h3 class="text-2xl font-bold text-accent mb-4">¡Espera! Solo quedan 5 lotes</h3>
-            <p class="text-text-secondary mb-6">Descarga nuestro brochure PDF completo con plano de lotes y opciones de financiamiento antes de irte.</p>
-            <a href="https://drive.google.com/file/d/1SOrX75-DSxv_ChGOrBesF0cegEnIXxus/view?usp=sharing" target="_blank" class="btn-primary block w-full mb-4">
-                <i class="fas fa-download mr-2"></i> Descargar Brochure PDF
-            </a>
-            <button onclick="closeExitPopup()" class="text-text-tertiary text-sm hover:text-accent">No gracias, quiero seguir viendo</button>
+  <!-- ============================================================
+       STATS BAR
+  ============================================================ -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-number">
+            <span data-counter="5">0</span>
+          </div>
+          <div class="stat-label" data-i18n="stats.lots">Lotes Exclusivos</div>
         </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-number">
+            <span data-counter="1500">0</span><span class="stat-suffix">m²</span>
+          </div>
+          <div class="stat-label" data-i18n="stats.surface">m² por Lote</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-number">
+            <span data-counter="13">0</span><span class="stat-suffix">m</span>
+          </div>
+          <div class="stat-label" data-i18n="stats.access">m Acceso Privado</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <div class="stat-number">
+            H<span data-counter="1">0</span>
+          </div>
+          <div class="stat-label" data-i18n="stats.density">Densidad H1</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Lead Magnet Modal -->
-    <div id="leadMagnet" class="fixed inset-0 bg-black/80 z-[10000] hidden items-center justify-center p-4">
-        <div class="glass-card max-w-lg w-full p-8 rounded-3xl relative">
-            <button onclick="closeLeadMagnet()" class="absolute top-4 right-4 text-text-tertiary hover:text-white text-2xl">&times;</button>
-            <div class="text-center mb-6">
-                <div class="text-5xl mb-3">📄</div>
-                <h3 class="text-2xl font-bold text-accent">Descarga tu Brochure Gratis</h3>
-                <p class="text-text-secondary mt-2">Recibe el plano completo + opciones de financiamiento</p>
-            </div>
-            <form id="leadMagnetForm" class="space-y-4">
-                <input type="text" name="name" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none">
-                <input type="tel" name="phone" required placeholder="Tu WhatsApp" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none">
-                <input type="email" name="email" required placeholder="Tu email" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none">
-                <button type="submit" class="btn-primary w-full">Descargar Ahora</button>
-            </form>
-        </div>
+  <!-- ============================================================
+       MAP SECTION (Module 2)
+  ============================================================ -->
+  <section id="map-section" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="nav.map">Ubicación</span>
+        <h2 class="section-title" data-i18n="map.title">Geo-Localización Interactiva</h2>
+        <p class="section-subtitle" data-i18n="map.subtitle">Explora los 5 lotes, puntos de interés deportivo, familiar y gastronómico</p>
+      </div>
+
+      <div id="interactive-map" class="reveal"></div>
+
+      <div class="map-layers reveal reveal-delay-1">
+        <button class="map-layer-btn active" data-layer="lots">
+          🏠 <span data-i18n="nav.home">Lotes</span>
+        </button>
+        <button class="map-layer-btn" data-layer="sports">
+          🏄 <span data-i18n="map.layer_sports">Deportes</span>
+        </button>
+        <button class="map-layer-btn" data-layer="family">
+          👨‍👩‍👧‍👦 <span data-i18n="map.layer_family">Familia y Salud</span>
+        </button>
+        <button class="map-layer-btn" data-layer="gastro">
+          🍽️ <span data-i18n="map.layer_gastro">Gastronomía</span>
+        </button>
+      </div>
+
+      <div id="map-layer-desc" class="map-layer-desc"></div>
     </div>
+  </section>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://api.whatsapp.com/send?phone=5216121055224&text=Hola,%20me%20interesa%20La%20Calma%20Comunidad" target="_blank" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+  <!-- ============================================================
+       TRANSPARENCY SECTION (Module 3)
+  ============================================================ -->
+  <section id="transparency" class="section section-darker">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="nav.transparency">Transparencia</span>
+        <h2 class="section-title" data-i18n="transparency.title">Transparencia Técnica Total</h2>
+        <p class="section-subtitle" data-i18n="transparency.subtitle">Sin marketing vacío. Esto es lo que necesitas saber para tomar una decisión informada.</p>
+      </div>
 
-    <!-- Navigation -->
-    <nav class="navbar fixed top-0 w-full z-50 py-4">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center glow-accent">
-                    <svg class="w-7 h-7 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                </div>
-                <span class="text-xl font-bold font-display">La Calma</span>
-            </a>
-            
-            <div class="hidden lg:flex items-center gap-8">
-                <a href="#inicio" class="text-text-secondary hover:text-accent transition-colors font-semibold">Inicio</a>
-                <a href="#lotes" class="text-text-secondary hover:text-accent transition-colors font-semibold">Lotes</a>
-                <a href="#galeria" class="text-text-secondary hover:text-accent transition-colors font-semibold">Galería</a>
-                <a href="#video" class="text-text-secondary hover:text-accent transition-colors font-semibold">Video</a>
-                <a href="#testimonios" class="text-text-secondary hover:text-accent transition-colors font-semibold">Testimonios</a>
-                <a href="#faq" class="text-text-secondary hover:text-accent transition-colors font-semibold">FAQ</a>
-                <a href="#contacto" class="text-text-secondary hover:text-accent transition-colors font-semibold">Contacto</a>
-            </div>
-            
-            <div class="flex items-center gap-4">
-                <a href="#contacto" class="btn-primary hidden sm:inline-block text-sm py-3 px-6">Cotizar</a>
-            </div>
-            
-            <button class="lg:hidden text-accent" onclick="toggleMobileMenu()">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
+      <div class="transparency-grid">
+        <div class="glass-card reveal">
+          <span class="card-icon">💧</span>
+          <h3><span>//</span> <span data-i18n="transparency.water_title">El Reto del Agua y la Energía</span></h3>
+          <p data-i18n="transparency.water_body">La Ventana promueve un crecimiento consciente. No dependemos de redes municipales sobrecargadas. Los propietarios de La Calma implementan sistemas independientes: cisternas de almacenamiento de agua potable, plantas de tratamiento de aguas residuales (biodigestores) y sistemas solares fotovoltaicos. Esto no es una limitación — es una ventaja: control total sobre tus servicios, cero dependencia de infraestructura pública deficiente.</p>
         </div>
-        
-        <div id="mobileMenu" class="hidden lg:hidden mt-4 mx-6 p-6 rounded-2xl glass-card">
-            <div class="flex flex-col gap-4">
-                <a href="#inicio" class="text-text-secondary hover:text-accent transition-colors font-semibold" onclick="toggleMobileMenu()">Inicio</a>
-                <a href="#lotes" class="text-text-secondary hover:text-accent transition-colors font-semibold" onclick="toggleMobileMenu()">Lotes</a>
-                <a href="#galeria" class="text-text-secondary hover:text-accent transition-colors font-semibold" onclick="toggleMobileMenu()">Galería</a>
-                <a href="#video" class="text-text-secondary hover:text-accent transition-colors font-semibold" onclick="toggleMobileMenu()">Video</a>
-                <a href="#testimonios" class="text-text-secondary hover:text-accent transition-colors font-semibold" onclick="toggleMobileMenu()">Testimonios</a>
-                <a href="#faq" class="text-text-secondary hover:text-accent transition-colors font-semibold" onclick="toggleMobileMenu()">FAQ</a>
-                <a href="#contacto" class="btn-primary text-center mt-2" onclick="toggleMobileMenu()">Cotizar Ahora</a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="min-h-screen flex items-center justify-center relative hero-bg pt-20">
-        <div class="hero-overlay absolute inset-0"></div>
-        <div class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="space-y-8">
-                <div class="animate-fade-in" style="animation-delay: 0.1s;">
-                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-bold border border-accent/30">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        DESARROLLO EXCLUSIVO - SOLO 5 LOTES
-                    </span>
-                </div>
-                
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight animate-fade-in" style="animation-delay: 0.2s;">
-                    Lotes Premium en<br>
-                    <span class="text-accent glow-text">La Ventana</span>
-                </h1>
-                
-                <p class="text-xl text-text-secondary leading-relaxed max-w-xl font-semibold animate-fade-in" style="animation-delay: 0.4s;">
-                    5 lotes únicos de 1,500 m² con vistas panorámicas al Mar de Cortés. Exclusividad, privacidad y plusvalía garantizadas en el destino más codiciado de Baja California Sur.
-                </p>
-                
-                    <div class="flex flex-wrap gap-4 animate-fade-in" style="animation-delay: 0.6s;">
-                        <a href="https://api.whatsapp.com/send?phone=5216121055224&text=Hola,%20me%20interesa%20reservar%20un%20lote%20en%20La%20Calma" target="_blank" class="btn-primary animate-pulse-glow text-lg">Reservar Mi Lote</a>
-                        <a href="#calculadora" class="btn-secondary flex items-center gap-2">
-                            <i class="fas fa-calculator"></i>
-                            Calcular Mensualidad
-                        </a>
-                        <a href="#contacto" class="btn-secondary flex items-center gap-2">
-                            <i class="fas fa-video"></i>
-                            Agendar Visita Virtual
-                        </a>
-                    </div>
-                
-                <div class="flex gap-8 pt-6 animate-fade-in" style="animation-delay: 0.8s;">
-                    <div><p class="text-3xl font-bold text-accent counter">5</p><p class="text-sm text-text-tertiary font-semibold">Lotes Exclusivos</p></div>
-                    <div><p class="text-3xl font-bold text-accent">1,500<span class="text-lg">m²</span></p><p class="text-sm text-text-tertiary font-semibold">Por Lote</p></div>
-                    <div><p class="text-3xl font-bold text-accent">$85K</p><p class="text-sm text-text-tertiary font-semibold">Precio Desde</p></div>
-                    <div><p class="text-3xl font-bold text-red-500">4</p><p class="text-sm text-text-tertiary font-semibold">Disponibles</p></div>
-                </div>
-            </div>
-            
-            <div class="relative animate-fade-in" style="animation-delay: 0.5s;">
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-accent/20 cursor-pointer" onclick="openLightbox('images/vista-general.jpg')">
-                    <img src="images/vista-general.jpg" alt="La Calma Comunidad" class="w-full">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-6 left-6 right-6">
-                        <div class="glass-card p-4 rounded-xl inline-flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
-                                <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                            </div>
-                            <div>
-                                <p class="font-bold">La Ventana, BCS</p>
-                                <p class="text-sm text-text-secondary font-semibold">México</p>
-            </div>
+        <div class="glass-card reveal reveal-delay-1">
+          <span class="card-icon">🏛️</span>
+          <h3><span>//</span> <span data-i18n="transparency.legal_title">Estatus Legal: 100% Propiedad Privada</span></h3>
+          <p data-i18n="transparency.legal_body">Cada lote está regularizado ante el Catastro de Baja California Sur con subdivisión oficial autorizada. No es terreno ejidal, no es concesión. Es Propiedad Privada con escrituras individuales transferibles desde la firma del contrato.</p>
         </div>
-    </section>
 
-    <!-- Ubicación Section -->
-    <section id="ubicacion" class="py-24 section-reveal">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">Ubicación</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4">La Ventana, BCS</h2>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="rounded-3xl overflow-hidden h-96 lg:h-auto">
-                    <iframe src="https://www.google.com/maps/d/embed?mid=14hbeht2ynsn_PhsjYD-Pz8QWHbFYcN4&ehbc=2E312F" width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen loading="lazy" class="rounded-3xl"></iframe>
-                </div>
-            </div>
+        <div class="glass-card reveal reveal-delay-2">
+          <span class="card-icon">📐</span>
+          <h3><span>//</span> <span data-i18n="transparency.density_title">Protección de Densidad H1</span></h3>
+          <p data-i18n="transparency.density_body">La Calma tiene clasificación H1 (Habitacional Turística de Baja Densidad). Esto está escrito en el uso de suelo autorizado. Significa que solo existen 5 propietarios en el desarrollo. Nadie podrá construir un bloque de condominios que bloquee tu vista al amanecer. Esa protección es jurídica y está garantizada por el permiso de subdivisión.</p>
         </div>
-        
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-10">
-            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-        </div>
-    </section>
 
-    <!-- Social Proof -->
-    <section class="py-16 border-y border-accent/10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-                <div class="text-center"><p class="text-4xl font-bold text-accent">100%</p><p class="text-sm text-text-tertiary mt-2 font-semibold">Vistas Garantizadas</p></div>
-                <div class="text-center"><p class="text-4xl font-bold text-accent">24</p><p class="text-sm text-text-tertiary mt-2 font-semibold">Min al Aeropuerto</p></div>
-                <div class="text-center"><p class="text-4xl font-bold text-accent">$85K</p><p class="text-sm text-text-tertiary mt-2 font-semibold">USD Desde</p></div>
-                <div class="text-center"><p class="text-4xl font-bold text-accent">5★</p><p class="text-sm text-text-tertiary mt-2 font-semibold">Zona Premium</p></div>
-            </div>
+        <div class="glass-card reveal reveal-delay-3">
+          <span class="card-icon">🗺️</span>
+          <h3><span>//</span> <span data-i18n="transparency.foda_title">Análisis FODA del Desarrollador</span></h3>
+          <p style="margin-bottom:12px;font-size:0.85rem;color:var(--text-tertiary);">Evaluación honesta de fortalezas, oportunidades, debilidades y amenazas del proyecto.</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Ficha Técnica Section -->
-    <section class="py-16 bg-bg-secondary section-reveal">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-10">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">Datos Clave</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold mt-4">Datos del Desarrollo</h2>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass-card p-6 text-center">
-                    <span class="text-4xl mb-3 block">📏</span>
-                    <p class="text-3xl font-bold text-accent">7,505.37</p>
-                    <p class="text-sm text-text-tertiary font-semibold">m² Superficie Total</p>
-                </div>
-                <div class="glass-card p-6 text-center">
-                    <span class="text-4xl mb-3 block">🏠</span>
-                    <p class="text-3xl font-bold text-accent">5</p>
-                    <p class="text-sm text-text-tertiary font-semibold">Lotes Exclusivos</p>
-                </div>
-                <div class="glass-card p-6 text-center">
-                    <span class="text-4xl mb-3 block">📍</span>
-                    <p class="text-3xl font-bold text-accent">24.07°N</p>
-                    <p class="text-sm text-text-tertiary font-semibold">Latitud Norte</p>
-                </div>
-                <div class="glass-card p-6 text-center">
-                    <span class="text-4xl mb-3 block">💰</span>
-                    <p class="text-3xl font-bold text-accent">18-22%</p>
-                    <p class="text-sm text-text-tertiary font-semibold">ROI Proyectado Anual</p>
-                </div>
-            </div>
-            <div class="mt-10 grid md:grid-cols-2 gap-6">
-                <div class="glass-card p-6">
-                    <h4 class="font-bold text-lg mb-4 text-accent">🎯 Perfil del Inversionista</h4>
-                    <ul class="space-y-2 text-text-secondary font-semibold text-sm">
-                        <li>• Desarrollador Boutique - ROI max con eco-lujo</li>
-                        <li>• Inversionista Landed - Reserva patrimonial</li>
-                        <li>• Nómadas Digitales - Work from anywhere</li>
-                        <li>• Extranjeros - Fideicomiso bancario</li>
-                    </ul>
-                </div>
-                <div class="glass-card p-6">
-                    <h4 class="font-bold text-lg mb-4 text-accent">⚡ Servicios Disponibles</h4>
-                    <ul class="space-y-2 text-text-secondary font-semibold text-sm">
-                        <li>• Agua (Cisterna/Pipa)</li>
-                        <li>• Conectividad Starlink 200Mbps</li>
-                        <li>• Energía Solar Off-Grid</li>
-                        <li>• Uso de Suelo: Residencial Campestre (H4)</li>
-                    </ul>
-                </div>
-            </div>
+      <!-- FODA Grid -->
+      <div class="foda-grid reveal">
+        <div class="foda-card foda-f">
+          <h4>🟢 <span data-i18n="transparency.foda_f_title">Fortalezas</span></h4>
+          <ul>
+            <li data-i18n="transparency.foda_f_1">Solo 5 propietarios — exclusividad garantizada</li>
+            <li data-i18n="transparency.foda_f_2">1,500 m² por lote con frentes de 44 m promedio</li>
+            <li data-i18n="transparency.foda_f_3">Vistas panorámicas protegidas por topografía escalonada</li>
+            <li data-i18n="transparency.foda_f_4">Precio de entrada $56.66 USD/m² — por debajo del mercado</li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Interactive Master Plan -->
-    <section id="lotes" class="py-24 section-reveal">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">Master Plan</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Distribución de Lotes</h2>
-                <p class="text-text-secondary mt-4 max-w-2xl mx-auto text-lg font-semibold">
-                    Pasa el mouse sobre cada lote para ver más información. Haz clic para ir a la página details.
-                </p>
-            </div>
-            
-            <!-- Google Maps Embed -->
-            <div class="glass-card p-8 mb-12">
-                <iframe src="https://www.google.com/maps/d/embed?mid=14hbeht2ynsn_PhsjYD-Pz8QWHbFYcN4&ehbc=2E312F" width="100%" height="500" style="border:0; border-radius: 16px;" allowfullscreen loading="lazy"></iframe>
-            </div>
-            
-            <!-- Lot Cards Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-                <a href="lotes/lote-1.html" class="lot-card glass-card aspect-square">
-                    <img src="images/lote-1.png" alt="Lote 1" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 1</span>
-                        <h3 class="text-lg font-bold mt-2">Ubicación Preferente</h3>
-                        <p class="text-sm text-text-secondary font-semibold">1,500 m²</p>
-                    </div>
-                </a>
-                
-                <a href="lotes/lote-2.html" class="lot-card glass-card aspect-square">
-                    <img src="images/lote-2.png" alt="Lote 2" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 2</span>
-                        <h3 class="text-lg font-bold mt-2">Acceso Directo</h3>
-                        <p class="text-sm text-text-secondary font-semibold">1,500 m²</p>
-                    </div>
-                </a>
-                
-                <a href="lotes/lote-3.html" class="lot-card glass-card aspect-square">
-                    <img src="images/lote-3.png" alt="Lote 3" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 3</span>
-                        <h3 class="text-lg font-bold mt-2">Zona Central</h3>
-                        <p class="text-sm text-text-secondary font-semibold">1,500 m²</p>
-                    </div>
-                </a>
-                
-                <a href="lotes/lote-4.html" class="lot-card glass-card aspect-square">
-                    <img src="images/lote-4.png" alt="Lote 4" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <span class="px-3 py-1 bg-accent text-black text-xs font-bold rounded-full">LOTE 4</span>
-                        <h3 class="text-lg font-bold mt-2">Mayor Elevación</h3>
-                        <p class="text-sm text-text-secondary font-semibold">1,500 m²</p>
-                    </div>
-                </a>
-                
-                <a href="lotes/lote-5.html" class="lot-card glass-card aspect-square border-2 border-red-500">
-                    <img src="images/lote-5.png" alt="Lote 5" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
-                    <div class="absolute top-4 left-4">
-                        <span class="px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full animate-pulse">🔥 HOT</span>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <span class="px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full">LOTE 5</span>
-                        <h3 class="text-lg font-bold mt-2">Remate</h3>
-                        <p class="text-sm text-accent font-bold">1,505.37 m²</p>
-                    </div>
-                </a>
-            </div>
+        <div class="foda-card foda-o">
+          <h4>🔵 <span data-i18n="transparency.foda_o_title">Oportunidades</span></h4>
+          <ul>
+            <li data-i18n="transparency.foda_o_1">Boom turístico de La Ventana con crecimiento de doble dígito en plusvalía</li>
+            <li data-i18n="transparency.foda_o_2">Financiamiento directo del desarrollador sin bancos</li>
+            <li data-i18n="transparency.foda_o_3">Alta demanda de renta vacacional premium (200-500 USD/noche en temporada)</li>
+            <li data-i18n="transparency.foda_o_4">Escasez de lotes amplios cerca del núcleo deportivo</li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Video Section -->
-    <section id="video" class="py-24 bg-bg-secondary section-reveal">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">Recorrido Virtual</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Descubre La Ventana</h2>
-                <p class="text-text-secondary mt-4 max-w-2xl mx-auto text-lg font-semibold">
-                    Explora el entorno donde se ubica La Calma. Playas, atardeceres y el estilo de vida que te espera.
-                </p>
-            </div>
-            
-            <div class="max-w-5xl mx-auto">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/igo9O7ZX4Oo?rel=0&modestbranding=1" title="La Ventana BCS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
+        <div class="foda-card foda-d">
+          <h4>🟡 <span data-i18n="transparency.foda_d_title">Debilidades</span></h4>
+          <ul>
+            <li data-i18n="transparency.foda_d_1">Requiere planeación de sistemas sustentables (agua/luz)</li>
+            <li data-i18n="transparency.foda_d_2">Disponibilidad limitada a solo 5 lotes</li>
+            <li data-i18n="transparency.foda_d_3">Dependencia estacional del viento para pico de rentas</li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Galería Section -->
-    <section id="galeria" class="py-24 section-reveal">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">Galería</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Vistas del Desarrollo</h2>
-                <p class="text-text-secondary mt-4 max-w-2xl mx-auto text-lg font-semibold">
-                    Imágenes aéreas del terreno. Haz clic en cualquier imagen para verla en grande.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox('images/vista-cenital.jpg')">
-                    <img src="images/vista-cenital.jpg" alt="Vista Cenital" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox('images/vista-izquierda.jpg')">
-                    <img src="images/vista-izquierda.jpg" alt="Vista Izquierda" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 aspect-square">
-                </div>
-                <div class="rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox('images/vista-derecha.jpg')">
-                    <img src="images/vista-derecha.jpg" alt="Vista Derecha" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 aspect-square">
-                </div>
-                <div class="col-span-2 rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox('images/division-lotes.jpg')">
-                    <img src="images/division-lotes.jpg" alt="División de Lotes" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500">
-                </div>
-            </div>
+        <div class="foda-card foda-a">
+          <h4>🔴 <span data-i18n="transparency.foda_a_title">Amenazas</span></h4>
+          <ul>
+            <li data-i18n="transparency.foda_a_1">Incremento en costos de construcción en la península</li>
+            <li data-i18n="transparency.foda_a_2">Posibles desarrollos de alta densidad en zonas colindantes</li>
+            <li data-i18n="transparency.foda_a_3">Cambios regulatorios ambientales</li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Testimonios Section -->
-    <section id="testimonios" class="py-24 bg-bg-secondary overflow-hidden section-reveal">
-        <div class="max-w-7xl mx-auto px-6 mb-12">
-            <div class="text-center">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">Testimonios</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Lo que dicen nuestros clientes</h2>
-                <p class="text-text-secondary mt-4 max-w-2xl mx-auto text-lg font-semibold">
-                    Inversores que ya descubrieron La Calma. Confía en Tranquile para tu próxima inversión.
-                </p>
-            </div>
-        </div>
-        
-        <div class="relative">
-            <div class="testimonial-track">
-                <!-- Testimonials in Spanish -->
-                <div class="flex gap-6 px-6" style="min-width: max-content;">
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🏝️</div>
-                            <div>
-                                <p class="font-bold text-lg">Carlos Mendoza</p>
-                                <p class="text-text-secondary text-sm font-semibold">Inversionista, México</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Excelente servicio de Tranquile. Me ayudaron a encontrar el lote perfecto con vistas al mar. El proceso fue transparente y profesional. ¡Totalmente recomendado!"</p>
-                    </div>
-                    
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🇺🇸</div>
-                            <div>
-                                <p class="font-bold text-lg">Jennifer & Tom Wilson</p>
-                                <p class="text-text-secondary text-sm font-semibold">Retirados, Estados Unidos</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Compramos nuestro lote soñado a través de Tranquile. Las vistas son increibles y el proceso fue muy fluido. ¡La mejor experiencia Inmobiliaria que hemos tenido!"</p>
-                    </div>
-                    
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🇲🇽</div>
-                            <div>
-                                <p class="font-bold text-lg">Roberto Sánchez</p>
-                                <p class="text-text-secondary text-sm font-semibold">Empresario, CDMX</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Excelente servicio de Tranquile. Me ayudaron a conseguir un lote con vista al mar en La Ventana. El proceso fue transparente y profesional. ¡Recomiendo ampliamente!"</p>
-                    </div>
-                    
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🇨🇦</div>
-                            <div>
-                                <p class="font-bold text-lg">Miguel Ángel García</p>
-                                <p class="text-text-secondary text-sm font-semibold">Inversionista, Canadá</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Invertir en México fue fácil gracias a Tranquile. Manejaron todo desde la documentación hasta el financiamiento. ¡Ahora tengo un pedazo de paraíso!"</p>
-                    </div>
-                    
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🇩🇪</div>
-                            <div>
-                                <p class="font-bold text-lg">Hans Müller</p>
-                                <p class="text-text-secondary text-sm font-semibold">Inversionista, Alemania</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Proceso profesional con Tranquile. Mi terreno en La Ventana es una excelente inversión. El equipo respondió todas mis preguntas y fue muy detallado."</p>
-                    </div>
-                    
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🇪🇸</div>
-                            <div>
-                                <p class="font-bold text-lg">María & David López</p>
-                                <p class="text-text-secondary text-sm font-semibold">Nómadas Digitales, España</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Buscábamos un terreno con vistas increibles a buen precio. Tranquile superó nuestras expectativas. ¡Ahora estamos construyendo nuestra casa de ensueño!"</p>
-                    </div>
-                </div>
-                <!-- Duplicate for seamless loop -->
-                <div class="flex gap-6 px-6" style="min-width: max-content;">
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🏝️</div>
-                            <div>
-                                <p class="font-bold text-lg">Carlos Mendoza</p>
-                                <p class="text-text-secondary text-sm font-semibold">Inversionista, México</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Excelente servicio de Tranquile. Me ayudaron a encontrar el lote perfecto con vistas al mar. El proceso fue transparente y profesional. ¡Totalmente recomendado!"</p>
-                    </div>
-                    
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🇺🇸</div>
-                            <div>
-                                <p class="font-bold text-lg">Jennifer & Tom Wilson</p>
-                                <p class="text-text-secondary text-sm font-semibold">Retirados, Estados Unidos</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Compramos nuestro lote soñado a través de Tranquile. Las vistas son increibles y el proceso fue muy fluido. ¡La mejor experiencia Inmobiliaria que hemos tenido!"</p>
-                    </div>
-                    
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🇲🇽</div>
-                            <div>
-                                <p class="font-bold text-lg">Roberto Sánchez</p>
-                                <p class="text-text-secondary text-sm font-semibold">Empresario, CDMX</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Excelente servicio de Tranquile. Me ayudaron a conseguir un lote con vista al mar en La Ventana. El proceso fue transparente y profesional. ¡Recomiendo ampliamente!"</p>
-                    </div>
-                    
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🇨🇦</div>
-                            <div>
-                                <p class="font-bold text-lg">Miguel Ángel García</p>
-                                <p class="text-text-secondary text-sm font-semibold">Inversionista, Canadá</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Invertir en México fue fácil gracias a Tranquile. Manejaron todo desde la documentación hasta el financiamiento. ¡Ahora tengo un pedazo de paraíso!"</p>
-                    </div>
-                    
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🇩🇪</div>
-                            <div>
-                                <p class="font-bold text-lg">Hans Müller</p>
-                                <p class="text-text-secondary text-sm font-semibold">Inversionista, Alemania</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Proceso profesional con Tranquile. Mi terreno en La Ventana es una excelente inversión. El equipo respondió todas mis preguntas y fue muy detallado."</p>
-                    </div>
-                    
-                    <div class="glass-card p-8 w-96 flex-shrink-0">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center text-2xl">🇪🇸</div>
-                            <div>
-                                <p class="font-bold text-lg">María & David López</p>
-                                <p class="text-text-secondary text-sm font-semibold">Nómadas Digitales, España</p>
-                            </div>
-                        </div>
-                        <div class="text-accent mb-3">★★★★★</div>
-                        <p class="text-text-secondary font-semibold">"Buscábamos un terreno con vistas increibles a buen precio. Tranquile superó nuestras expectativas. ¡Ahora estamos construyendo nuestra casa de ensueño!"</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="py-24 section-reveal">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">Características</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4">¿Por qué La Calma?</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="feature-card glass-card p-8 text-center">
-                    <div class="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Privacidad Garantizada</h3>
-                    <p class="text-text-secondary font-semibold">Solo 5 propietarios. Topografía que protege las vistas de cada lote.</p>
-                </div>
-                
-                <div class="feature-card glass-card p-8 text-center">
-                    <div class="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Vistas Panorámicas</h3>
-                    <p class="text-text-secondary font-semibold">Mar de Cortés, amaneceres sobre el mar y cielos estrellados.</p>
-                </div>
-                
-                <div class="feature-card glass-card p-8 text-center">
-                    <div class="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Plusvalía Asegurada</h3>
-                    <p class="text-text-secondary font-semibold">Zona en crecimiento controlado. Terrenos de gran formato son cada vez más escasos.</p>
-                </div>
-                
-                <div class="feature-card glass-card p-8 text-center">
-                    <div class="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Ubicación Estratégica</h3>
-                    <p class="text-text-secondary font-semibold">Minutos de la playa, kiteboarding, restaurantes y servicios.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section with two columns -->
-    <section id="faq" class="py-24 bg-bg-secondary section-reveal">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">FAQ</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Preguntas Frecuentes</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-6" id="faqContainer">
-                <div class="faq-item glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center font-bold text-lg">
-                        <span>¿Qué tipo de contrato y garantías se ofrecen?</span>
-                        <svg class="faq-icon w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </div>
-                    <div class="faq-answer text-text-secondary font-semibold">
-                        Se firma un contrato de compraventa notariado con títulos de propiedad en regla. Contamos con toda la documentación de la subdivisión de la Parcela #29 validada. El contrato incluye garantías de escritura pública y transferencia legal de propiedad.
-                    </div>
-                </div>
-                
-                <div class="faq-item glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center font-bold text-lg">
-                        <span>¿Existen restricciones de construcción?</span>
-                        <svg class="faq-icon w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </div>
-                    <div class="faq-answer text-text-secondary font-semibold">
-                        Sí, existen lineamientos para mantener la armonía visual y asegurar que ninguna construcción obstruya la vista del lote posterior. Se permiten construcciones de hasta 2 niveles con altura máxima de 8 metros.
-                    </div>
-                </div>
-                
-                <div class="faq-item glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center font-bold text-lg">
-                        <span>¿Cuáles son los servicios disponibles?</span>
-                        <svg class="faq-icon w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </div>
-                    <div class="faq-answer text-text-secondary font-semibold">
-                        Los lotes se entregan con factibilidad de conexión eléctrica y agua. El desarrollo fomenta el uso de sistemas biodigestores para el manejo de aguas residuales. Cada lote cuenta con acometida de luz y agua.
-                    </div>
-                </div>
-                
-                <div class="faq-item glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center font-bold text-lg">
-                        <span>¿Se ofrece financiamiento directo?</span>
-                        <svg class="faq-icon w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </div>
-                    <div class="faq-answer text-text-secondary font-semibold">
-                        Sí, el desarrollador ofrece esquemas de pago flexibles: hasta 12 meses sin intereses, enganche desde 20%, sin consulta de buró de crédito. Tasas competitivas y escrituración inmediata.
-                    </div>
-                </div>
-                
-                <div class="faq-item glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center font-bold text-lg">
-                        <span>¿Cuándo puedo iniciar construcción?</span>
-                        <svg class="faq-icon w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </div>
-                    <div class="faq-answer text-text-secondary font-semibold">
-                        Una vez escriturado el lote, puedes iniciar el proceso de permisos de construcción. El proceso de permiso municipal toma aproximadamente 30-45 días.
-                    </div>
-                </div>
-                
-                <div class="faq-item glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center font-bold text-lg">
-                        <span>¿Cómo es el acceso al desarrollo?</span>
-                        <svg class="faq-icon w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </div>
-                    <div class="faq-answer text-text-secondary font-semibold">
-                        Acceso privado pavimentado de 13.27 metros de ancho con caseta de vigilancia. Vialidad interna con áreas verdes, iluminación LED y seguridad 24/7 con control de acceso.
-                    </div>
-                </div>
-                
-                <div class="faq-item glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center font-bold text-lg">
-                        <span>¿Qué incluye el mantenimiento?</span>
-                        <svg class="faq-icon w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </div>
-                    <div class="faq-answer text-text-secondary font-semibold">
-                        Cuota de mantenimiento mensual que incluye: vigilancia 24/7, limpieza de áreas comunes, mantenimiento de vialidad, iluminación pública, áreas verdes y gestión de residuos sólidos. Estimado $150 USD/mes.
-                    </div>
-                </div>
-                
-                <div class="faq-item glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center font-bold text-lg">
-                        <span>¿Se puede rentar a corto plazo?</span>
-                        <svg class="faq-icon w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </div>
-                    <div class="faq-answer text-text-secondary font-semibold">
-                        Sí, La Ventana es un destino de alquiler vacacional premium. Muchos propietarios rentan sus villas 6-8 meses al año a través de Airbnb y VRBO. El área de kiteboarding garantiza ocupación constante.
-                    </div>
-                </div>
-                
-                <div class="faq-item glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center font-bold text-lg">
-                        <span>¿Qué incluye la escrituración?</span>
-                        <svg class="faq-icon w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </div>
-                    <div class="faq-answer text-text-secondary font-semibold">
-                        Escritura pública ante notario, pago de impuesto de transferencia, alta ante SAT, trámite ante el Registro Público de la Propiedad, y traducción al inglés del documento.
-                    </div>
-                </div>
-                
-                <div class="faq-item glass-card p-6 cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center font-bold text-lg">
-                        <span>¿Puedo extranjeros comprar terreno?</span>
-                        <svg class="faq-icon w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </div>
-                    <div class="faq-answer text-text-secondary font-semibold">
-                        ¡Sí! Extranjeros pueden adquirir propiedad en México a través de un fideicomiso bancario o constituyendo una empresa mexicana. Nosotros gestionamos todo el proceso legal de forma transparente.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ubicación Section -->
-    <section id="ubicacion" class="py-24 section-reveal">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">Ubicación</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4">La Ventana, BCS</h2>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="rounded-3xl overflow-hidden h-96 lg:h-auto">
-                    <iframe src="https://www.google.com/maps/d/embed?mid=14hbeht2ynsn_PhsjYD-Pz8QWHbFYcN4&ehbc=2E312F" width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen loading="lazy" class="rounded-3xl"></iframe>
-                </div>
-                
-                <div class="space-y-6">
-                    <div class="glass-card p-6 flex gap-4 items-start">
-                        <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
-                            <i class="fas fa-wind text-accent text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg">🏄 Kiteboarding World Class</h4>
-                            <p class="text-text-secondary font-semibold">Vientos constantes 15-25 nudos. hotspot internacional. Escuela certified.</p>
-                            <p class="text-accent text-sm font-bold mt-2">⏱️ 5 min | 🌊Sept-Mar</p>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card p-6 flex gap-4 items-start">
-                        <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
-                            <i class="fas fa-utensils text-accent text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg">🍽️ Gastro Scene Premium</h4>
-                            <p class="text-text-secondary font-semibold">Baja Bugs, La Paz Pizza, CocoLoco, The Roof. Vista marina.</p>
-                            <p class="text-accent text-sm font-bold mt-2">⏱️ 5-10 min</p>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card p-6 flex gap-4 items-start">
-                        <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
-                            <i class="fas fa-plane-departure text-accent text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg">✈️ Aeropuerto La Paz (LAP)</h4>
-                            <p class="text-text-secondary font-semibold">CMDX, LA, Denver, Toronto. United, Aeroméxico, Volaris.</p>
-                            <p class="text-accent text-sm font-bold mt-2">🚗 24 min</p>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card p-6 flex gap-4 items-start">
-                        <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
-                            <i class="fas fa-hospital text-accent text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg">🏥 Servicios Completos</h4>
-                            <p class="text-text-secondary font-semibold">Hospital, clínica 24h, mercado orgánico, banco, vinoteca.</p>
-                            <p class="text-accent text-sm font-bold mt-2">🏪 Todo cerca</p>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card p-6 flex gap-4 items-start">
-                        <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
-                            <i class="fas fa-chart-line text-accent text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-lg">📈 Alta Plusvalía</h4>
-                            <p class="text-text-secondary font-semibold">Zona controlada. Gran formato escasa. Demanda internacional creciente.</p>
-                            <p class="text-accent text-sm font-bold mt-2">💰 15-20% anual</p>
-                        </div>
-                    </div>
-                    
-                    <a href="https://api.whatsapp.com/send?phone=5216121055224&text=Hola,%20quiero%20visitar%20La%20Ventana" class="btn-primary w-full text-center font-bold py-4">
-                        <i class="fab fa-whatsapp mr-2"></i> Preguntar por Ubicación
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Calendario Estacional -->
-    <section class="py-16 bg-bg-secondary section-reveal">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-10">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">Calendario</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold mt-4">Temporadas del Año</h2>
-            </div>
-            <div class="grid md:grid-cols-4 gap-4">
-                <div class="glass-card p-6 border-l-4 border-accent">
-                    <span class="font-bold text-accent block mb-2">T1 (Ene-Mar)</span>
-                    <p class="text-accent font-bold text-sm mb-2">🌬️ VIENTO Y BALLENAS</p>
-                    <p class="text-text-tertiary text-xs uppercase">Temporada alta kite. Avistamiento de ballenas.</p>
-                </div>
-                <div class="glass-card p-6 border-l-4 border-text-tertiary">
-                    <span class="font-bold text-text-secondary block mb-2">T2 (Abr-Jun)</span>
-                    <p class="text-text-secondary font-bold text-sm mb-2">🏜️ SENDERISMO</p>
-                    <p class="text-text-tertiary text-xs uppercase">Floración del desierto. Ideal para trekking.</p>
-                </div>
-                <div class="glass-card p-6 border-l-4 border-text-tertiary">
-                    <span class="font-bold text-text-secondary block mb-2">T3 (Jul-Sep)</span>
-                    <p class="text-text-secondary font-bold text-sm mb-2">🎣 PESCA DEPORTIVA</p>
-                    <p class="text-text-tertiary text-xs uppercase">Aguas cálidas. Temporada de Marlin.</p>
-                </div>
-                <div class="glass-card p-6 border-l-4 border-accent">
-                    <span class="font-bold text-accent block mb-2">T4 (Oct-Dic)</span>
-                    <p class="text-accent font-bold text-sm mb-2">🧘 RETIRO Y BIENESTAR</p>
-                    <p class="text-text-tertiary text-xs uppercase">Regreso comunidad internacional.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section with Calculator -->
-    <section id="calculadora" class="py-24 bg-bg-secondary section-reveal">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm">Inversión</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Precios y Financiamiento</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="glass-card p-8 text-center">
-                    <span class="text-text-tertiary font-bold text-sm">PRECIO BASE</span>
-                    <div class="text-5xl font-bold text-accent mt-4">$85,000</div>
-                    <p class="text-text-secondary font-semibold mt-2">USD</p>
-                    <ul class="mt-8 space-y-3 text-left">
-                        <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 1,500 m² de terreno</li>
-                        <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Vistas garantizadas</li>
-                        <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Acceso privado</li>
-                        <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> $56.60 USD/m²</li>
-                    </ul>
-                    <a href="#contacto" class="btn-secondary w-full mt-8 block text-center font-bold">Solicitar Info</a>
-                </div>
-                
-                <div class="glass-card p-8 text-center border-2 border-accent relative">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-black text-xs font-bold rounded-full">MÁS POPULAR</span>
-                    <span class="text-accent font-bold text-sm">LOTE 5 - REMATE</span>
-                    <div class="text-5xl font-bold text-accent mt-4">$87,000</div>
-                    <p class="text-text-secondary font-semibold mt-2">USD</p>
-                    <ul class="mt-8 space-y-3 text-left">
-                        <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 1,505.37 m²</li>
-                        <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Geometría extendida</li>
-                        <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Mayor frente</li>
-                        <li class="flex items-center gap-2 text-red-400 font-semibold"><svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> ¡Últimas unidades!</li>
-                    </ul>
-                    <a href="#contacto" class="btn-primary w-full mt-8 block text-center font-bold">Cotizar Ahora</a>
-                </div>
-                
-                <div class="glass-card p-8 text-center">
-                    <span class="text-text-tertiary font-bold text-sm">FINANCIAMIENTO</span>
-                    <div class="text-5xl font-bold text-accent mt-4">hasta 12</div>
-                    <p class="text-text-secondary font-semibold mt-2">meses sin intereses</p>
-                    <ul class="mt-8 space-y-3 text-left">
-                        <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Enganche desde 20%</li>
-                        <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Tasas competitivas</li>
-                        <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Sin buró de crédito</li>
-                        <li class="flex items-center gap-2 text-text-secondary font-semibold"><svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Escrituración inmediata</li>
-                    </ul>
-                    <a href="#calculadora" class="btn-secondary w-full mt-8 block text-center font-bold">Calcular Mensualidad</a>
-                </div>
-            </div>
-            
-            <!-- Calculator -->
-            <div class="mt-16 glass-card p-8 max-w-2xl mx-auto">
-                <h3 class="text-2xl font-bold text-center mb-6">Calcula tu Mensualidad</h3>
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                        <label class="block text-sm font-bold mb-2">Precio del Lote (USD)</label>
-                        <select id="calcPrice" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none" onchange="calculateMonthly()">
-                            <option value="85000">Lote 1-4 ($85,000)</option>
-                            <option value="87000">Lote 5 - Remate ($87,000)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold mb-2">Enganche (%)</label>
-                        <select id="calcDownPayment" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none" onchange="calculateMonthly()">
-                            <option value="20">20%</option>
-                            <option value="30">30%</option>
-                            <option value="40">40%</option>
-                            <option value="50">50%</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                        <label class="block text-sm font-bold mb-2">Meses</label>
-                        <select id="calcMonths" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none" onchange="calculateMonthly()">
-                            <option value="12">12 meses (sin intereses)</option>
-                            <option value="24">24 meses</option>
-                            <option value="36">36 meses</option>
-                            <option value="48">48 meses</option>
-                            <option value="60">60 meses</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold mb-2">Tasa de Interés (%)</label>
-                        <select id="calcRate" class="w-full px-4 py-3 rounded-xl bg-bg-tertiary border border-accent/20 focus:border-accent outline-none" onchange="calculateMonthly()">
-                            <option value="0">0% (sin intereses)</option>
-                            <option value="8">8% anual</option>
-                            <option value="10">10% anual</option>
-                            <option value="12">12% anual</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="text-center p-6 bg-accent/10 rounded-xl">
-                    <p class="text-text-secondary font-semibold">Tu pago mensual sería:</p>
-                    <p class="text-4xl font-bold text-accent" id="monthlyResult">$1,134 USD</p>
-                    <p class="text-text-tertiary text-sm mt-2" id="monthlyDetail">Enganche: $17,000 USD | Plazo: 12 meses</p>
-                </div>
-                <a href="#contacto" class="btn-primary w-full mt-6 block text-center font-bold">Quiero Este Plan</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacto" class="py-24 section-reveal">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-accent font-bold tracking-wider uppercase text-sm">Contacto</span>
-                    <h2 class="text-4xl md:text-5xl font-extrabold mt-4">¿Listo para Inversiones Exclusivas?</h2>
-                    <p class="text-text-secondary mt-4 text-lg font-semibold">
-                        Agenda una visita virtual o presencial y descubre por qué La Calma es la oportunidad más exclusiva en La Ventana.
-                    </p>
-                    
-                    <!-- Desarrollador -->
-                    <div class="mt-8 glass-card p-6 flex gap-4 items-center">
-                        <div class="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center text-3xl">👤</div>
-                        <div>
-                            <p class="text-accent text-sm font-bold">Desarrollador</p>
-                            <p class="font-bold text-lg">Ignacio Ibarra</p>
-                            <p class="text-text-secondary text-sm font-semibold">Tranquile Baja Lifestyle</p>
-                            <a href="tel:+526121055224" class="text-accent text-sm font-bold hover:underline">+52 612 105 5224</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Sellos de confianza -->
-                    <div class="mt-6 grid grid-cols-2 gap-4">
-                        <div class="flex items-center gap-2 text-sm font-semibold">
-                            <i class="fas fa-shield-alt text-accent"></i> Financiamiento directo
-                        </div>
-                        <div class="flex items-center gap-2 text-sm font-semibold">
-                            <i class="fas fa-file-contract text-accent"></i> Escrituración inmediata
-                        </div>
-                        <div class="flex items-center gap-2 text-sm font-semibold">
-                            <i class="fas fa-ban text-accent"></i> Sin banco ni buró
-                        </div>
-                        <div class="flex items-center gap-2 text-sm font-semibold">
-                            <i class="fas fa-check-circle text-accent"></i> Título de propiedad
-                        </div>
-                    </div>
-                    
-                    <div class="mt-8 space-y-6">
-                        <a href="https://api.whatsapp.com/send?phone=5216121055224&text=Hola,%20me%20interesa%20La%20Calma%20Comunidad" target="_blank" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
-                            <div class="w-14 h-14 rounded-xl bg-green-500/20 flex items-center justify-center"><i class="fab fa-whatsapp text-3xl text-green-500"></i></div>
-                            <div><p class="font-bold text-lg">WhatsApp</p><p class="text-text-secondary font-semibold">+52 612 105 5224</p></div>
-                        </a>
-                        
-                        <a href="mailto:tranquilerealestate@gmail.com" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
-                            <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center"><svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-                            <div><p class="font-bold text-lg">Email</p><p class="text-text-secondary font-semibold">tranquilerealestate@gmail.com</p></div>
-                        </a>
-                        
-                        <a href="tel:+526121055224" class="flex items-center gap-4 glass-card p-4 rounded-xl hover:border-accent/40 transition-all group">
-                            <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center"><svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
-                            <div><p class="font-bold text-lg">Teléfono</p><p class="text-text-secondary font-semibold">+52 612 105 5224</p></div>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="glass-card p-8 rounded-3xl">
-                    <h3 class="text-2xl font-bold mb-6">Contáctanos</h3>
-                    <p class="text-text-secondary font-semibold mb-4">Escríbenos y te responderemos a la brevedad.</p>
-                    <a href="https://forms.gle/GkBaSWvSbpShxJYe8" target="_blank" class="btn-primary w-full py-4 text-lg font-bold flex items-center justify-center gap-2">
-                        <i class="fas fa-external-link-alt"></i> Abrir Formulario de Contacto
-                    </a>
-                    <p class="text-text-tertiary text-sm mt-4 text-center">O contáctanos directamente:</p>
-                    <div class="flex flex-wrap justify-center gap-4 mt-4">
-                        <a href="https://api.whatsapp.com/send?phone=5216121055224&text=Hola,%20me%20interesa%20La%20Calma" class="btn-secondary py-2 px-4 flex items-center gap-2">
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a>
-                        <a href="mailto:tranquilerealestate@gmail.com" class="btn-secondary py-2 px-4 flex items-center gap-2">
-                            <i class="fas fa-envelope"></i> Email
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="py-24 bg-gradient-to-br from-primary/40 via-bg-primary to-accent/20">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold">Tu Oasis te Espera</h2>
-            <p class="text-xl text-text-secondary mt-6 max-w-2xl mx-auto font-semibold">
-                Solo 5 lotes. Solo 5 oportunidades de vivir la verdadera exclusividad en La Ventana. El tiempo corre.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4 mt-10">
-                <a href="https://api.whatsapp.com/send?phone=5216121055224" class="btn-primary animate-pulse-glow text-lg px-10 py-4 font-bold">Cotizar Ahora</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-16 border-t border-accent/10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12">
-                <div class="md:col-span-2">
-                    <a href="#" class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center glow-accent">
-                            <svg class="w-7 h-7 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <span class="text-xl font-bold">La Calma Comunidad</span>
-                    </a>
-                    <p class="text-text-secondary font-semibold max-w-md">
-                        Desarrollo exclusivo de 5 lotes premium en La Ventana, Baja California Sur. Protegiendo su vista, asegurando su futuro.
-                    </p>
-                    <p class="text-text-tertiary mt-4 font-semibold">Una oportunidad de Tranquile.</p>
-                    <div class="flex gap-4 mt-6">
-                        <a href="https://instagram.com/TRANQUILEBAJALIFESTYLE" target="_blank" class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center text-accent hover:bg-accent hover:text-black transition-all">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold mb-4">Enlaces Rápidos</h4>
-                    <ul class="space-y-3 text-text-secondary font-semibold">
-                        <li><a href="#inicio" class="hover:text-accent transition-colors">Inicio</a></li>
-                        <li><a href="#lotes" class="hover:text-accent transition-colors">Lotes</a></li>
-                        <li><a href="#testimonios" class="hover:text-accent transition-colors">Testimonios</a></li>
-                        <li><a href="#faq" class="hover:text-accent transition-colors">FAQ</a></li>
-                        <li><a href="#contacto" class="hover:text-accent transition-colors">Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold mb-4">Contacto</h4>
-                    <ul class="space-y-3 text-text-secondary font-semibold">
-                        <li><a href="https://drive.google.com/file/d/1SOrX75-DSxv_ChGOrBesF0cegEnIXxus/view?usp=sharing" target="_blank" class="hover:text-accent transition-colors">Descargar Brochure</a></li>
-                        <li><a href="https://api.whatsapp.com/send?phone=5216121055224" class="hover:text-accent transition-colors">WhatsApp</a></li>
-                        <li><a href="mailto:tranquilerealestate@gmail.com" class="hover:text-accent transition-colors">Email</a></li>
-                        <li><a href="tel:+526121055224" class="hover:text-accent transition-colors">Llamar</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="mt-8 p-4 glass-card rounded-xl">
-                <p class="text-text-secondary font-semibold text-center"><strong>Dirección:</strong> Décimo Tercera 1270, Colonia Ampliación El Centenario CP 23080, La Paz, BCS</p>
-            </div>
-            
-            <div class="mt-12 pt-8 border-t border-accent/10 flex flex-wrap justify-between items-center gap-4">
-                <p class="text-text-tertiary text-sm font-semibold">© 2026 La Calma Comunidad. Todos los derechos reservados.</p>
-                <p class="text-text-tertiary text-sm font-semibold">La Ventana, BCS, México</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Print to PDF Button -->
-    <button onclick="window.print()" class="fixed bottom-6 left-4 z-[9998] glass-card p-3 rounded-full hover:border-accent transition-all" title="Imprimir / Guardar PDF">
-        <i class="fas fa-print text-accent text-xl"></i>
-    </button>
-
-    <!-- Language Selector Floating Button -->
-    <div class="fixed top-20 right-4 z-[9998]">
-        <div class="relative">
-            <button onclick="toggleLanguageMenu()" class="glass-card p-3 rounded-full flex items-center gap-2 hover:border-accent transition-all">
-                <i class="fas fa-globe text-accent text-xl"></i>
-            </button>
-            <div id="languageMenu" class="hidden absolute right-0 top-12 w-48 glass-card rounded-xl overflow-hidden shadow-xl">
-                <div class="px-4 py-2 bg-accent/10 text-xs font-bold text-text-tertiary">Idioma:</div>
-                <a href="#" onclick="setLang('es')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
-                    <span class="text-xl">🇲🇽</span> Español
-                </a>
-                <a href="#" onclick="setLang('en')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
-                    <span class="text-xl">🇺🇸</span> English
-                </a>
-                <a href="#" onclick="setLang('fr')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
-                    <span class="text-xl">🇫🇷</span> Français
-                </a>
-                <a href="#" onclick="setLang('de')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3 border-b border-accent/10">
-                    <span class="text-xl">🇩🇪</span> Deutsch
-                </a>
-                <a href="#" onclick="setLang('pt')" class="w-full text-left px-4 py-3 hover:bg-accent/20 font-semibold flex items-center gap-3">
-                    <span class="text-xl">🇧🇷</span> Português
-                </a>
-            </div>
-        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- ============================================================
+       SIMULATOR SECTION (Module 4)
+  ============================================================ -->
+  <section id="simulator" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="nav.simulator">Simulador</span>
+        <h2 class="section-title" data-i18n="simulator.title">Simulador de Inversión y Construcción</h2>
+        <p class="section-subtitle" data-i18n="simulator.subtitle">Proyecta tu inversión total, costos de construcción y retorno potencial en tiempo real.</p>
+      </div>
+
+      <div id="sim-form" class="simulator-layout">
+        <!-- Controls -->
+        <div class="simulator-controls reveal">
+          <div class="form-group">
+            <label for="project-type" data-i18n="simulator.project_label">Tipo de Proyecto</label>
+            <select id="project-type" class="form-select">
+              <option value="villa" data-i18n="simulator.project_villa">Villa Boutique / Vacation Rental</option>
+              <option value="estate" data-i18n="simulator.project_estate">Residencia Premium 2 Niveles</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="surface-slider" data-i18n="simulator.surface_label">Superficie de Construcción</label>
+            <div class="range-wrapper">
+              <input type="range" id="surface-slider" class="range-input" min="100" max="800" value="300" step="10">
+              <div class="range-value" id="surface-display">300 <span class="range-unit">m²</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="simulator-results reveal reveal-delay-1">
+          <div class="result-card">
+            <h4 data-i18n="simulator.land_title">Terreno</h4>
+            <div class="result-row">
+              <span class="label" data-i18n="simulator.land_price">Precio del Lote</span>
+              <span class="value" id="result-land-price">$85,000 USD</span>
+            </div>
+            <div class="result-row">
+              <span class="label" data-i18n="simulator.land_m2_price">Precio por m²</span>
+              <span class="value gold" id="result-land-m2">$56.66 USD</span>
+            </div>
+          </div>
+
+          <div class="result-card">
+            <h4 data-i18n="simulator.build_title">Construcción</h4>
+            <div class="result-row">
+              <span class="label" data-i18n="simulator.build_cost">Costo de Construcción</span>
+              <span class="value" id="result-build-cost">$300,000 USD</span>
+            </div>
+            <div class="result-row">
+              <span class="label" data-i18n="simulator.build_m2">por m² construido</span>
+              <span class="value" id="result-build-m2">$1,125 /m²</span>
+            </div>
+          </div>
+
+          <div class="result-card result-total">
+            <h4 data-i18n="simulator.total_title">Inversión Total Estimada</h4>
+            <div class="result-row">
+              <span class="label" data-i18n="simulator.total_land">Terreno</span>
+              <span class="value" id="result-breakdown-land">$85,000 USD</span>
+            </div>
+            <div class="result-row">
+              <span class="label" data-i18n="simulator.total_build">Construcción</span>
+              <span class="value" id="result-breakdown-build">$300,000 USD</span>
+            </div>
+            <div class="result-row" style="border-bottom:none;padding-top:8px;border-top:1px solid rgba(255,153,0,0.2);">
+              <span class="label" style="font-weight:700;color:var(--text-primary);" data-i18n="simulator.total_sum">Total Proyecto</span>
+              <span class="value gold" style="font-size:1.1rem;" id="result-total">$385,000 USD</span>
+            </div>
+          </div>
+
+          <div class="result-card">
+            <h4 data-i18n="simulator.rental_title">Proyección de Rentas</h4>
+            <div class="result-row">
+              <span class="label" data-i18n="simulator.rental_long">Renta Mensual (Largo Plazo)</span>
+              <span class="value" id="result-rent-long">$2,500/mes</span>
+            </div>
+            <div class="result-row">
+              <span class="label" data-i18n="simulator.rental_short">Renta por Noche (Temp. Alta)</span>
+              <span class="value gold" id="result-rent-short">$250/noche</span>
+            </div>
+            <div class="result-row">
+              <span class="label" data-i18n="simulator.rental_occ">Ocupación Estimada (Nov-Abr)</span>
+              <span class="value" id="result-occ">80%</span>
+            </div>
+            <div class="result-row">
+              <span class="label" data-i18n="simulator.rental_annual">Ingreso Anual Estimado</span>
+              <span class="value green" id="result-annual">$48,000 USD</span>
+            </div>
+            <div class="result-row">
+              <span class="label" data-i18n="simulator.rental_roi">ROI Anual Estimado</span>
+              <span class="value green" style="font-size:1.1rem;" id="result-roi">12.5%</span>
+            </div>
+          </div>
+
+          <p style="font-size:0.75rem;color:var(--text-muted);text-align:center;padding:8px;" data-i18n="simulator.disclaimer">* Los costos de construcción son estimados basados en promedios regionales 2025-2026. Consulta con arquitectos locales para presupuestos precisos.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Google Translate Widget (visible) -->
-    <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 80px; z-index: 9999;"></div>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es,fr,de,pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- ============================================================
+       FINANCING SECTION (Module 5)
+  ============================================================ -->
+  <section id="financing" class="section section-darker">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="nav.financing">Financiamiento</span>
+        <h2 class="section-title" data-i18n="financing.title">Financiamiento Directo: Sin Bancos, Sin Burocracia</h2>
+        <p class="section-subtitle" data-i18n="financing.subtitle">Un modelo transparente de financiamiento directo con el desarrollador. No necesitas historial crediticio ni aprobación bancaria.</p>
+      </div>
 
-    <script>
-        function toggleLanguageMenu() {
-            document.getElementById('languageMenu').classList.toggle('hidden');
-        }
-        
-        function setLang(lang) {
-            var select = document.querySelector('.goog-te-combo');
-            if (select) {
-                select.value = lang;
-                select.dispatchEvent(new Event('change', {bubbles: true}));
-            }
-            document.getElementById('languageMenu').classList.add('hidden');
-        }
-        
-        function doGoogleTranslate(lang) {
-            setLang(lang);
-        }
-        
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.fixed.top-20') && !e.target.closest('.fixed.bottom-6')) {
-                document.getElementById('languageMenu').classList.add('hidden');
-            }
-        });
-        
-        // Calculator
-        function calculateMonthly() {
-            const price = parseFloat(document.getElementById('calcPrice').value);
-            const downPaymentPercent = parseFloat(document.getElementById('calcDownPayment').value);
-            const months = parseInt(document.getElementById('calcMonths').value);
-            const rate = parseFloat(document.getElementById('calcRate').value);
-            
-            const downPayment = price * (downPaymentPercent / 100);
-            const principal = price - downPayment;
-            
-            let monthly;
-            if (rate === 0) {
-                monthly = principal / months;
-            } else {
-                const monthlyRate = rate / 100 / 12;
-                monthly = principal * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
-            }
-            
-            document.getElementById('monthlyResult').textContent = '$' + Math.round(monthly).toLocaleString() + ' USD';
-            document.getElementById('monthlyDetail').textContent = 'Enganche: $' + downPayment.toLocaleString() + ' USD | Plazo: ' + months + ' meses';
-        }
-        
-        calculateMonthly();
-        
-        // Exit Intent Popup
-        let exitIntentShown = false;
-        document.addEventListener('mouseleave', function(e) {
-            if (e.clientY <= 0 && !exitIntentShown) {
-                exitIntentShown = true;
-                document.getElementById('exitPopup').classList.remove('hidden');
-                document.getElementById('exitPopup').classList.add('flex');
-            }
-        });
-        
-        function closeExitPopup() {
-            document.getElementById('exitPopup').classList.add('hidden');
-            document.getElementById('exitPopup').classList.remove('flex');
-        }
-        
-        // Lead Magnet
-        function closeLeadMagnet() {
-            document.getElementById('leadMagnet').classList.add('hidden');
-            document.getElementById('leadMagnet').classList.remove('flex');
-        }
-        
-        document.getElementById('leadMagnetForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Gracias! Recibirás el brochure en tu email.');
-            closeLeadMagnet();
-        });
-        
-        // Lightbox
-        const images = ['images/vista-general.jpg', 'images/vista-cenital.jpg', 'images/vista-izquierda.jpg', 'images/vista-derecha.jpg', 'images/division-lotes.jpg'];
-        let currentImageIndex = 0;
-        
-        function openLightbox(src) {
-            document.getElementById('lightbox').classList.add('active');
-            document.getElementById('lightbox-img').src = src;
-            document.body.style.overflow = 'hidden';
-            currentImageIndex = images.indexOf(src);
-            if (currentImageIndex === -1) currentImageIndex = 0;
-        }
-        
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        function changeLightboxImage(direction) {
-            currentImageIndex += direction;
-            if (currentImageIndex < 0) currentImageIndex = images.length - 1;
-            if (currentImageIndex >= images.length) currentImageIndex = 0;
-            document.getElementById('lightbox-img').src = images[currentImageIndex];
-        }
-        
-        document.addEventListener('keydown', function(e) {
-            if (document.getElementById('lightbox').classList.contains('active')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') changeLightboxImage(-1);
-                if (e.key === 'ArrowRight') changeLightboxImage(1);
-            }
-        });
-        
-        document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target === this) closeLightbox();
-        });
-        
-        // FAQ Toggle
-        function toggleFaq(element) {
-            element.classList.toggle('active');
-        }
-        
-        // Mobile Menu
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
-        
-        // Navbar Scroll
-        window.addEventListener('scroll', () => {
-            document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-        
-        // Scroll Animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        
-        document.querySelectorAll('.section-reveal').forEach(el => observer.observe(el));
-        
-        // Counter Animation
-        function animateCounters() {
-            document.querySelectorAll('.counter').forEach(counter => {
-                const target = parseInt(counter.textContent);
-                const duration = 2000;
-                const increment = target / (duration / 16);
-                let current = 0;
-                const updateCounter = () => {
-                    current += increment;
-                    counter.textContent = current < target ? Math.floor(current) : target;
-                    if (current < target) requestAnimationFrame(updateCounter);
-                };
-                updateCounter();
-            });
-        }
-        
-        // Contact Form
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formMessage = document.getElementById('formMessage');
-            formMessage.textContent = '¡Gracias! Nos pondremos en contacto contigo pronto.';
-            formMessage.classList.remove('hidden');
-            formMessage.classList.add('text-green-500');
-            this.reset();
-            setTimeout(() => formMessage.classList.add('hidden'), 5000);
-        });
-        
-        animateCounters();
-    </script>
+      <div class="financing-grid">
+        <div class="reveal">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+            <div class="finance-highlight">
+              <div class="label" data-i18n="financing.down_payment">Enganche Inicial</div>
+              <div class="amount">$17,000</div>
+              <div class="sub" data-i18n="financing.down_val">20%</div>
+            </div>
+            <div class="finance-highlight">
+              <div class="label" data-i18n="financing.term">Plazo</div>
+              <div class="amount" style="font-size:2rem;">60</div>
+              <div class="sub" data-i18n="financing.term_val">Meses</div>
+            </div>
+          </div>
+          <div class="finance-highlight reveal reveal-delay-1">
+            <div class="label" data-i18n="financing.monthly">Pago Mensual Fijo</div>
+            <div class="amount" style="color:#10B981;">$1,134</div>
+            <div class="sub">USD · Sin intereses inflacionarios</div>
+          </div>
+        </div>
+
+        <div class="finance-details reveal reveal-delay-1">
+          <div class="finance-detail-card">
+            <div class="icon">🔒</div>
+            <div class="text">
+              <h5 data-i18n="financing.highlight_1_title">Sin intereses inflacionarios</h5>
+              <p data-i18n="financing.highlight_1_desc">El precio se fija en USD desde el día 1. No hay ajustes por inflación ni cláusulas de incremento.</p>
+            </div>
+          </div>
+          <div class="finance-detail-card">
+            <div class="icon">🚀</div>
+            <div class="text">
+              <h5 data-i18n="financing.highlight_2_title">Disponibilidad inmediata</h5>
+              <p data-i18n="financing.highlight_2_desc">Al firmar contrato y cubrir el enganche, puedes iniciar limpieza, nivelación y planeación arquitectónica.</p>
+            </div>
+          </div>
+          <div class="finance-detail-card">
+            <div class="icon">📜</div>
+            <div class="text">
+              <h5 data-i18n="financing.highlight_3_title">Garantía contractual</h5>
+              <p data-i18n="financing.highlight_3_desc">Tu inversión está respaldada por contrato privado de compraventa debidamente formalizado ante notario.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ SECTION (Module 6)
+  ============================================================ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="nav.faq">FAQ</span>
+        <h2 class="section-title" data-i18n="faq.title">Preguntas Frecuentes para Compradores Analíticos</h2>
+        <p class="section-subtitle" data-i18n="faq.subtitle">Respuestas directas a las preguntas difíciles que todo inversionista inteligente debe hacer.</p>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span><span class="q-icon">❓</span> <span data-i18n="faq.q1">¿Cuál es el estatus legal real de la tierra?</span></span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq.a1">100% Propiedad Privada regularizada ante el Catastro de BCS con subdivisión oficial autorizada. Cada fracción (1-5) tiene su propio folio de registro. No es terreno ejidal, no es concesión federal. Es propiedad privada con escrituras individuales transferibles.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><span class="q-icon">❓</span> <span data-i18n="faq.q2">¿Puedo hacer modificaciones topográficas antes de terminar de pagar?</span></span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq.a2">Sí. Al firmar el contrato inicial y cubrir el enganche del 20%, el comprador puede iniciar inmediatamente trabajos de limpieza, nivelación del terreno (respetando colindancias oficiales) y desarrollo del proyecto arquitectónico. No necesitas esperar a liquidar el total.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><span class="q-icon">❓</span> <span data-i18n="faq.q3">¿Hay cuotas ocultas o mantenimientos obligatorios?</span></span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq.a3">No. No existen cuotas ocultas ni cargos sorpresa. Al ser un régimen privado de solo 5 propietarios, el mantenimiento del camino de acceso común de 13 m se acuerda cooperativamente entre los vecinos. Sin administradoras externas, sin cuotas inflacionarias.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><span class="q-icon">❓</span> <span data-i18n="faq.q4">¿Qué servicios de infraestructura están disponibles?</span></span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq.a4">La zona cuenta con factibilidad de conexión eléctrica de CFE. Para el agua, los propietarios instalan cisternas de almacenamiento con capacidad suficiente para uso residencial. Se recomiendan sistemas de tratamiento de aguas residuales (biodigestores) y paneles solares para autonomía energética total.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><span class="q-icon">❓</span> <span data-i18n="faq.q5">¿Cuáles son las restricciones de construcción?</span></span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq.a5">El uso de suelo H1 permite residencias unifamiliares, villas de descanso o complejos boutique de hasta 2 niveles. No se permiten desarrollos de alta densidad. La intención es preservar la privacidad y las vistas de los 5 propietarios. Se recomienda arquitectura armónica con el entorno desértico-costero.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><span class="q-icon">❓</span> <span data-i18n="faq.q6">¿Puedo usar el lote para renta vacacional?</span></span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq.a6">Sí. La Ventana es un destino global de kiteboarding con temporada alta de noviembre a abril. Las propiedades premium en la zona alcanzan tarifas de $200-$500 USD/noche con ocupaciones del 75-85% en temporada de vientos. Es viable tanto para rentas temporales como para residencia permanente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px;">
+        <a href="https://wa.me/526121055224?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20La%20Calma%20Comunidad" target="_blank" class="btn-primary" data-i18n="faq.cta_text">
+          ¿Otra pregunta? Escríbenos directo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA FINAL
+  ============================================================ -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="reveal">
+        <p class="cta-sub" data-i18n="cta.subtitle">5 lotes. 5 oportunidades. Una sola decisión.</p>
+        <h2 data-i18n="cta.title">Asegura tu patrimonio en Baja California Sur.</h2>
+        <p data-i18n="cta.desc">Bloquea el precio actual de $56.66 USD/m² antes del próximo ajuste. Agenda hoy tu visita virtual o presencial.</p>
+        <a href="https://wa.me/526121055224?text=Hola%2C%20quiero%20agendar%20una%20visita%20para%20La%20Calma%20Comunidad" target="_blank" class="btn-primary" data-i18n="cta.btn">
+          Agendar Llamada o Visita
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>La <span>Calma</span> Comunidad</h3>
+          <p data-i18n="footer.tagline">TRANQUILITY · BAJA LIFESTYLE</p>
+          <div class="footer-contact" style="margin-top:20px;">
+            <p data-i18n="footer.advisor">Asesor Comercial: Ignacio Ibarra</p>
+            <p data-i18n="footer.phone">+52 (612) 105 5224</p>
+            <p>tranquilerealestate@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="nav.home">Navegación</h5>
+          <a href="#hero" data-i18n="nav.home">Inicio</a>
+          <a href="#map-section" data-i18n="nav.map">Ubicación</a>
+          <a href="#transparency" data-i18n="nav.transparency">Transparencia</a>
+          <a href="#simulator" data-i18n="nav.simulator">Simulador</a>
+          <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        </div>
+
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <a href="legal/privacidad.html" data-i18n="footer.legal_privacidad">Aviso de Privacidad</a>
+          <a href="legal/cookies.html" data-i18n="footer.legal_cookies">Política de Cookies</a>
+          <a href="legal/terminos.html" data-i18n="footer.legal_terminos">Términos y Condiciones</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer.rights">La Calma Community © 2026</p>
+        <p>📍 <span data-i18n="footer.location">La Ventana, Baja California Sur, México</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/map.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
