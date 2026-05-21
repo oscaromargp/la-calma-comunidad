@@ -111,7 +111,45 @@ document.addEventListener('DOMContentLoaded', () => {
       const idx = Math.round(track.scrollLeft / track.querySelector('.carousel-slide').getBoundingClientRect().width);
       if (idx !== slideIndex) { slideIndex = idx; dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === idx)); }
     });
+    slides.forEach(slide => {
+      slide.addEventListener('click', () => {
+        const bg = slide.style.backgroundImage;
+        if (!bg) return;
+        const url = bg.replace(/^url\(['"]?/, '').replace(/['"]?\)$/, '');
+        const lb = document.getElementById('lightbox');
+        if (!lb) return;
+        const img = lb.querySelector('img');
+        if (img) img.src = url;
+        lb.classList.add('open');
+      });
+    });
   }
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.closest('.lightbox-close')) lightbox.classList.remove('open');
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+  }
+
+  // Subtle Parallax on hero
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const hero = document.querySelector('.hero');
+        if (hero) {
+          const rect = hero.getBoundingClientRect();
+          const scrolled = Math.max(0, -rect.top);
+          hero.style.backgroundPositionY = scrolled * 0.15 + 'px';
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
 
   applyTranslations();
 });

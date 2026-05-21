@@ -6,7 +6,9 @@ const translations = {
       title: 'La Calma:',
       subtitle: 'El Refugio Sostenible que el Nuevo Tulum ya no puede ofrecer.',
       desc: '5 lotes residenciales exclusivos de 1,500 m² en La Ventana, BCS. Diseñados para preservar tu privacidad, tu pasión por el mar y una vista perpetua al Acuario del Mundo.',
-      cta: 'Explorar Masterplan'
+      cta: 'Explorar Masterplan',
+      price: '$56.66 USD/m² — Precio por lote: $85,000 USD',
+      trust: 'Propiedad Privada · Regularizado Catastro BCS · Fideicomiso Disponible'
     },
     lifestyle: {
       title: 'Lo que el Nuevo Tulum Prometió — La Ventana lo Conserva',
@@ -48,6 +50,16 @@ const translations = {
     gallery: {
       title: 'Galería',
       subtitle: 'Imagina tu vida aquí: atardeceres infinitos, deporte al aire libre y la paz del Mar de Cortés.'
+    },
+    testimonials: {
+      title: 'Lo Que Dicen Quienes Ya Están Aquí',
+      subtitle: 'La Ventana no se explica — se vive. Esto es lo que comparten nuestros propietarios y la comunidad.',
+      q1: '"Compramos nuestro lote hace 8 meses. El proceso fue transparente, el financiamiento directo nos evitó bancos y ya estamos planeando la construcción. La vista a Isla Cerralvo es exactamente lo que prometieron."',
+      q1_meta: 'Propietario Fracción 2 · La Paz, BCS',
+      q2: '"Venimos de Vancouver cada invierno por el kitesurf. La Calma nos dio justo lo que buscábamos: un terreno frente al mar con privacidad total y una comunidad internacional activa pero tranquila."',
+      q2_meta: 'Propietarios Fracción 3 · Vancouver, Canadá',
+      q3: '"Soy arquitecto y cuando vi el terreno entendí por qué solo son 5 fracciones. El escalonamiento natural del terreno garantiza que todos tengan vista al mar. Es diseño urbano con consciencia."',
+      q3_meta: 'Arquitecto · Propietario Fracción 1 · CDMX'
     },
     masterplan: {
       title: 'Masterplan Interactivo',
@@ -182,7 +194,9 @@ const translations = {
       title: 'La Calma:',
       subtitle: 'The Sustainable Refuge that the New Tulum Can No Longer Offer.',
       desc: '5 exclusive residential lots of 1,500 m² in La Ventana, BCS. Designed to preserve your privacy, your passion for the sea, and a perpetual view of the Aquarium of the World.',
-      cta: 'Explore Master Plan'
+      cta: 'Explore Master Plan',
+      price: '$56.66 USD/m² — Lot price: $85,000 USD',
+      trust: 'Private Property · BCS Cadastre Regularized · Bank Trust Available'
     },
     lifestyle: {
       title: 'What the New Tulum Promised — La Ventana Preserves',
@@ -224,6 +238,16 @@ const translations = {
     gallery: {
       title: 'Gallery',
       subtitle: 'Imagine your life here: infinite sunsets, outdoor sports, and the peace of the Sea of Cortés.'
+    },
+    testimonials: {
+      title: 'What Our Community Says',
+      subtitle: 'La Ventana cannot be explained — it must be lived. Here is what our owners and community share.',
+      q1: '"We bought our lot 8 months ago. The process was transparent, direct financing saved us from banks and we are already planning construction. The Cerralvo Island view is exactly what they promised."',
+      q1_meta: 'Owner Fraction 2 · La Paz, BCS',
+      q2: '"We come from Vancouver every winter for kitesurfing. La Calma gave us exactly what we were looking for: oceanfront land with total privacy and an active but peaceful international community."',
+      q2_meta: 'Owners Fraction 3 · Vancouver, Canada',
+      q3: '"As an architect, when I saw the land I understood why there are only 5 fractions. The natural terracing guarantees everyone a sea view. This is conscious urban design."',
+      q3_meta: 'Architect · Owner Fraction 1 · Mexico City'
     },
     masterplan: {
       title: 'Interactive Master Plan',

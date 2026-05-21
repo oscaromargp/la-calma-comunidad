@@ -10,6 +10,40 @@
   <meta property="og:image" content="images/og-image.jpg" />
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://oscaromargp.github.io/la-calma-comunidad/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "La Calma Comunidad — Lote Residencial La Ventana",
+    "description": "Fracciones Estate de 1,500 m² en La Ventana, BCS. Vista perpetua a Isla Cerralvo. Propiedad privada regularizada.",
+    "url": "https://oscaromargp.github.io/la-calma-comunidad/",
+    "image": "https://oscaromargp.github.io/la-calma-comunidad/images/og-image.jpg",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "85000",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "56.66",
+        "unitText": "USD/m²"
+      },
+      "availability": "https://schema.org/InStock",
+      "eligibleQuantity": {
+        "@type": "QuantitativeValue",
+        "value": "2"
+      },
+      "seller": {
+        "@type": "Organization",
+        "name": "PardeSantos"
+      }
+    },
+    "category": "RealEstate",
+    "areaServed": {
+      "@type": "Place",
+      "name": "La Ventana, Baja California Sur, México"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -45,6 +79,8 @@
       <div class="hero-badge"><span class="dot"></span><span data-i18n="hero.badge">SOLO 2 LOTES DISPONIBLES</span></div>
       <h1><span data-i18n="hero.title">La Calma:</span><br><span class="gold" data-i18n="hero.subtitle">El Refugio Sostenible que el Nuevo Tulum ya no puede ofrecer.</span></h1>
       <p data-i18n="hero.desc">5 lotes residenciales exclusivos de 1,500 m² en La Ventana, BCS. Diseñados para preservar tu privacidad, tu pasión por el mar y una vista perpetua al Acuario del Mundo.</p>
+      <div class="hero-price" data-i18n="hero.price">$56.66 USD/m² — Precio por lote: $85,000 USD</div>
+      <div class="hero-trust" data-i18n="hero.trust">Propiedad Privada · Regularizado Catastro BCS · Fideicomiso Disponible</div>
       <div class="hero-actions">
         <a href="#masterplan" class="btn-primary" data-i18n="hero.cta">Explorar Masterplan</a>
         <a href="https://wa.me/526121077805?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20La%20Calma%20Comunidad" target="_blank" class="btn-secondary">WhatsApp</a>
@@ -195,6 +231,52 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
         <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 3.6: TESTIMONIALS -->
+  <section id="testimonials" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Testimonios</span>
+        <h2 class="section-title" data-i18n="testimonials.title">Lo Que Dicen Quienes Ya Están Aquí</h2>
+        <p class="section-subtitle" data-i18n="testimonials.subtitle">La Ventana no se explica — se vive. Esto es lo que comparten nuestros propietarios y la comunidad.</p>
+      </div>
+      <div class="testimonials-grid reveal">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote data-i18n="testimonials.q1">"Compramos nuestro lote hace 8 meses. El proceso fue transparente, el financiamiento directo nos evitó bancos y ya estamos planeando la construcción. La vista a Isla Cerralvo es exactamente lo que prometieron."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:var(--accent-gold);">M</div>
+            <div>
+              <strong>Miguel R.</strong>
+              <span data-i18n="testimonials.q1_meta">Propietario Fracción 2 · La Paz, BCS</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote data-i18n="testimonials.q2">"Venimos de Vancouver cada invierno por el kitesurf. La Calma nos dio justo lo que buscábamos: un terreno frente al mar con privacidad total y una comunidad internacional activa pero tranquila."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:var(--accent-olive);">S</div>
+            <div>
+              <strong>Sarah & Tom K.</strong>
+              <span data-i18n="testimonials.q2_meta">Propietarios Fracción 3 · Vancouver, Canadá</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote data-i18n="testimonials.q3">"Soy arquitecto y cuando vi el terreno entendí por qué solo son 5 fracciones. El escalonamiento natural del terreno garantiza que todos tengan vista al mar. Es diseño urbano con consciencia."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:var(--accent-gold);">P</div>
+            <div>
+              <strong>Pablo G.</strong>
+              <span data-i18n="testimonials.q3_meta">Arquitecto · Propietario Fracción 1 · CDMX</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -470,6 +552,12 @@
       </form>
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close">&times;</button>
+    <img src="" alt="" />
+  </div>
 
   <!-- WHATSAPP FLOAT -->
   <a href="https://wa.me/526121077805?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20La%20Calma%20Comunidad" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
