@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
         if (entry.target.hasAttribute('data-counter')) animateCounter(entry.target);
+        entry.target.querySelectorAll('[data-counter]').forEach(el => animateCounter(el));
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
@@ -55,7 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function animateCounter(el) {
     const target = parseInt(el.getAttribute('data-counter'), 10);
-    const suffix = el.getAttribute('data-suffix') || '';
+    const suffix = el.getAttribute('data-suffix') || el.getAttribute('data-suf') || '';
+    const prefix = el.getAttribute('data-prefix') || '';
     const duration = 2000;
     const start = performance.now();
     function update(now) {
@@ -63,9 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(eased * target);
-      el.textContent = current.toLocaleString() + suffix;
+      el.textContent = prefix + current.toLocaleString() + suffix;
       if (progress < 1) requestAnimationFrame(update);
-      else el.textContent = target.toLocaleString() + suffix;
+      else el.textContent = prefix + target.toLocaleString() + suffix;
     }
     requestAnimationFrame(update);
   }
@@ -128,10 +130,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Lightbox
   const lightbox = document.getElementById('lightbox');
   if (lightbox) {
+    let touchStartX = 0;
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox || e.target.closest('.lightbox-close')) lightbox.classList.remove('open');
     });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+    lightbox.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 80) lightbox.classList.remove('open');
+    }, { passive: true });
   }
 
   // Subtle Parallax on hero
