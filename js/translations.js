@@ -28,6 +28,27 @@ const translations = {
       family_title: 'Para la Familia',
       family_desc: 'Escuela Montessori bilingüe a 5 min. Clínica en El Sargento a 7 min. Mercados orgánicos. Senderismo familiar. Comunidad internacional activa. Starlink 200+ Mbps para trabajo remoto.'
     },
+    video_validation: {
+      title: 'Validación Visual',
+      subtitle: 'Explora el terreno desde el aire — distancias, acceso y entorno en un solo vuelo.',
+      desc: 'Este recorrido en drone te muestra la delimitación exacta de los lotes, el acceso privado de 13 m, la distancia real a los restaurantes de El Sargento (3 min en auto) y los centros de salud más cercanos. Todo lo que necesitas para validar tu decisión sin desplazarte.'
+    },
+    flora_fauna: {
+      title: 'Donde el Desierto Abraza al Mar',
+      subtitle: 'Un ecosistema único en el mundo que pocos lugares pueden ofrecer.',
+      narrative: 'A diferencia del bullicio comercial de Tulum o las corrientes indomables de Puerto Escondido, aquí el tiempo se rige por la naturaleza. Jacques Cousteau llamó a esta región el "Acuario del Mundo", y entenderás por qué cuando veas saltar mantarrayas gigantes frente a tu terraza.',
+      quote: 'Jacques Cousteau',
+      flora_title: 'Flora',
+      flora_desc: 'Cardones centenarios y torote abrazan cada lote. El desarrollo respeta la naturaleza; puedes integrar estos gigantes desérticos en el paisajismo de tu villa.',
+      fauna_title: 'Fauna',
+      fauna_desc: 'Ballenas jorobadas de noviembre a abril, delfines jugando en la costa y la reserva marina de Isla Cerralvo — un paraíso mundial para buceo libre y pesca deportiva — a solo 10 minutos en kayak.',
+      culture_title: 'Cultura Local',
+      culture_desc: 'Una mezcla única y segura. La tranquilidad de un pueblo pesquero tradicional con una comunidad global de atletas de alto rendimiento, emprendedores y nómadas digitales que buscan un estilo de vida saludable y activo: Mountain Bike, Trail Running, Foil y Paddleboard.'
+    },
+    gallery: {
+      title: 'Galería',
+      subtitle: 'Imagina tu vida aquí: atardeceres infinitos, deporte al aire libre y la paz del Mar de Cortés.'
+    },
     masterplan: {
       title: 'Masterplan Interactivo',
       subtitle: '5 fracciones tipo Estate de 1,500 m² con acceso privado de 13 m de ancho. Lotes 4 y 5 — los últimos disponibles.',
@@ -90,7 +111,14 @@ const translations = {
       h1_note: 'Uso de suelo H1 — Baja densidad garantizada. Terreno escalonado — vista perpetua, máximo 2 niveles.',
       cost_standard: 'Construcción estándar: $1,000–1,300 USD/m²',
       cost_luxury: 'Construcción lujo: $1,400–1,800 USD/m²',
-      flexibility: 'Inicia limpieza y edificación a tu ritmo desde el enganche.'
+      flexibility: 'Inicia limpieza y edificación a tu ritmo desde el enganche.',
+      arch_style_title: 'Estilo Arquitectónico',
+      arch_style_name: 'Baja-Modern / Eco-Luxury',
+      arch_style_desc: 'Construcciones integradas con el entorno que utilizan concreto aparente, piedra local, acabados térmicos y enormes ventanales de piso a techo para capturar la luz y la vista perpetua al mar.',
+      arch_height_title: 'Restricciones de Altura',
+      arch_height_desc: 'Máximo 2 niveles. Esto garantiza que el terreno escalonado funcione y que ningún lote le tape la vista a Isla Cerralvo al lote de atrás.',
+      arch_cost_title: 'Costo de Construcción Premium',
+      arch_cost_desc: 'De $1,200 USD a $1,600 USD por metro cuadrado para acabados premium listos para habitar (llave en mano), incluyendo sistemas solares óptimos para un perfil eco-sustentable.'
     },
     roi: {
       title: 'El Caso de Negocio',
@@ -109,7 +137,25 @@ const translations = {
       table_header_roi: 'ROI',
       financing_title: 'Financiamiento Directo',
       financing_desc: '20% de enganche ($17,000 USD) + 60 mensualidades fijas de $1,134 USD. Sin bancos. Sin intereses. Sin buró de crédito.',
-      cta: 'Solicitar Financiamiento'
+      cta: 'Solicitar Financiamiento',
+      season_title: 'Estacionalidad de Rentas',
+      season_subtitle: 'Tres temporadas. Doce meses de oportunidad. Cada una con su propio perfil de huésped.',
+      season_header_season: 'Temporada',
+      season_header_months: 'Meses',
+      season_header_dynamics: 'Dinámica del Lugar',
+      season_header_profile: 'Perfil del Huésped',
+      season_high_name: 'Alta (Viento)',
+      season_high_months: 'Noviembre – Abril',
+      season_high_dynamics: 'Vientos térmicos perfectos de 15 a 30 nudos. Epicentro mundial de Kitesurf y Wing Foil.',
+      season_high_profile: 'Atletas de alto poder adquisitivo, familias canadienses y estadounidenses. Ocupación superior al 75%.',
+      season_mid_name: 'Media (Acuática)',
+      season_mid_months: 'Mayo – Julio',
+      season_mid_dynamics: 'El mar se convierte en una piscina transparente. El viento cesa por completo.',
+      season_mid_profile: 'Amantes del snorkel, buceo en Isla Cerralvo, pesca deportiva y kayakismo familiar. Ocupación estable.',
+      season_low_name: 'Baja (Desconexión)',
+      season_low_months: 'Agosto – Octubre',
+      season_low_dynamics: 'Clima cálido, atardeceres espectaculares y máxima paz en el pueblo.',
+      season_low_profile: 'Viajeros que buscan aislamiento total, retiros de yoga o nómadas digitales en trabajo remoto.'
     },
     contact: {
       title: 'Dos Fracciones. Una Decisión.',
@@ -157,6 +203,27 @@ const translations = {
       athlete_desc: 'Mountain biking, morning paddleboarding, kayaking, kitesurfing, wing foiling. The natural wind tunnel between Cerralvo Island and the Sierra de La Laguna delivers 15-30 knots from November to April.',
       family_title: 'For the Family',
       family_desc: 'Bilingual Montessori school 5 min away. Clinic in El Sargento 7 min away. Organic markets. Family hiking. Active international community. Starlink 200+ Mbps for remote work.'
+    },
+    video_validation: {
+      title: 'Visual Validation',
+      subtitle: 'Explore the land from above — distances, access, and surroundings in a single flight.',
+      desc: 'This drone tour shows you the exact lot boundaries, the 13m private access road, the real distance to El Sargento restaurants (3 min by car), and the nearest health centers. Everything you need to validate your decision without traveling.'
+    },
+    flora_fauna: {
+      title: 'Where the Desert Embraces the Sea',
+      subtitle: 'A unique ecosystem that few places in the world can offer.',
+      narrative: 'Unlike the commercial hustle of Tulum or the relentless waves of Puerto Escondido, here time follows nature. Jacques Cousteau called this region the "Aquarium of the World", and you will understand why when you see giant manta rays leaping in front of your terrace.',
+      quote: 'Jacques Cousteau',
+      flora_title: 'Flora',
+      flora_desc: 'Century-old cardón cacti and torote trees embrace every lot. The development respects nature; you can integrate these desert giants into your villa landscaping.',
+      fauna_title: 'Fauna',
+      fauna_desc: 'Humpback whales from November to April, dolphins playing off the coast, and the Cerralvo Island marine reserve — a world-class paradise for freediving and sport fishing — just 10 minutes away by kayak.',
+      culture_title: 'Local Culture',
+      culture_desc: 'A unique and safe blend. The tranquility of a traditional fishing village with a global community of high-performance athletes, entrepreneurs, and digital nomads seeking a healthy, active lifestyle: Mountain Biking, Trail Running, Foil, and Paddleboarding.'
+    },
+    gallery: {
+      title: 'Gallery',
+      subtitle: 'Imagine your life here: infinite sunsets, outdoor sports, and the peace of the Sea of Cortés.'
     },
     masterplan: {
       title: 'Interactive Master Plan',
@@ -220,7 +287,14 @@ const translations = {
       h1_note: 'H1 land use — guaranteed low density. Stepped terrain — perpetual view, max 2 levels.',
       cost_standard: 'Standard construction: $1,000–1,300 USD/m²',
       cost_luxury: 'Luxury construction: $1,400–1,800 USD/m²',
-      flexibility: 'Start clearing and building at your own pace from the down payment.'
+      flexibility: 'Start clearing and building at your own pace from the down payment.',
+      arch_style_title: 'Architectural Style',
+      arch_style_name: 'Baja-Modern / Eco-Luxury',
+      arch_style_desc: 'Buildings integrated with the environment using exposed concrete, local stone, thermal finishes, and floor-to-ceiling windows to capture the light and perpetual sea view.',
+      arch_height_title: 'Height Restrictions',
+      arch_height_desc: 'Maximum 2 levels. This ensures the stepped terrain works and that no lot blocks the Cerralvo Island view from the lot behind.',
+      arch_cost_title: 'Premium Construction Cost',
+      arch_cost_desc: 'From $1,200 USD to $1,600 USD per square meter for premium turnkey finishes, including optimal solar systems for an eco-sustainable profile.'
     },
     roi: {
       title: 'The Business Case',
@@ -239,7 +313,25 @@ const translations = {
       table_header_roi: 'ROI',
       financing_title: 'Direct Financing',
       financing_desc: '20% down payment ($17,000 USD) + 60 fixed monthly payments of $1,134 USD. No banks. No interest. No credit check.',
-      cta: 'Request Financing'
+      cta: 'Request Financing',
+      season_title: 'Rental Seasonality',
+      season_subtitle: 'Three seasons. Twelve months of opportunity. Each with its own guest profile.',
+      season_header_season: 'Season',
+      season_header_months: 'Months',
+      season_header_dynamics: 'Location Dynamics',
+      season_header_profile: 'Guest Profile',
+      season_high_name: 'High (Wind)',
+      season_high_months: 'November – April',
+      season_high_dynamics: 'Perfect thermal winds of 15 to 30 knots. Global epicenter of Kitesurf and Wing Foil.',
+      season_high_profile: 'High-spending athletes, Canadian and American families. Occupancy above 75%.',
+      season_mid_name: 'Mid (Water)',
+      season_mid_months: 'May – July',
+      season_mid_dynamics: 'The sea becomes a transparent pool. The wind stops completely.',
+      season_mid_profile: 'Snorkeling lovers, Cerralvo Island diving, sport fishing, and family kayaking. Stable occupancy.',
+      season_low_name: 'Low (Disconnect)',
+      season_low_months: 'August – October',
+      season_low_dynamics: 'Warm climate, spectacular sunsets, and total peace in the village.',
+      season_low_profile: 'Travelers seeking complete isolation, yoga retreats, or remote-working digital nomads.'
     },
     contact: {
       title: 'Two Fractions. One Decision.',

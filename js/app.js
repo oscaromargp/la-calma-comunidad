@@ -80,5 +80,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Gallery Carousel
+  const track = document.getElementById('carousel-track');
+  const dotsContainer = document.getElementById('carousel-dots');
+  let slideIndex = 0;
+  if (track && dotsContainer) {
+    const slides = track.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', () => { slideIndex = i; updateCarousel(); });
+      dotsContainer.appendChild(dot);
+    });
+    function updateCarousel() {
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      track.scrollTo({ left: slideWidth * slideIndex, behavior: 'smooth' });
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === slideIndex));
+    }
+    document.querySelector('.carousel-prev')?.addEventListener('click', () => {
+      slideIndex = slideIndex > 0 ? slideIndex - 1 : totalSlides - 1;
+      updateCarousel();
+    });
+    document.querySelector('.carousel-next')?.addEventListener('click', () => {
+      slideIndex = slideIndex < totalSlides - 1 ? slideIndex + 1 : 0;
+      updateCarousel();
+    });
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.querySelector('.carousel-slide').getBoundingClientRect().width);
+      if (idx !== slideIndex) { slideIndex = idx; dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === idx)); }
+    });
+  }
+
   applyTranslations();
 });
