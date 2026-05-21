@@ -6,7 +6,7 @@
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://oscaromargp.github.io/la-calma-comunidad/)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://oscaromargp.github.io/la-calma-comunidad/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://oscaromargp.github.io/la-calma-comunidad/)
-[![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=flat&logo=leaflet&logoColor=white)](https://leafletjs.com/)
+[![Google My Maps](https://img.shields.io/badge/Google_My_Maps-4285F4?style=flat&logo=googlemaps&logoColor=white)](https://www.google.com/maps)
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
 ---
@@ -75,10 +75,11 @@ la-calma-comunidad/
 ### 1. Hero Section
 Video drone de fondo con overlay gradiente, badge de exclusividad, title con glow dorado, CTA dual y coordenadas geográficas.
 
-### 2. Mapa Interactivo (Leaflet + OSM)
-- **5 lotes** dibujados como polígonos con popups informativos
-- **3 capas toggle**: Deportes, Familia/Salud, Gastronomía
-- Tile layer CartoDB Dark Matter para estética premium
+### 2. Mapa Oficial (Google My Maps)
+- Embed directo del mapa oficial con polígonos exactos de las 5 fracciones
+- Fracción 4 y 5 disponibles (F-1, F-2, F-3 vendidas)
+- Leyenda visual: disponible (dorado) / vendido (gris)
+- CTA para explorar la zona con mapa de contexto Google Maps
 
 ### 3. Transparencia Técnica (FODA + Infraestructura)
 - Reto del agua/energía → sistemas independientes
@@ -89,7 +90,7 @@ Video drone de fondo con overlay gradiente, badge de exclusividad, title con glo
 ### 4. Simulador de Inversión
 Calculadora interactiva con:
 - Dropdown: Villa Boutique vs Residencia Premium
-- Slider: Superficie de construcción (100-800 m²)
+- Slider: Superficie de construcción (50-600 m², límite H1 real)
 - Outputs en tiempo real: costo terreno, construcción, total, rentas, ROI
 
 ### 5. Financiamiento Directo
@@ -110,7 +111,7 @@ Calculadora interactiva con:
 ```bash
 git init
 git add .
-git commit -m "v2.0 — Interactive SPA with Leaflet map, i18n, and investment calculator"
+git commit -m "v3.1 — Premium SPA with Google My Maps, video gallery, investment chart, MXN/USD toggle"
 git branch -M master
 git remote add origin https://github.com/oscaromargp/la-calma-comunidad.git
 git push -u origin master
@@ -141,19 +142,22 @@ Toggle con botón en navbar. La preferencia se persiste en localStorage.
 
 ---
 
-## ✨ Características Premium v3.0
+## ✨ Características Premium v3.1
 
 - [x] Video drone hero con overlay gradiente y partículas canvas
+- [x] Galería de video YouTube embeds (recorrido aéreo + entorno)
 - [x] Mapa oficial Google My Maps con polígonos exactos de los 5 lotes
-- [x] Guía de Estilo de Vida con calendario deportivo interactivo
-- [x] Cards "Un día en La Ventana" con imágenes reales de fondo y efecto 3D parallax al hover
-- [x] Sección de Prensa con tarjetas visuales que enlazan a fuentes originales (Forbes, SETUE, Canirac, SEMARNAT, Blue Water World Cup)
+- [x] Guía de Estilo de Vida con calendario deportivo interactivo (imágenes reales de fondo + overlays)
+- [x] Cards "Un día en La Ventana" con mood overlays personalizados por hora (warm/bright/golden/dark)
+- [x] Infografía de logística familiar (distancias a servicios clave)
+- [x] Sección de Prensa con tarjetas visuales + Featured Hero Card de Blue Water World Cup (estadísticas: 20 ediciones, +50 competidores, 10+ países)
 - [x] Proyección de Crecimiento con timeline + bloques alternados de imagen/info (Flora, Suelo, Construcción)
 - [x] Transparencia Técnica: secciones separadas (Agua, Energía, Propiedad Privada, H1) + FODA + DAFO
-- [x] Calculadora de inversión con límites H1 reales (600 m² máx construcción)
+- [x] Calculadora de inversión con límites H1 reales (600 m² máx construcción) + gráfico donut canvas (terreno vs construcción)
 - [x] Proyección multi-plataforma (Airbnb, Booking, renta mensual, venta directa)
 - [x] Fuentes de referencia con enlaces a estadísticas reales
-- [x] Financiamiento: tabla de pagos fija + calculadora personalizable (sliders de enganche y plazo)
+- [x] Financiamiento: tabla de pagos fija + calculadora personalizable (sliders enganche/plazo, máx 60 meses) + pago semanal + toggle MXN/USD
+- [x] Tipo de cambio USD/MXN en vivo vía open.er-api.com
 - [x] FAQ accordion con 7 preguntas clave
 - [x] i18n ES/EN propio (sin Google Translate)
 - [x] Partículas flotantes, glassmorphism, reveal animations, contadores

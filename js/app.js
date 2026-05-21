@@ -2,6 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   let currentLang = localStorage.getItem('la-calma-lang') || 'es';
+  let currentCurrency = localStorage.getItem('la-calma-currency') || 'USD';
   let exchangeRate = 17.22;
 
   // ----------------------------------------------------------
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function fmtUSD(n) { return '$' + Number(n).toLocaleString('en-US') + ' USD'; }
   function fmtMXN(n) { return '$' + Number(n * exchangeRate).toLocaleString('en-US') + ' MXN'; }
-  function fmtPrice(n) { return currentLang === 'es' ? fmtMXN(n) : fmtUSD(n); }
+  function fmtPrice(n) { return currentCurrency === 'MXN' ? fmtMXN(n) : fmtUSD(n); }
 
   function applyTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-i18n-price]').forEach(el => {
       const usd = parseFloat(el.getAttribute('data-i18n-price'));
       if (!isNaN(usd)) {
-        el.textContent = currentLang === 'es'
+        el.textContent = currentCurrency === 'MXN'
           ? fmtMXN(usd) + ` (~${fmtUSD(usd)})`
           : fmtUSD(usd) + ` (~${fmtMXN(usd)})`;
       }
@@ -65,14 +66,31 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-i18n-price]').forEach(el => {
       const usd = parseFloat(el.getAttribute('data-i18n-price'));
       if (!isNaN(usd)) {
-        el.textContent = currentLang === 'es'
+        el.textContent = currentCurrency === 'MXN'
           ? fmtMXN(usd) + ` (~${fmtUSD(usd)})`
           : fmtUSD(usd) + ` (~${fmtMXN(usd)})`;
       }
     });
   }
 
-  window.toggleLang = toggleLang;
+  function setCurrency(currency) {
+    currentCurrency = currency;
+    localStorage.setItem('la-calma-currency', currentCurrency);
+    document.querySelectorAll('.currency-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById('cur-' + currency.toLowerCase())?.classList.add('active');
+    applyTranslations();
+    updateSimulator();
+    updatePaymentCalc();
+    document.querySelectorAll('[data-i18n-price]').forEach(el => {
+      const usd = parseFloat(el.getAttribute('data-i18n-price'));
+      if (!isNaN(usd)) {
+        el.textContent = currentCurrency === 'MXN'
+          ? fmtMXN(usd) + ` (~${fmtUSD(usd)})`
+          : fmtUSD(usd) + ` (~${fmtMXN(usd)})`;
+      }
+    });
+  }
+  window.setCurrency = setCurrency;
 
   // ----------------------------------------------------------
   // 3. NAVBAR
@@ -199,10 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const netIncome = annualIncome - expenses;
     const roi = totalInvestment > 0 ? (netIncome / totalInvestment) * 100 : 0;
 
-    const fm = (n) => currentLang === 'es' ? fmtMXN(n) : fmtUSD(n);
+    const fm = (n) => currentCurrency === 'MXN' ? fmtMXN(n) : fmtUSD(n);
 
-    document.getElementById('result-land-price').textContent = currentLang === 'es' ? fmtMXN(landPrice) : fmtUSD(landPrice);
-    document.getElementById('result-land-m2').textContent = `$56.66 USD (${fmtMXN(1)}/m²)`;
+    document.getElementById('result-land-price').textContent = currentCurrency === 'MXN' ? fmtMXN(landPrice) : fmtUSD(landPrice);
+    document.getElementById('result-land-m2').textContent = currentCurrency === 'MXN' ? fmtMXN(56.66) + '/m²' : '$56.66 USD (' + fmtMXN(56.66) + '/m²)';
     document.getElementById('result-build-cost').textContent = fm(totalBuild);
     document.getElementById('result-build-m2').textContent = fm(costPerM2) + ' /m²';
     document.getElementById('result-total').textContent = fm(totalInvestment);
@@ -217,10 +235,59 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('result-net').textContent = fm(Math.round(netIncome));
     document.getElementById('result-roi').textContent = roi.toFixed(1) + '%';
 
+    drawInvestmentChart(landPrice, totalBuild);
+
     if (surfaceDisplay) {
       const label = currentLang === 'es' ? 'm² construidos (límite H1)' : 'm² built (H1 limit)';
       surfaceDisplay.innerHTML = surface.toLocaleString() + ` <span class="range-unit">${label}</span>`;
     }
+  }
+
+  function drawInvestmentChart(land, build) {
+    const canvas = document.getElementById('investment-chart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    const cx = w / 2, cy = h / 2, r = Math.min(cx, cy) - 20;
+    ctx.clearRect(0, 0, w, h);
+    const total = land + build;
+    if (total === 0) return;
+    const colors = ['#FF9900', '#003366'];
+    const labels = [land, build];
+    let startAngle = -Math.PI / 2;
+    for (let i = 0; i < 2; i++) {
+      const sliceAngle = (labels[i] / total) * Math.PI * 2;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, r, startAngle, startAngle + sliceAngle);
+      ctx.closePath();
+      ctx.fillStyle = colors[i];
+      ctx.fill();
+      const midAngle = startAngle + sliceAngle / 2;
+      const lx = cx + Math.cos(midAngle) * (r * 0.6);
+      const ly = cy + Math.sin(midAngle) * (r * 0.6);
+      ctx.fillStyle = '#fff';
+      ctx.font = 'bold 11px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(Math.round(labels[i] / total * 100) + '%', lx, ly);
+      startAngle += sliceAngle;
+    }
+    // Legend
+    const legend = [
+      { label: t('simulator.land_title'), color: colors[0] },
+      { label: t('simulator.build_title'), color: colors[1] }
+    ];
+    const lxStart = 20, lyStart = h - 40;
+    legend.forEach((item, i) => {
+      ctx.fillStyle = item.color;
+      ctx.fillRect(lxStart + i * 130, lyStart, 12, 12);
+      ctx.fillStyle = '#A1A1AA';
+      ctx.font = '11px Inter, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(item.label, lxStart + i * 130 + 18, lyStart + 6);
+    });
   }
 
   if (simForm) {
@@ -246,12 +313,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const months = parseInt(monthsSlider.value);
     const financed = TOTAL_PRICE - down;
     const monthly = months > 0 ? financed / months : 0;
+    const weekly = monthly * 12 / 52;
 
-    const fm = (n) => currentLang === 'es' ? fmtMXN(n) : fmtUSD(n);
+    const fm = (n) => currentCurrency === 'MXN' ? fmtMXN(n) : fmtUSD(n);
 
     document.getElementById('pay-down').textContent = fm(down);
     document.getElementById('pay-financed').textContent = fm(financed);
     document.getElementById('pay-monthly').textContent = fm(Math.round(monthly));
+    document.getElementById('pay-weekly').textContent = fm(Math.round(weekly));
     document.getElementById('pay-count').textContent = months;
     document.getElementById('pay-total').textContent = fm(TOTAL_PRICE);
 
@@ -320,10 +389,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initReveal();
     updateSimulator();
     updatePaymentCalc();
+    // Init currency toggle
+    document.getElementById('cur-' + currentCurrency.toLowerCase())?.classList.add('active');
     document.querySelectorAll('[data-i18n-price]').forEach(el => {
       const usd = parseFloat(el.getAttribute('data-i18n-price'));
       if (!isNaN(usd)) {
-        el.textContent = currentLang === 'es'
+        el.textContent = currentCurrency === 'MXN'
           ? fmtMXN(usd) + ` (~${fmtUSD(usd)})`
           : fmtUSD(usd) + ` (~${fmtMXN(usd)})`;
       }

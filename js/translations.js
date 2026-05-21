@@ -5,7 +5,16 @@ const translations = {
     nav: {
       home: 'Inicio', map: 'Ubicación', lifestyle: 'Estilo de Vida',
       press: 'Prensa', transparency: 'Transparencia', simulator: 'Simulador',
-      financing: 'Financiamiento', faq: 'FAQ', contact: 'Contacto', lang_btn: 'EN'
+      financing: 'Financiamiento', faq: 'FAQ', contact: 'Contacto',       lang_btn: 'EN', video: 'Galería'
+    },
+    video: {
+      title: 'La Calma en Video',
+      subtitle: 'Recorrido virtual del terreno y el entorno. Vive La Ventana antes de visitarla.',
+      v1_title: 'La Calma — Vista General',
+      v1_desc: 'Recorrido aéreo del desarrollo, los 5 lotes y el acceso privado. Perspectiva del terreno y la cercanía al mar.',
+      v2_title: 'La Calma — Entorno y Vistas',
+      v2_desc: 'Panorámica del entorno, vistas a Isla Cerralvo, la Sierra de La Laguna y el acceso de 13 m.',
+      gallery_btn: 'Ver Galería de Fotos'
     },
     hero: {
       badge: 'SOLO 2 LOTES DISPONIBLES · PROPIEDAD PRIVADA · BAJA DENSIDAD H1',
@@ -24,7 +33,9 @@ const translations = {
     map: {
       title: 'Lotificación Oficial',
       subtitle: 'Fracción 4 y 5 — las únicas disponibles. El resto, vendido.',
-      available: 'Disponible', sold: 'Vendido'
+      available: 'Disponible', sold: 'Vendido',
+      cta_text: 'Aleja el mapa para ver qué hay cerca: Isla Cerralvo, El Sargento, La Ventana, aeropuerto de La Paz.',
+      cta_btn: 'Explorar Zona'
     },
     area_guide: {
       title: 'Guía Interactiva del Entorno',
@@ -57,6 +68,12 @@ const translations = {
       night_title: '🌙 Noche',
       night_desc: '6-11pm — Atardecer en el malecón de La Ventana. Cena gourmet. Cielo estrellado sin contaminación lumínica.',
       family_title: 'Logística Familiar',
+      family_item_1: 'Escuela Montessori bilingüe',
+      family_item_2: 'Farmacia local',
+      family_item_3: 'Hospitales La Paz',
+      family_item_4: 'Aeropuerto La Paz',
+      family_item_5: 'Supermercado + tiendas',
+      family_item_6: 'Starlink internet',
       family_desc: 'Escuela Montessori bilingüe a 5 min. Farmacias locales. La Paz (hospitales de especialidad) a 35 min por carretera escénica. Starlink para trabajo remoto. Comunidad internacional activa de expatriados.',
       market_title: '¿Para quién es La Calma?',
       market_q: 'Para alguien que ya vivió Tulum, Puerto Escondido o Sayulita — y sabe lo que NO quiere: saturación, densidad, pérdida de autenticidad.',
@@ -64,6 +81,7 @@ const translations = {
       market_a2: 'Es para la familia que busca seguridad, naturaleza y comunidad. Para el nómada digital que necesita Starlink y silencio. Para el deportista que quiere vivir donde otros vacacionan.'
     },
     press: {
+      bwwc_quote: '"El torneo internacional de pesca submarina más prestigioso de Baja. $3,000 USD donados a la comunidad local para parques públicos. Competidores de todo el mundo."',
       title: 'Lo que Dicen de La Ventana',
       subtitle: 'Noticias reales que respaldan tu decisión de inversión. Haz clic para leer la fuente original.',
       articles: [
@@ -171,6 +189,7 @@ const translations = {
       term_label: 'Plazo',
       term_val: 'Meses (5 años)',
       monthly_label: 'Pago Mensual Fijo',
+      weekly_label: 'Pago Semanal',
       monthly_sub: 'Sin intereses · Precio fijo en USD',
       table_title: 'Plan de Pagos',
       financed_label: 'Saldo a Financiar',
@@ -224,7 +243,16 @@ const translations = {
     nav: {
       home: 'Home', map: 'Location', lifestyle: 'Lifestyle',
       press: 'Press', transparency: 'Transparency', simulator: 'Calculator',
-      financing: 'Financing', faq: 'FAQ', contact: 'Contact', lang_btn: 'ES'
+      financing: 'Financing', faq: 'FAQ', contact: 'Contact',       lang_btn: 'ES', video: 'Gallery'
+    },
+    video: {
+      title: 'La Calma on Video',
+      subtitle: 'Virtual tour of the land and surroundings. Experience La Ventana before visiting.',
+      v1_title: 'La Calma — General View',
+      v1_desc: 'Aerial tour of the development, the 5 lots and private access. Land perspective and proximity to the sea.',
+      v2_title: 'La Calma — Surroundings & Views',
+      v2_desc: 'Panoramic view of the surroundings, views of Cerralvo Island, Sierra de La Laguna and the 13 m access road.',
+      gallery_btn: 'View Photo Gallery'
     },
     hero: {
       badge: 'ONLY 2 LOTS AVAILABLE · PRIVATE PROPERTY · H1 LOW DENSITY',
@@ -243,7 +271,9 @@ const translations = {
     map: {
       title: 'Official Subdivision',
       subtitle: 'Fraction 4 and 5 — the only ones available. The rest, sold.',
-      available: 'Available', sold: 'Sold'
+      available: 'Available', sold: 'Sold',
+      cta_text: 'Zoom out to see what\'s nearby: Cerralvo Island, El Sargento, La Ventana, La Paz airport.',
+      cta_btn: 'Explore the Area'
     },
     area_guide: {
       title: 'Interactive Area Guide',
@@ -276,6 +306,12 @@ const translations = {
       night_title: '🌙 Night',
       night_desc: '6-11pm — Sunset at La Ventana boardwalk. Gourmet dinner. Star-filled sky with zero light pollution.',
       family_title: 'Family Logistics',
+      family_item_1: 'Bilingual Montessori school',
+      family_item_2: 'Local pharmacy',
+      family_item_3: 'La Paz hospitals',
+      family_item_4: 'La Paz airport',
+      family_item_5: 'Supermarket + shops',
+      family_item_6: 'Starlink internet',
       family_desc: 'Bilingual Montessori school 5 min away. Local pharmacies. La Paz (specialty hospitals) 35 min by scenic highway. Starlink for remote work. Active international expat community.',
       market_title: 'Who is La Calma for?',
       market_q: 'For someone who has already lived Tulum, Puerto Escondido or Sayulita — and knows exactly what they DON\'T want: saturation, density, loss of authenticity.',
@@ -283,6 +319,7 @@ const translations = {
       market_a2: 'It\'s for the family seeking safety, nature and community. For the digital nomad needing Starlink and silence. For the athlete wanting to live where others vacation.'
     },
     press: {
+      bwwc_quote: '"The most prestigious spearfishing tournament in Baja. $3,000 USD donated to the local community for public parks. Competitors from around the world."',
       title: 'What They Say About La Ventana',
       subtitle: 'Real news backing your investment decision. Click to read the original source.',
       articles: [
@@ -390,6 +427,7 @@ const translations = {
       term_label: 'Term',
       term_val: 'Months (5 years)',
       monthly_label: 'Fixed Monthly Payment',
+      weekly_label: 'Weekly Payment',
       monthly_sub: 'No interest · Fixed price in USD',
       table_title: 'Payment Plan',
       financed_label: 'Financed Balance',
