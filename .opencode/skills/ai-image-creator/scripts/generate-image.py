@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-"""AI Image Generator — Generate PNG images via multiple OpenRouter models or Google AI Studio.
+"""AI Image Generator — Generate PNG images via OpenRouter, Google AI Studio, Hugging Face, or Pollinations.
 
 Supports multiple image generation models via keyword shortcuts:
-    gemini     — Google Gemini 3.1 Flash (default, multimodal)
-    riverflow  — Sourceful Riverflow v2 Fast (image-only)
-    flux2      — Black Forest Labs FLUX.2 Klein 4B (image-only)
-    seedream   — ByteDance SeedDream 4.5 (image-only)
-    gpt5       — OpenAI GPT-5 Image Mini (multimodal)
+    gemini       — Google Gemini 3.1 Flash (default, multimodal)
+    riverflow    — Sourceful Riverflow v2 Fast (image-only)
+    flux2        — Black Forest Labs FLUX.2 Klein 4B (image-only)
+    seedream     — ByteDance SeedDream 4.5 (image-only)
+    gpt5         — OpenAI GPT-5 Image Mini (multimodal)
+    flux-dev     — Black Forest Labs FLUX.1-dev (Hugging Face, free tier)
+    sdxl         — Stable Diffusion XL (Hugging Face, free tier)
+    pollinations — Pollinations.ai (free, no API key needed)
 
 Routes through Cloudflare AI Gateway BYOK when configured, with automatic
 fallback to direct API calls. Uses only Python stdlib (no pip dependencies).
@@ -16,6 +19,7 @@ Usage:
     uv run python generate-image.py --output path.png --model riverflow --prompt "description"
     uv run python generate-image.py --output path.png --prompt-file prompt.txt
     uv run python generate-image.py --list-models
+    uv run python generate-image.py --provider pollinations --output path.png --prompt "description"
 """
 
 from __future__ import annotations
@@ -40,6 +44,8 @@ from typing import Any  # noqa: F401 — used in type hints below
 DEFAULT_MODELS = {
     "openrouter": "google/gemini-3.1-flash-image-preview",
     "google": "gemini-3.1-flash-image-preview",
+    "huggingface": "stabilityai/stable-diffusion-xl-base-1.0",
+    "pollinations": "pollinations",
 }
 
 # Model registry — maps keyword shortcuts to model metadata.
@@ -76,6 +82,23 @@ MODEL_REGISTRY: dict[str, dict[str, Any]] = {
         "modalities": ["image", "text"],
         "description": "OpenAI GPT-5.4 Image 2 — multimodal (text+image), 272K context",
     },
+    # Hugging Face models (free tier, uses HF Inference API)
+    "flux-dev": {
+        "id": "black-forest-labs/FLUX.1-dev",
+        "modalities": ["image"],
+        "description": "Black Forest Labs FLUX.1-dev — high quality, may require license acceptance",
+    },
+    "sdxl": {
+        "id": "stabilityai/stable-diffusion-xl-base-1.0",
+        "modalities": ["image"],
+        "description": "Stable Diffusion XL — open access, good quality",
+    },
+    # Pollinations.ai — free, no API key needed
+    "pollinations": {
+        "id": "pollinations",
+        "modalities": ["image"],
+        "description": "Pollinations.ai — free text-to-image, no API key needed",
+    },
 }
 
 # Environment variable names (prefixed to avoid collisions)
@@ -84,6 +107,7 @@ ENV_CF_GATEWAY_ID = "AI_IMG_CREATOR_CF_GATEWAY_ID"
 ENV_CF_TOKEN = "AI_IMG_CREATOR_CF_TOKEN"
 ENV_OPENROUTER_KEY = "AI_IMG_CREATOR_OPENROUTER_KEY"
 ENV_GEMINI_KEY = "AI_IMG_CREATOR_GEMINI_KEY"
+ENV_HF_KEY = "AI_IMG_CREATOR_HF_KEY"
 
 def _load_dotenv() -> None:
     """Load .env files into os.environ (stdlib only, no pip deps).
@@ -165,11 +189,11 @@ def resolve_model(model_arg: str | None, provider: str) -> tuple[str, list[str]]
 
     Args:
         model_arg: The --model CLI value (keyword, full model ID, or None).
-        provider: Either 'openrouter' or 'google'.
+        provider: 'openrouter', 'google', or 'huggingface'.
 
     Returns:
         Tuple of (model_id, modalities_list) where model_id is the full
-        OpenRouter model identifier and modalities_list is the correct
+        model identifier and modalities_list is the correct
         modalities array for the API request.
     """
     if model_arg is None:
@@ -183,8 +207,12 @@ def resolve_model(model_arg: str | None, provider: str) -> tuple[str, list[str]]
     keyword = model_arg.lower().strip()
     if keyword in MODEL_REGISTRY:
         entry = MODEL_REGISTRY[keyword]
-        log.info(f"Resolved keyword '{keyword}' -> {entry['id']}")
-        return entry["id"], entry["modalities"]
+        model_id = entry["id"]
+        # Google provider does not use the 'google/' prefix in its API URL
+        if provider == "google" and model_id.startswith("google/"):
+            model_id = model_id.removeprefix("google/")
+        log.info(f"Resolved keyword '{keyword}' -> {model_id}")
+        return model_id, entry["modalities"]
 
     # Full model ID — try reverse lookup in registry for modalities
     for _kw, entry in MODEL_REGISTRY.items():
@@ -220,7 +248,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--provider",
-        choices=["openrouter", "google"],
+        choices=["openrouter", "google", "huggingface", "pollinations"],
         default="openrouter",
         help="API provider (default: openrouter)",
     )
@@ -361,12 +389,20 @@ def detect_mode(provider: str) -> tuple[str, dict[str, str]]:
     log.debug(f"Env check: {ENV_CF_GATEWAY_ID}={'set' if cf_gateway else 'MISSING'}")
     log.debug(f"Env check: {ENV_CF_TOKEN}={'set (' + mask_key(cf_token) + ')' if cf_token else 'MISSING'}")
 
+    # Pollinations.ai needs no API key
+    if provider == "pollinations":
+        log.info("Mode: direct (pollinations — no API key needed)")
+        return "direct", {"direct_key": ""}
+
     if provider == "openrouter":
         direct_key = os.environ.get(ENV_OPENROUTER_KEY, "").strip()
         log.debug(f"Env check: {ENV_OPENROUTER_KEY}={'set (' + mask_key(direct_key) + ')' if direct_key else 'MISSING'}")
-    else:
+    elif provider == "google":
         direct_key = os.environ.get(ENV_GEMINI_KEY, "").strip()
         log.debug(f"Env check: {ENV_GEMINI_KEY}={'set (' + mask_key(direct_key) + ')' if direct_key else 'MISSING'}")
+    else:
+        direct_key = os.environ.get(ENV_HF_KEY, "").strip()
+        log.debug(f"Env check: {ENV_HF_KEY}={'set (' + mask_key(direct_key) + ')' if direct_key else 'MISSING'}")
 
     if has_gateway:
         log.info(f"Mode: gateway (account={cf_account}, gateway={cf_gateway})")
@@ -391,9 +427,12 @@ def detect_mode(provider: str) -> tuple[str, dict[str, str]]:
         if provider == "openrouter":
             print("For direct OpenRouter access, set:", file=sys.stderr)
             print(f"  export {ENV_OPENROUTER_KEY}=sk-or-...", file=sys.stderr)
-        else:
+        elif provider == "google":
             print("For direct Google AI Studio access, set:", file=sys.stderr)
             print(f"  export {ENV_GEMINI_KEY}=AI...", file=sys.stderr)
+        else:
+            print("For direct Hugging Face access, set:", file=sys.stderr)
+            print(f"  export {ENV_HF_KEY}=hf_...", file=sys.stderr)
         print("", file=sys.stderr)
         print(
             "See references/setup-guide.md for full setup instructions.",
@@ -416,8 +455,10 @@ def build_gateway_url(provider: str, model: str, config: dict[str, str]) -> str:
     base = f"https://gateway.ai.cloudflare.com/v1/{config['cf_account']}/{config['cf_gateway']}"
     if provider == "openrouter":
         url = f"{base}/openrouter/v1/chat/completions"
-    else:
+    elif provider == "google":
         url = f"{base}/google-ai-studio/v1beta/models/{model}:generateContent"
+    else:
+        url = f"{base}/huggingface/v1/models/{model}"
     log.debug(f"Built gateway URL: {url}")
     return url
 
@@ -434,8 +475,13 @@ def build_direct_url(provider: str, model: str) -> str:
     """
     if provider == "openrouter":
         url = "https://openrouter.ai/api/v1/chat/completions"
-    else:
+    elif provider == "google":
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+    elif provider == "huggingface":
+        url = f"https://api-inference.huggingface.co/models/{model}"
+    else:
+        # Pollinations.ai — base URL without prompt (prompt appended in main)
+        url = "https://image.pollinations.ai/prompt"
     log.debug(f"Built direct URL: {url}")
     return url
 
@@ -444,7 +490,7 @@ def build_headers(provider: str, mode: str, config: dict[str, str]) -> dict[str,
     """Build HTTP headers for the request.
 
     Args:
-        provider: 'openrouter' or 'google'.
+        provider: 'openrouter', 'google', 'huggingface', or 'pollinations'.
         mode: 'gateway' or 'direct'.
         config: Credentials dict.
 
@@ -452,21 +498,31 @@ def build_headers(provider: str, mode: str, config: dict[str, str]) -> dict[str,
         Dict of HTTP header name-value pairs.
     """
     headers = {
-        "Content-Type": "application/json",
         "User-Agent": "ai-image-creator/1.0",
     }
 
     if mode == "gateway":
+        headers["Content-Type"] = "application/json"
         headers["cf-aig-authorization"] = f"Bearer {config['cf_token']}"
         if provider == "google":
             headers["cf-aig-byok-alias"] = "aistudio"
         if provider == "openrouter" and config.get("direct_key"):
             headers["Authorization"] = f"Bearer {config['direct_key']}"
+    elif provider == "pollinations":
+        # Pollinations uses GET — no auth, JSON content type not needed
+        pass
     else:
+        # Direct mode — provider-specific auth
         if provider == "openrouter":
+            headers["Content-Type"] = "application/json"
             headers["Authorization"] = f"Bearer {config['direct_key']}"
-        else:
+        elif provider == "google":
+            headers["Content-Type"] = "application/json"
             headers["x-goog-api-key"] = config["direct_key"]
+        else:
+            # Hugging Face
+            headers["Content-Type"] = "application/json"
+            headers["Authorization"] = f"Bearer {config['direct_key']}"
 
     # Log headers with masked sensitive values
     safe_headers = {}
@@ -492,7 +548,7 @@ def build_request_body(
     """Build JSON request body for the given provider.
 
     Args:
-        provider: 'openrouter' or 'google'.
+        provider: 'openrouter', 'google', or 'huggingface'.
         model: Model ID string.
         prompt: The image generation prompt text.
         aspect_ratio: Optional aspect ratio (OpenRouter only), e.g. '16:9'.
@@ -539,7 +595,7 @@ def build_request_body(
         if image_config:
             body["image_config"] = image_config
             log.debug(f"Image config: {json.dumps(image_config)}")
-    else:
+    elif provider == "google":
         # Google AI Studio
         parts: list[dict[str, Any]] = [{"text": prompt}]
         for ref_path in refs:
@@ -548,6 +604,9 @@ def build_request_body(
             parts.append({"inline_data": {"mime_type": mime, "data": b64}})
             log.info(f"Reference image: {ref_path} ({mime}, {len(b64)} base64 chars)")
         body = {"contents": [{"parts": parts}]}
+    else:
+        # Hugging Face Inference API — simple text-to-image format
+        body = {"inputs": prompt}
 
     log.debug(f"Request body size: {len(json.dumps(body))} bytes")
     # Log body without the full prompt or base64 data (can be very long)
@@ -628,6 +687,139 @@ def make_request(
             pass
         log.debug(f"HTTP error after {elapsed:.1f}s: {e.code} {e.reason}")
         log.debug(f"Error response headers: {dict(e.headers) if hasattr(e, 'headers') else 'N/A'}")
+        log.debug(f"Error response body: {error_body[:1000]}")
+        raise RuntimeError(
+            f"HTTP {e.code}: {e.reason}\n{error_body}"
+        ) from e
+    except urllib.error.URLError as e:
+        elapsed = time.time() - start_time
+        log.debug(f"URL error after {elapsed:.1f}s: {e.reason}")
+        raise RuntimeError(f"Connection error: {e.reason}") from e
+    except TimeoutError:
+        elapsed = time.time() - start_time
+        log.debug(f"Request timed out after {elapsed:.1f}s (limit: {timeout}s)")
+        raise RuntimeError(f"Request timed out after {timeout}s")
+
+
+def make_binary_request(
+    url: str,
+    headers: dict[str, str],
+    body: dict[str, Any],
+    timeout: int = 300,
+) -> bytes:
+    """Make HTTP POST request and return raw binary response bytes.
+
+    Used by Hugging Face provider which returns raw image data (not JSON).
+
+    Args:
+        url: Full API endpoint URL.
+        headers: HTTP headers dict.
+        body: Request body dict (will be JSON-serialized).
+        timeout: Request timeout in seconds (default: 300).
+
+    Returns:
+        Raw response bytes (image data).
+
+    Raises:
+        RuntimeError: On HTTP errors, connection errors, or timeouts.
+    """
+    data = json.dumps(body).encode("utf-8")
+    req = urllib.request.Request(url, data=data, headers=headers, method="POST")
+
+    log.debug(f"Sending POST to {url} ({len(data)} bytes, timeout={timeout}s)")
+    start_time = time.time()
+
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            elapsed = time.time() - start_time
+            raw = resp.read()
+            log.info(f"Response received: HTTP {resp.status} in {elapsed:.1f}s ({len(raw)} bytes)")
+            log.debug(f"Response content-type: {resp.headers.get('Content-Type', '?')}")
+
+            # Check if the response is JSON (error) vs binary (image)
+            content_type = resp.headers.get("Content-Type", "")
+            if "application/json" in content_type or content_type.startswith("text/"):
+                error_body = raw.decode("utf-8", errors="replace")
+                try:
+                    parsed = json.loads(error_body)
+                    err_msg = parsed.get("error", error_body)
+                    if isinstance(err_msg, list):
+                        err_msg = err_msg[0] if err_msg else "unknown error"
+                    raise RuntimeError(f"API error: {err_msg}")
+                except json.JSONDecodeError:
+                    raise RuntimeError(f"API error: {error_body[:500]}")
+            return raw
+    except urllib.error.HTTPError as e:
+        elapsed = time.time() - start_time
+        error_body = ""
+        try:
+            error_body = e.read().decode("utf-8")
+        except Exception:
+            pass
+        log.debug(f"HTTP error after {elapsed:.1f}s: {e.code} {e.reason}")
+        log.debug(f"Error response body: {error_body[:1000]}")
+
+        # Parse HF-specific error structure
+        try:
+            parsed = json.loads(error_body)
+            if isinstance(parsed, list) and len(parsed) > 0:
+                err_msg = parsed[0].get("error", error_body)
+            elif isinstance(parsed, dict):
+                err_msg = parsed.get("error", error_body)
+            else:
+                err_msg = error_body
+        except (json.JSONDecodeError, TypeError):
+            err_msg = error_body
+
+        raise RuntimeError(
+            f"HTTP {e.code}: {e.reason}\n{err_msg}"
+        ) from e
+    except urllib.error.URLError as e:
+        elapsed = time.time() - start_time
+        log.debug(f"URL error after {elapsed:.1f}s: {e.reason}")
+        raise RuntimeError(f"Connection error: {e.reason}") from e
+    except TimeoutError:
+        elapsed = time.time() - start_time
+        log.debug(f"Request timed out after {elapsed:.1f}s (limit: {timeout}s)")
+        raise RuntimeError(f"Request timed out after {timeout}s")
+
+
+def fetch_image_get(url: str, headers: dict[str, str], timeout: int = 300) -> bytes:
+    """Make HTTP GET request and return raw binary response bytes.
+
+    Used by Pollinations.ai which uses GET requests (no request body).
+
+    Args:
+        url: Full API endpoint URL.
+        headers: HTTP headers dict.
+        timeout: Request timeout in seconds (default: 300).
+
+    Returns:
+        Raw response bytes (image data).
+
+    Raises:
+        RuntimeError: On HTTP errors, connection errors, or timeouts.
+    """
+    req = urllib.request.Request(url, headers=headers, method="GET")
+
+    log.debug(f"Sending GET to {url} (timeout={timeout}s)")
+    start_time = time.time()
+
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            elapsed = time.time() - start_time
+            raw = resp.read()
+            log.info(f"Response received: HTTP {resp.status} in {elapsed:.1f}s ({len(raw)} bytes)")
+            log.debug(f"Response content-type: {resp.headers.get('Content-Type', '?')}")
+            return raw
+    except urllib.error.HTTPError as e:
+        elapsed = time.time() - start_time
+        error_body = ""
+        try:
+            error_body = e.read().decode("utf-8")
+        except Exception:
+            pass
+        log.debug(f"HTTP error after {elapsed:.1f}s: {e.code} {e.reason}")
         log.debug(f"Error response body: {error_body[:1000]}")
         raise RuntimeError(
             f"HTTP {e.code}: {e.reason}\n{error_body}"
@@ -935,23 +1127,25 @@ def log_cost_entry(
 
     # Extract token usage (provider-specific format)
     token_usage: dict[str, int] = {}
-    if provider == "openrouter":
-        usage = response.get("usage", {})
-        if usage:
-            token_usage = {
-                "prompt_tokens": usage.get("prompt_tokens", 0),
-                "completion_tokens": usage.get("completion_tokens", 0),
-                "total_tokens": usage.get("total_tokens", 0),
-            }
-    else:
-        # Google AI Studio format
-        usage = response.get("usageMetadata", {})
-        if usage:
-            token_usage = {
-                "prompt_tokens": usage.get("promptTokenCount", 0),
-                "completion_tokens": usage.get("candidatesTokenCount", 0),
-                "total_tokens": usage.get("totalTokenCount", 0),
-            }
+    if response:
+        if provider == "openrouter":
+            usage = response.get("usage", {})
+            if usage:
+                token_usage = {
+                    "prompt_tokens": usage.get("prompt_tokens", 0),
+                    "completion_tokens": usage.get("completion_tokens", 0),
+                    "total_tokens": usage.get("total_tokens", 0),
+                }
+        elif provider == "google":
+            # Google AI Studio format
+            usage = response.get("usageMetadata", {})
+            if usage:
+                token_usage = {
+                    "prompt_tokens": usage.get("promptTokenCount", 0),
+                    "completion_tokens": usage.get("candidatesTokenCount", 0),
+                    "total_tokens": usage.get("totalTokenCount", 0),
+                }
+    # Hugging Face: no token usage available
 
     entry = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -1186,8 +1380,35 @@ def main() -> None:
     print(f"Mode: {mode}", file=sys.stderr)
 
     # Build request
+    is_pollinations = args.provider == "pollinations"
+    is_hf = args.provider == "huggingface"
+    is_binary_provider = is_hf or is_pollinations
+
     if mode == "gateway":
         url = build_gateway_url(args.provider, model, config)
+    elif is_pollinations:
+        # Pollinations.ai uses GET with prompt in URL path
+        import urllib.parse
+        encoded = urllib.parse.quote(prompt)
+        # Map image_size to pixel dimensions (max dimension)
+        size_map = {"0.5K": 512, "1K": 1024, "2K": 1440, "4K": 2160}
+        # Map aspect ratio to width/height ratio
+        import re as _re
+        ar = args.aspect_ratio or "1:1"
+        ar_match = _re.match(r"(\d+)\s*:\s*(\d+)", ar)
+        if ar_match:
+            ar_w, ar_h = int(ar_match.group(1)), int(ar_match.group(2))
+        else:
+            ar_w, ar_h = 1, 1
+        # Determine pixel dimensions
+        target_pixels = size_map.get(args.image_size, 1024)
+        if ar_w >= ar_h:
+            width = target_pixels
+            height = int(target_pixels * ar_h / ar_w)
+        else:
+            height = target_pixels
+            width = int(target_pixels * ar_w / ar_h)
+        url = f"https://image.pollinations.ai/prompt/{encoded}?width={width}&height={height}&nologo=true"
     else:
         url = build_direct_url(args.provider, model)
 
@@ -1207,8 +1428,15 @@ def main() -> None:
     # Make request with fallback
     total_start = time.time()
     response = None
+    image_bytes = None
     try:
-        response = make_request(url, headers, body)
+        if is_pollinations:
+            image_bytes = fetch_image_get(url, headers)
+        elif is_hf:
+            image_bytes = make_binary_request(url, headers, body)
+            response = None
+        else:
+            response = make_request(url, headers, body)
     except RuntimeError as e:
         if mode == "gateway" and config.get("direct_key"):
             print(
@@ -1216,10 +1444,33 @@ def main() -> None:
                 file=sys.stderr,
             )
             log.info("Initiating fallback to direct API")
-            url = build_direct_url(args.provider, model)
+            if is_pollinations:
+                encoded = urllib.parse.quote(prompt)
+                ar = args.aspect_ratio or "1:1"
+                ar_match = _re.match(r"(\d+)\s*:\s*(\d+)", ar)
+                if ar_match:
+                    ar_w2, ar_h2 = int(ar_match.group(1)), int(ar_match.group(2))
+                else:
+                    ar_w2, ar_h2 = 1, 1
+                target_pixels2 = size_map.get(args.image_size, 1024)
+                if ar_w2 >= ar_h2:
+                    w2 = target_pixels2
+                    h2 = int(target_pixels2 * ar_h2 / ar_w2)
+                else:
+                    h2 = target_pixels2
+                    w2 = int(target_pixels2 * ar_w2 / ar_h2)
+                url = f"https://image.pollinations.ai/prompt/{encoded}?width={w2}&height={h2}&nologo=true"
+            else:
+                url = build_direct_url(args.provider, model)
             headers = build_headers(args.provider, "direct", config)
             try:
-                response = make_request(url, headers, body)
+                if is_pollinations:
+                    image_bytes = fetch_image_get(url, headers)
+                elif is_hf:
+                    image_bytes = make_binary_request(url, headers, body)
+                    response = None
+                else:
+                    response = make_request(url, headers, body)
             except RuntimeError as e2:
                 print(f"ERROR: Direct API also failed: {e2}", file=sys.stderr)
                 log.debug(f"Both gateway and direct failed. Total time: {time.time() - total_start:.1f}s")
@@ -1231,6 +1482,9 @@ def main() -> None:
 
     # --- Analyze mode: extract text only, no image ---
     if args.analyze:
+        if is_binary_provider:
+            print("ERROR: Analyze mode is not supported with this provider.", file=sys.stderr)
+            sys.exit(1)
         total_elapsed = time.time() - total_start
         try:
             if args.provider == "openrouter":
@@ -1280,7 +1534,13 @@ def main() -> None:
 
     # Extract image
     try:
-        if args.provider == "openrouter":
+        if is_pollinations:
+            # Pollinations returns raw image bytes directly
+            text_content = ""
+        elif is_hf:
+            # Hugging Face returns raw image bytes directly
+            text_content = ""
+        elif args.provider == "openrouter":
             image_bytes, text_content = extract_image_openrouter(response)
         else:
             image_bytes, text_content = extract_image_google(response)
